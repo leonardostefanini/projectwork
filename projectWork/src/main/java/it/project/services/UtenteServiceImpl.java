@@ -31,22 +31,17 @@ public class UtenteServiceImpl implements UtenteService {
 	
 	
 	
-	@Override
-    public Utente findByUserId(String userid) {
-        // TODO Auto-generated method stub
-        return  utenteDao.findByUserId(userid).get();
-    }
 
-//	@Override
-//	public Utente findByUserId(String userid) {
-//		
-//	 Optional<Utente> u = utenteDao.findByUserId(userid);
-//	 if(u.isPresent()) {
-//		 return u.get();
-//	 }else {
-//		 return null;
-//	 }
-//	}
+	@Override
+	public Utente findByUserId(String userid) {
+		
+	 Optional<Utente> u = utenteDao.findByUserid(userid);
+	 if(u.isPresent()) {
+		 return u.get();
+	 }else {
+		 return null;
+	 }
+	}
 
 	
 

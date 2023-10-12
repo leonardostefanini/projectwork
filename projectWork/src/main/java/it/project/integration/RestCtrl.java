@@ -74,10 +74,10 @@ public class RestCtrl {
 		
 	}
 	
-	@PostMapping("ordine")
-	Ordine addOrdine(@RequestBody Ordine o) {
-		return ordineService.add(o);
-	}
+//	@PostMapping("ordine")
+//	Ordine addOrdine(@RequestBody Ordine o) {
+//		return ordineService.add(o);
+//	}
 	
 	
 	@DeleteMapping("ordine/{id}")
@@ -121,10 +121,10 @@ public class RestCtrl {
 	
 	
 	
-	@PostMapping("veicolo")
-	Veicolo addVeicolo(@RequestBody Veicolo v) {
-		return veicoloService.add(v);
-	}
+//	@PostMapping("veicolo")
+//	Veicolo addVeicolo(@RequestBody Veicolo v) {
+//		return veicoloService.add(v);
+//	}
 	
 	
 	@PostMapping("veicolo")

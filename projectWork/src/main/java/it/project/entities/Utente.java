@@ -16,8 +16,8 @@ public class Utente {
 	private Date ultimamodifica;
 	
 	@Id
-	@Column(name = "id", unique = true)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name = "userid")
+//	
 	private String userid;
 	 
 	private String password;
