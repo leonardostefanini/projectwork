@@ -34,3 +34,6 @@ replay_pid*
 
 ### VS Code ###
 .vscode/
+
+#video
+*.mp4
