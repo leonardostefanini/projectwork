@@ -140,12 +140,12 @@ public class RestCtrl {
 
 	        // Carica manualmente l'utente e il veicolo dal tuo servizio
 	        Utente utente = utenteService.findByUserid(request.getUserid()); // Sostituisci con il tuo metodo per trovare l'utente per nome utente
-	       Veicolo veicolo = veicoloService.getById(request.getVeicoloId());
+	       //Veicolo veicolo = veicoloService.getById(request.getVeicoloId());
 
 	 
 
 	      
-	        Veicolo veicolo1 = new Veicolo(request.getTipologia(),request.getAlimentazione(),request.getPosizione(),request.isDisponibilità(),request.getImmagine(),utente);
+	        Veicolo veicolo1 = new Veicolo(request.getTipologia(),request.getAlimentazione(), request.getDescrizione(),  request.getPosizione(),request.isDisponibilità(),request.getImmagine(),utente);
 
 	       
 	        return veicoloService.add(veicolo1);
