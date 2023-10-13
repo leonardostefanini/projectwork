@@ -8,6 +8,6 @@ public interface UtenteService {
 	
 	List<Utente> getAll();
 	Utente add(Utente u);
-	Utente findByUserId(String userid);
+	Utente findByUserid(String userid);
 
 }

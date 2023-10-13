@@ -23,7 +23,7 @@ import it.project.services.UtenteService;
 import it.project.services.VeicoloService;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("/api")
 public class RestCtrl {
 	
 	@Autowired
@@ -102,16 +102,20 @@ public class RestCtrl {
 	        
 
 	        // Carica manualmente l'utente e il veicolo dal tuo servizio
-	        Utente utente = utenteService.findByUserId(requestBody.getUserid()); // Sostituisci con il tuo metodo per trovare l'utente per nome utente
+	        Utente utente = utenteService.findByUserid(requestBody.getUserid()); // Sostituisci con il tuo metodo per trovare l'utente per nome utente
 	        Veicolo veicolo = veicoloService.getById(requestBody.getVeicoloId());
 
+	        
 	       
 
 	        // Ora puoi creare l'oggetto Ordine
 	        Ordine ordine = new Ordine(utente, veicolo, requestBody.getDescrizione());
+	      
 
 	        // Salva l'ordine nel tuo servizio
 	        return ordineService.add(ordine);
+	        
+	        
 	    } catch (Exception e) {
 	        // Gestisci eventuali eccezioni
 	        e.printStackTrace();
@@ -133,16 +137,16 @@ public class RestCtrl {
 	        
 
 	        // Carica manualmente l'utente e il veicolo dal tuo servizio
-	        Utente utente = utenteService.findByUserId(request.getUserid()); // Sostituisci con il tuo metodo per trovare l'utente per nome utente
-	        Veicolo veicolo = veicoloService.getById(request.getVeicoloId());
+	        Utente utente = utenteService.findByUserid(request.getUserid()); // Sostituisci con il tuo metodo per trovare l'utente per nome utente
+	       Veicolo veicolo = veicoloService.getById(request.getVeicoloId());
 
-	       
+	 
 
 	      
-	        Veicolo v = new Veicolo(request.getTipologia(),request.getAlimentazione(),request.getPosizione(),request.isDisponibilità(),request.getImmagine(),utente);
+	        Veicolo veicolo1 = new Veicolo(request.getTipologia(),request.getAlimentazione(),request.getPosizione(),request.isDisponibilità(),request.getImmagine(),utente);
 
 	       
-	        return veicoloService.add(veicolo);
+	        return veicoloService.add(veicolo1);
 	    } catch (Exception e) {
 	        
 	        e.printStackTrace();

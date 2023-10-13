@@ -1,9 +1,8 @@
 package it.project.Dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-
-
-
+@JsonPropertyOrder
 public class OrdineDto {  //oggetto costumizzato - data transfer object 
 	
 	private String userid;

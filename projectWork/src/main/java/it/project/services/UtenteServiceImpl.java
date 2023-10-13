@@ -33,7 +33,7 @@ public class UtenteServiceImpl implements UtenteService {
 	
 
 	@Override
-	public Utente findByUserId(String userid) {
+	public Utente findByUserid(String userid) {
 		
 	 Optional<Utente> u = utenteDao.findByUserid(userid);
 	 if(u.isPresent()) {

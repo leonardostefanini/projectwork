@@ -1,5 +1,8 @@
 package it.project.Dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder
 public class VeicoloDto {
 	
 	private int veicoloId;
