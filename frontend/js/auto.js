@@ -3,6 +3,10 @@ console.log('ID:', id);
 
 const URLauto = `http://localhost:9020/api/veicolo/${id}`;
 let demo = document.querySelector("#demo");
+const numeroCasuale = Math.random() * (150 - 40 + 1) + 40;
+
+const numeroConDueDecimali = numeroCasuale.toFixed(2);
+
 
 fetch(URLauto)
   .then(response => response.json())
@@ -19,6 +23,9 @@ fetch(URLauto)
           <p class="card-text mt-5"><strong>Alimentazione:</strong> ${data.alimentazione}</p>
           <p class="card-text"><strong>Descrizione:</strong> ${data.tipologia}</p>
           <p class="card-text"><strong>Disponibilità:</strong> ${data.disponibilità}</p>
+          <p class="card-text"><strong>Prezzo noleggio:</strong> ${numeroConDueDecimali} euro</p>
+
+
         </div>
       </div>
     </div>`;
@@ -28,8 +35,14 @@ fetch(URLauto)
 
 
 let btn=document.querySelector("#invia");
+document.getElementById('moduloPreventivo').addEventListener('submit', function(event) {
+  event.preventDefault(); 
 
-btn.addEventListener('click', function()
-{
-    alert("Form inviato");
-})
+  alert('Form inviato');
+
+  document.getElementById('nome').value = '';
+  document.getElementById('cognome').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('indirizzo').value = '';
+  document.getElementById('telefono').value = '';
+});
