@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafico</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Risparmi C02 per ogni tipologia di veicolo</h1>
+    <canvas id="grafico"></canvas>
+
+    <script>
+        const grafico = document.getElementById("grafico");
+        const URLgraf = "http://localhost:9020/api/veicolo";
+
+        let autoBenzina = 0;
+        let biciElettriche = 0;
+        let autoElettriche=0;
+
+        fetch(URLgraf)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(veicolo => {
+                    if (veicolo.tipologia === 'Auto' && veicolo.alimentazione === 'Benzina') {
+                        autoBenzina++;
+                    } else if (veicolo.tipologia === 'Bicicletta' && veicolo.alimentazione === 'Elettrica') {
+                        biciElettriche++;
+                        
+                    }
+                    else if (veicolo.tipologia === 'Auto' && veicolo.alimentazione === 'Elettrica') {
+                        autoElettriche++;
+                    }
+                });
+                autoBenzina=autoBenzina*0;
+                biciElettriche=biciElettriche*1;
+                autoElettriche=autoElettriche*0.6;
+                console.log(autoBenzina+" "+biciElettriche);
+
+                const config = {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Auto a benzina', 'Biciclette elettriche','Auto Elettrica'],
+                        datasets: [{
+                            data: [autoBenzina, biciElettriche, autoElettriche],
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)',
+                                'rgb(53, 211, 53)'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                };
+
+                new Chart(grafico, config);
+            })
+    </script>
+</body>
+</html>

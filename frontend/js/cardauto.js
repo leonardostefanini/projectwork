@@ -21,7 +21,7 @@ fetch(URL)
   .catch(error => console.error("Errore durante la richiesta:", error));
 
 function creaCard(veicolo) {
-    return `<div class="card border-success">
+    return `<div class="card border-success mt-3">
     <div class="card-body d-flex align-items-center">
       <div class="w-50">
         <img src="${veicolo.immagine}" class="img-fluid w-75 h-75">
