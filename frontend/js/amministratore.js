@@ -3,148 +3,189 @@ function changeButtonName(option, buttonId) {
 }
 
 let container = document.getElementById("container");
+let form = document.getElementById("form");
 
+let home=document.getElementById("home");
+home.addEventListener("click",function () {
+    location.href="index.html"
+    
+})
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
-let VUtenti = document.getElementById("VUtenti");
+
+const VUtenti = document.getElementById("VUtenti");
+const lista1 = document.getElementById("lista");
+let listaVisibile1 = false; 
+
 VUtenti.addEventListener("click", function () {
-
     const URL = "http://localhost:9020/api/utente";
-    fetch(URL)
-        .then(data => {
-            return data.json()
-        })
-        .then(response => {
-            lista.innerHTML = "";
-            response.forEach(element => {
-
-                let lista = document.getElementById("lista")
-
-                lista.innerHTML += `<li> ${element.userid} - ${element.firma} - ${element.nome} - ${element.cognome} - ${element.nascita} - ${element.email}`;
+    
+    if (listaVisibile1) {
+        
+        lista1.innerHTML = "";
+        listaVisibile1 = false;
+    } else {
+       
+        fetch(URL)
+            .then(data => {
+                return data.json();
+            })
+            .then(response => {
+                lista1.innerHTML = "";
+                response.forEach(element => {
+                    lista1.innerHTML += `<li class="list-group-item">${element.userid} - ${element.firma} - ${element.nome} - ${element.cognome} - ${element.nascita} - ${element.email}</li>`;
+                });
+                listaVisibile1 = true; 
             });
-
-        })
-
-}) //chiusura VUtenti
+    }
+});
 
 //-------------------------------------------------------------------------------------------------------------------------------------
-let VOrdini = document.getElementById("VOrdini");
+
+
+const VOrdini = document.getElementById("VOrdini");
+const lista2 = document.getElementById("lista");
+let listaVisibile2 = false; 
+
 VOrdini.addEventListener("click", function () {
-
     const URL = "http://localhost:9020/api/ordine";
-    fetch(URL)
-        .then(data => {
-            return data.json()
-        })
-        .then(response => {
-           
-           lista.innerHTML = "";
-            response.forEach(element=> {
-
-                let lista = document.getElementById("lista")
-
-                lista.innerHTML += `<li> ${element.id} - ${element.utente.userid} - ${element.veicolo.id} - ${element.descrizione}`;
-
+    
+    if (listaVisibile2) {
+       
+        lista2.innerHTML = "";
+        listaVisibile2 = false;
+    } else {
+        
+        fetch(URL)
+            .then(data => {
+                return data.json();
+            })
+            .then(response => {
+                lista2.innerHTML = "";
+                response.forEach(element => {
+                    lista2.innerHTML += `<li class="list-group-item w-50">${element.id} - ${element.utente.userid} - ${element.veicolo.id} - ${element.descrizione}</li>`;
+                });
+                listaVisibile2 = true; 
             });
-           
+    }
+});
 
-           // console.log(response.utente.userid);
-
-        })
-
-}) //chiusura VOrdini
 
 
 //------------------------------------------------------------------------------------------------------------------------------------
-// let autoV = document.getElementById("autoV");
-// autoV.addEventListener("click", function () {
 
-//     let lista = document.getElementById("lista")
-//     const URL = "http://localhost:9020/api/veicolo";
-//     fetch(URL)
-//         .then(data => {
-//             return data.json()
-//         })
-//         .then(response => {
-//             lista.innerHTML = "";
-//             response.forEach(element => {
+const autoV = document.getElementById("autoV");
+const lista = document.getElementById("lista");
+let listaVisibile = false;
 
-
-//                 lista.innerHTML += `<li> ${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${element.disponibilità} - ${element.data_prenotazione} - ${element.immagine} - ${element.utente.userid}`;
-                
-//                 let btn = document.createElement("button");
-//                 btn.setAttribute("class", "btn btn-secondary w-100");
-//                 btn.setAttribute("type", "button");
-//                 btn.textContent = "X";
-    
-    
-
-//     btn.addEventListener("click", function () {
-//         let id=element.id;
-//     console.log(id);
-//     })
-    
-    
-//     lista.appendChild(btn);
-    
-// });
-
-
-
-//         })
-
-// }) //chiusura autoV
-
-// ...
 autoV.addEventListener("click", function () {
     const URL = "http://localhost:9020/api/veicolo";
-    fetch(URL)
-    .then(data => { return data.json()})
-        .then(response => {
-            
-            response.forEach(element => {
-                let listItem = document.createElement("li");
-                listItem.innerHTML = `${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${element.disponibilità} - ${element.data_prenotazione} - ${element.immagine} - ${element.utente.userid}`;
-                
-                let deleteButton = document.createElement("button");
-                deleteButton.setAttribute("class", "btn btn-secondary w-100");
-                deleteButton.setAttribute("type", "button");
-                deleteButton.textContent = "X";
     
+    if (listaVisibile) {
+       
+        lista.innerHTML = "";
+        listaVisibile = false;
+    } else {
+        
+        fetch(URL)
+            .then(data => {
+                return data.json();
+            })
+            .then(response => {
+                lista.innerHTML = "";
+                response.forEach(element => {
+                    let listItem = document.createElement("li");
+                    listItem.innerHTML = `<li class="list-group-item w-100">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${element.disponibilità} - ${element.data_prenotazione} - ${element.immagine} - ${element.utente.userid}</li>`;
+                    
+                    let deleteButton = document.createElement("button");
+                deleteButton.setAttribute("class", "btn btn-danger rounded-0");
+                deleteButton.setAttribute("type", "button");
+                deleteButton.setAttribute("id", "btndelete");
+                deleteButton.innerHTML = `<i class="ri-delete-bin-5-fill" id="del"></i>`;
+    
+                
+                const vehicleId = element.id;
+
                 deleteButton.addEventListener("click", function () {
-                    const vehicleId = element.id;
+                  
+
                     console.log(`Delete vehicle with ID: ${vehicleId}`);
                     const deleteURL = `http://localhost:9020/api/veicolo/${vehicleId}`;
                     
                     fetch(deleteURL,{
                         method: "DELETE",
                     headers: {
-                        "Content-Tipe":"application/json" //che oggetto sto manipolando pero puo contenere altri dati
+                        "Content-Tipe":"application/json" 
                     }
                 })
                     .then(response => {
-                        if (response.status === 204) {
-                            console.log('Vehicle deleted successfully.');
-                            // Optionally, you can refresh the vehicle list or update the UI here.
-                            listItem.remove(); // Remove the list item from the UI
-                        } else {
-                            console.error('Failed to delete the vehicle.');
-                        }
+                     location.href="amministratore.html"
+                       
                     })
+                
+                });
+
+                let btnM = document.createElement("button");
+                btnM.setAttribute("class", "btn btn-info rounded-0");
+               btnM.setAttribute("type", "button");
+                btnM.setAttribute("id", "btndelete");
+                btnM.innerHTML = `<i class="ri-edit-2-fill" id="cha"></i>`;          
+
+
+                btnM.addEventListener("click", function () {                   
+                    
+                   
+                    if (form.classList.contains("d-none")) {
+                        form.classList.remove("d-none")
+                    } else {
+                        form.classList.add("d-none")
+                    }
+                    const URL2 = `http://localhost:9020/api/veicolo/${vehicleId}`;
+                
+                    fetch(URL2)
+                        .then(data => {
+                            return data.json()
+                        })
+                        .then(response => {        
+                    
+                            console.log(vehicleId);
+                
+                            
+                                let triggerId = document.getElementById("triggerId");
+                                let triggerId1 = document.getElementById("triggerId1");
+                                let input1 = document.querySelector("#input1");
+                                let input2 = document.querySelector("#input2");
+                            //    let input3 = formData.get("disponibile");
+                            let input3 = document.querySelector("#input3");
+                                // let input4 = document.querySelector("#input3");
+                                let input5 = document.querySelector("#input5");
+                                triggerId.textContent = response.tipologia;
+                                triggerId1.textContent = response.alimentazione;
+                                input1.value = response.descrizione;
+                                input2.value = response.posizione;
+
+                                input3.value = response.disponibilità;
+                               // input4.value = element.data_prenotazione;
+                                input5.value = response.immagine;
+                                                     
+                    
+                        })
+                    
                 });
     
-                listItem.appendChild(deleteButton);
-                lista.appendChild(listItem);
+               
+                     listItem.appendChild(deleteButton);
+                     listItem.appendChild(btnM);
+                    
+                    lista.appendChild(listItem);
+                });
+                listaVisibile = true; 
             });
-        
-     
-});
+    }
 });
 
 
 
-//------------------------------------------------------------------------------------------------------------------------------------
-let autoE = document.getElementById("autoE");
 
 //---------------------------------------------------------------------------
 let autoA = document.getElementById("autoA");
@@ -158,7 +199,9 @@ autoA.addEventListener("click", function () {
 })
 
 
-let btnInvia = document.getElementById("btnInvia")
+
+document.addEventListener("DOMContentLoaded", function () {
+let btnInvia = document.getElementById("btnInvia");
 btnInvia.addEventListener("click", function () {
     const URL1 = "http://localhost:9020/api/veicolo";
 
@@ -166,8 +209,13 @@ btnInvia.addEventListener("click", function () {
     let triggerId1 = document.getElementById("triggerId1").textContent;
     let input1 = document.querySelector("#input1").value;
     let input2 = document.querySelector("#input2").value;
-    let input3 = document.querySelector("#input3").value;
-    let input4 = document.querySelector("#input3").value;
+
+    let input3True = document.querySelector("#disponibileTrue");
+let input3False = document.querySelector("#disponibileFalse");
+let input3 = input3True.checked ? input3True.value : input3False.value;
+
+
+    let input4 = document.querySelector("#input4").value;
     let input5 = document.querySelector("#input5").value;
 
     let nuovoVeicolo = {
@@ -181,68 +229,21 @@ btnInvia.addEventListener("click", function () {
         userid: "utente2"
     }
 
-    //CRUD --- > Create
-    //metodo POST ---> Create del dato
+    
+
     fetch(URL1, {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(nuovoVeicolo)
-        })
-        .then(
-            data => {
-                return data.json()
-            })
-        .then(response => {})
-})
+        method: "POST",
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(nuovoVeicolo)
+    })
+    .then(data => {
+        return data.json()
+    })
+    .then(response => {
+        location.href = "amministratore.html";
+    });
+});
+});
 
-
-
-
-
-let autoM = document.getElementById("autoM");
-autoM.addEventListener("click", function () {
-
-    let form = document.getElementById("form");
-    if (form.classList.contains("d-none")) {
-        form.classList.remove("d-none")
-    } else {
-        form.classList.add("d-none")
-    }
-    const URL2 = "http://localhost:9020/api/veicolo";
-
-    fetch(URL2)
-        .then(data => {
-            return data.json()
-        })
-        .then(response => {
-response.forEach(element => {
-    
-    
-    
-            console.log(element);
-
-            let idVeicolo = 1;
-
-            if (idVeicolo === element.id) {
-                let triggerId = document.getElementById("triggerId");
-                let triggerId1 = document.getElementById("triggerId1");
-                let input1 = document.querySelector("#input1");
-                let input2 = document.querySelector("#input2");
-                let input3 = document.querySelector("#input3");
-                let input4 = document.querySelector("#input3");
-                let input5 = document.querySelector("#input5");
-                triggerId.textContent = element.tipologia;
-                triggerId1.textContent = element.alimentazione;
-                input1.value = element.descrizione;
-                input2.value = element.posizione;
-                input3.value = element.disponibilità;
-               // input4.value = element.data_prenotazione;
-                input5.value = element.immagine;
-            }
-            
-        });
-        })
-
-})
