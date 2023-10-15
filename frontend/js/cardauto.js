@@ -21,7 +21,7 @@ fetch(URL)
   .catch(error => console.error("Errore durante la richiesta:", error));
 
 function creaCard(veicolo) {
-    return `<div class="card border-success">
+    return `<div class="card border-success mt-3">
     <div class="card-body d-flex align-items-center">
       <div class="w-50">
         <img src="${veicolo.immagine}" class="img-fluid w-75 h-75">
@@ -30,7 +30,7 @@ function creaCard(veicolo) {
         <h5 class="card-title"><strong>Tipologia:</strong> ${veicolo.tipologia}</h5>
         <p class="card-text"><strong>Alimentazione:</strong> ${veicolo.alimentazione}</p>
         <p class="card-text"><strong>Disponibilità:</strong> ${veicolo.disponibilità}</p>
-        <button class="btn btn-primary" onclick="reindirizzo('${veicolo.id}')">Vai all'auto</button>
+        <button class="btn btn-primary" onclick="reindirizzo('${veicolo.id}')">Visualizza</button>
       </div>
     </div>
   </div>`;
@@ -38,5 +38,6 @@ function creaCard(veicolo) {
 
 function reindirizzo(id) 
 {
-  window.location.href = `http://localhost:9020/api/veicolo/${id}`;
+  localStorage.setItem('autoId', id);
+  window.location.href = "auto.html";
 }
