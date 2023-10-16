@@ -1,8 +1,8 @@
 package it.project.services;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,36 +13,38 @@ import it.project.repos.UtenteDAO;
 @Service
 public class UtenteServiceImpl implements UtenteService {
 
-	
-	@Autowired
-	UtenteDAO utenteDao;
-	
-	@Override
-	public List<Utente> getAll() {
-		
-		return utenteDao.findAll();
-	}
+    @Autowired
+    UtenteDAO utenteDao;
 
-	@Override
-	public Utente add(Utente u) {
-		
-		return utenteDao.save(u);
-	}
-	
-	
-	
+    @Override
+    public List<Utente> getAll() {
+        return utenteDao.findAll();
+    }
 
-	@Override
-	public Utente findByUserid(String userid) {
-		
-	 Optional<Utente> u = utenteDao.findByUserid(userid);
-	 if(u.isPresent()) {
-		 return u.get();
-	 }else {
-		 return null;
-	 }
-	}
+    @Override
+    public Utente add(Utente u) {
+		u.setDataiscrizione(new Date(System.currentTimeMillis()));
+        return utenteDao.save(u);
+    }
 
-	
+    @Override
+    public Utente findByUserid(String userid) {
+        Optional<Utente> u = utenteDao.findByUserid(userid);
+        if (u.isPresent()) {
+            return u.get();
+        } else {
+            return null;
+        }
+    }
+
+//	@Override
+//	public Utente addNewUser(Utente u) 
+//	{
+//		u.setDataiscrizione(new Date(System.currentTimeMillis()));
+//		return utenteDao.save(u);
+//	}
+//    
+
 
 }
+
