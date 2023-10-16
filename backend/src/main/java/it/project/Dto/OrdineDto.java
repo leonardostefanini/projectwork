@@ -36,7 +36,7 @@ public class OrdineDto {  //oggetto costumizzato - data transfer object
 	
 	 /*
 	   {
-	   "utenteId" : "utente1",
+	   "userid" : "utente1",
 	   "veicoloId" : 1,
 	   "descrizione": "cicciopasticcio",
 	   

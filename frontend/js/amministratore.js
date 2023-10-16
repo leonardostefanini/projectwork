@@ -1,3 +1,21 @@
+let navLinks = document.querySelector("#navLinks");
+let user = JSON.parse(localStorage.getItem("user"));
+navLinks.innerHTML += `<li class="nav-item ms-5">
+<div class="d-flex align-items-center gap-3">
+  <i class="fa-solid fa-user" style="color: #4d87ea; font-size: 1.2rem;"></i>
+  <div class="d-flex flex-column">
+    <span class="fw-medium text-secondary" style="font-size: 0.7rem; margin-top: -0.5rem;">${user.titolo}</span>
+    <span style="margin-top: -0.3rem">${user.user}</span>
+  </div>
+</div>
+</li>
+<li class="nav-item ms-5">
+<a href="logout.html">
+  <button type="button" class="btn btn-danger px-3">Logout</button>
+</a>
+</li>`;
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
 function changeButtonName(option, buttonId) {
     document.getElementById(buttonId).textContent = option;
 }

@@ -1,4 +1,7 @@
 const id = localStorage.getItem('autoId');
+
+let user = JSON.parse(localStorage.getItem(`user`));
+
 console.log('ID:', id);
 
 const URLauto = `http://localhost:9020/api/veicolo/${id}`;
@@ -38,11 +41,34 @@ let btn=document.querySelector("#invia");
 document.getElementById('moduloPreventivo').addEventListener('submit', function(event) {
   event.preventDefault(); 
 
-  alert('Form inviato');
+  let URL1=`http://localhost:9020/api/ordine`
 
-  document.getElementById('nome').value = '';
-  document.getElementById('cognome').value = '';
-  document.getElementById('email').value = '';
-  document.getElementById('indirizzo').value = '';
-  document.getElementById('telefono').value = '';
+  let nuovoOrdine= {
+    userid: user,
+    veicoloId: id,   
+    descrizione: "bmw"
+  }
+
+  
+  fetch(URL1, {
+    method: "POST",
+    headers: {
+        'Content-type': 'application/json'
+    },
+    body: JSON.stringify(nuovoOrdine)
+})
+.then(data => {
+    return data.json()
+})
+.then(response => {
+    location.href = "auto.html";
+    
+    alert('Form inviato');
+    
+    document.getElementById('nome').value = '';
+    document.getElementById('cognome').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('indirizzo').value = '';
+    document.getElementById('telefono').value = '';
+  });
 });

@@ -16,44 +16,60 @@ occhio.addEventListener("click", function() {
     }
 })
 
-// document.querySelector("button").addEventListener("click", function() {
-//     let user = username.value.trim();
-//     let pass = password.value.trim();
-  
-//     if(user != "" && pass != "") {
-//         let url = "http://localhost:9020/api/utente";
-//         fetch(url)
-//         .then(response => {
-//             return response.json();
-//         })
-//         .then(data => {
-//             let utenteTrovato = false;
-//             data.forEach(utente => {
-//                 if(utente.userid === user && utente.password === pass) {
-//                     let userLoggato = user;
-//                     localStorage.setItem("user", JSON.stringify(userLoggato));
-//                     utenteTrovato = true;
-//                     location.href = "./";
-//                 }
-//             });
-//             if(!utenteTrovato) {
-//                 msgErr.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
-//                 <strong>Utente non trovato</strong>
-//                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-//                 </div>`; 
-//             }
-//         })
-//     }
-//     else {
-//         msgErr.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
-//         Uno o più campi <strong>vuoti</strong>
-//         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-//       </div>`
-//     }
-
-// })
-
 document.querySelector("button").addEventListener("click", function() {
+    let user = username.value.trim();
+    let pass = password.value.trim();
+
+    if(user != "" && pass != "") {
+        let url = "http://localhost:9020/api/utente";
+        fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            let utenteTrovato = false;
+            data.forEach(utente => {
+                if(utente.userid === user && utente.password === pass) {
+                    if(utente.tipo === "A") {
+                        let userLoggato = {
+                            user: utente.userid,
+                            tipo: utente.tipo,
+                            titolo: "Amministratore"
+                        };
+                        localStorage.setItem("user", JSON.stringify(userLoggato));
+                        utenteTrovato = true;
+                        location.href = "amministratore.html";
+                    }
+                    else {
+                        let userLoggato = {
+                            user: utente.userid,
+                            tipo: utente.tipo,
+                            titolo: "Utente"
+                        };
+                        localStorage.setItem("user", JSON.stringify(userLoggato));
+                        utenteTrovato = true;
+                        location.href = "./";
+                    }
+                }
+            });
+            if(!utenteTrovato) {
+                msgErr.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Utente non trovato</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`; 
+            }
+        })
+    }
+    else {
+        msgErr.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Uno o più campi <strong>vuoti</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`
+    }
+
+})
+
+/* document.querySelector("button").addEventListener("click", function() {
     let user = username.value.trim();
     let pass = password.value.trim();
 
@@ -73,6 +89,10 @@ document.querySelector("button").addEventListener("click", function() {
                 if (foundUser) {
                     // Utente trovato nel database, reindirizza a "home.html"
                     location.href = "index.html";
+                    let username = JSON.stringify(user);
+                    localStorage.setItem("user", username);
+
+                    let 
                 } else {
                     // Nessuna corrispondenza trovata
                     msgErr.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -94,3 +114,4 @@ document.querySelector("button").addEventListener("click", function() {
         </div>`;
     }
 });
+ */
