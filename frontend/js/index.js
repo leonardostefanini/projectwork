@@ -1,4 +1,4 @@
-/* var swiper = new Swiper(".mySwiper", {
+ var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   spaceBetween: 30,
   loop: true,
@@ -49,20 +49,18 @@ function auto() {
   
 }
 
-//   function slide(immagine,tipologia,descrizione) {
+  // function slide(immagine,tipologia,descrizione) {
 
-//       swiper.appendSlide(`<div class="swiper-slide bg-danger">
-//       <img class="card-img-top" src="${immagine}" alt="Title">
-//       <div class="card-body">
-//           <h4 class="card-title">${tipologia}</h4>
-//           <p class="card-text">${descrizione}</p>
-//       </div>
+  //     swiper.appendSlide(`<div class="swiper-slide bg-danger">
+  //     <img class="card-img-top" src="${immagine}" alt="Title">
+  //     <div class="card-body">
+  //         <h4 class="card-title">${tipologia}</h4>
+  //         <p class="card-text">${descrizione}</p>
+  //     </div>
     
-//       </div>`);
-//     }
+  //     </div>`);
+  //   }
 
-
-auto(); */
 let ul = document.querySelector("#navLinks");
 if(localStorage.getItem("user")){
   let user = JSON.parse(localStorage.getItem("user"));
@@ -93,3 +91,4 @@ else {
   </a>
 </li>`
 }
+auto(); 
