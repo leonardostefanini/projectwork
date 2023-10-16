@@ -4,12 +4,12 @@ let attrib = 'Map data (c)OpenStreetMap contributors';
 let osm = new L.TileLayer(url, {minZoom: 8, maxZoom: 16, attribution: attrib});
 map.setView(new L.LatLng(41.88,12.47),16);
 map.addLayer(osm);
-L.marker([41.88,12.47]).addTo(map).bindPopup("ritirami").openPopup();
-
+// L.marker([41.88,12.47]).addTo(map).bindPopup("ritirami").openPopup();
+let marker; 
 
 let cardContainer = document.getElementById("cardContainer");
 
-function createCard(nome, immagine, tipo, descrizione, prezzo, id) {
+function createCard(nome, immagine, tipo, descrizione) {
     let card = document.createElement("div");
     card.classList.add("card", "mb-3");
   
@@ -23,14 +23,13 @@ function createCard(nome, immagine, tipo, descrizione, prezzo, id) {
             <h2 class="card-title">${nome}</h2>
             <h6 class="card-subtitle py-2">${tipo}</h6>
             <p class="card-text py-2">${descrizione}</p>
-            <a href="${id}" class="btn btn-success">Dettagli</a>
           </div>
         </div>
         
       </div>
     `;
 
-    cardContainer.appendChild(newCard);
+    cardContainer.appendChild(card);
 }
 
   function auto() {
@@ -47,17 +46,81 @@ function createCard(nome, immagine, tipo, descrizione, prezzo, id) {
             response.forEach(item => {
                 
             
-            let nome=item.nome;
+            let nome=item.tipologia;
             let immagine=item.immagine;
-            let tipo=item.tipo;
+            let tipo=item.alimentazione;
             let descrizione=item.descrizione;
-            let prezzo=item.prezzo;
-            let id=item.id;
   
             
-            createCard(nome, immagine, tipo, descrizione, prezzo, id)
-            console.log(item.tipo);
+            createCard(nome, immagine, tipo, descrizione)
+            console.log(item.posizione);
+
+            let nomeCitta ="Milano";
+            cercaCitta(nomeCitta);
+
         });
         })
     
   }
+  
+  function cercaCitta(nomeCitta) {
+
+    if(nomeCitta!=null){
+
+
+        //map.classList.remove("d-none")
+
+    var url = 'https://nominatim.openstreetmap.org/search?format=json&q=' + nomeCitta;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                //if (data.length > 0) {
+                    let lat = parseFloat(data[0].lat);
+                    let lon = parseFloat(data[0].lon);
+                    map.setView([lat, lon], 13);
+                   // console.log(lat+" /"+lon);
+
+
+                    if (marker) {
+        map.removeLayer(marker);
+    }
+
+                    var customIcon = L.icon({
+                    iconUrl: './img/auto.png', // Inserisci il percorso dell'icona personalizzata
+                    iconSize: [60, 45],
+                    iconAnchor: [20, 40],
+                });
+
+              
+                marker=L.marker([lat, lon], { icon: customIcon }).addTo(map);
+
+                map.setView([lat, lon], 13);
+
+                let citta=nomeCitta;
+
+               
+                 meteo(lat,lon,citta);
+                
+
+                })
+                
+           
+        } else {
+            alert('Città non trovata');
+
+            map.setView([0, 0], 13);
+
+            let dati = document.getElementById("dati");
+
+            let img = document.getElementById("img");
+
+            dati="";
+            img="";
+            let linkMeteo=document.getElementById("linkMeteo")
+
+            linkMeteo.classList.add("d-none")
+           }
+    }
+  auto();
+

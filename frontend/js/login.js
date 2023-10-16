@@ -73,6 +73,10 @@ document.querySelector("button").addEventListener("click", function() {
                 if (foundUser) {
                     // Utente trovato nel database, reindirizza a "home.html"
                     location.href = "index.html";
+                    let username = JSON.stringify(user);
+                    localStorage.setItem("user", username);
+
+                    let 
                 } else {
                     // Nessuna corrispondenza trovata
                     msgErr.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
