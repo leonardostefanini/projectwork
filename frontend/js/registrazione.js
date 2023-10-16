@@ -1,5 +1,5 @@
 btnregistrami.addEventListener("click", function(){
-    const URL1 = "http://localhost:9006/api/utente";
+    const URL1 = "http://localhost:9020/api/utente";
 
 
     let inputUser = document.querySelector("#user").value;
@@ -13,7 +13,7 @@ btnregistrami.addEventListener("click", function(){
    
 
     let nuovoUser = {
-        user: inputUser,
+        userid: inputUser,
         password: inputPassword,
         firma: inputFirma,
         tipo: "U",
