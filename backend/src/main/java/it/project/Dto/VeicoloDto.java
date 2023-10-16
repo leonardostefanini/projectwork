@@ -10,7 +10,7 @@ public class VeicoloDto {
 	private String userid;
 	private String tipologia;
 	private String alimentazione;
-	private boolean disponibilità;
+	private boolean disponibilita;
 	private String immagine;
 	private String posizione;
 	public String getPosizione() {
@@ -51,11 +51,11 @@ public class VeicoloDto {
 	public void setAlimentazione(String alimentazione) {
 		this.alimentazione = alimentazione;
 	}
-	public boolean isDisponibilità() {
-		return disponibilità;
+	public boolean isDisponibilita() {
+		return disponibilita;
 	}
-	public void setDisponibilità(boolean disponibilità) {
-		this.disponibilità = disponibilità;
+	public void setDisponibilita(boolean disponibilita) {
+		this.disponibilita = disponibilita;
 	}
 	public String getImmagine() {
 		return immagine;

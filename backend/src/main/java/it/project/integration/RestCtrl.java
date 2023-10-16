@@ -53,10 +53,31 @@ public class RestCtrl {
 	}
 		
 	
-	@PutMapping("veicolo")
-	Veicolo updateVeicolo(@RequestBody Veicolo v) {
-		return veicoloService.update(v);
-	}
+//	@PutMapping("veicolo")
+//	Veicolo updateVeicolo(@RequestBody Veicolo v) {
+//		return veicoloService.update(v);
+//	}
+	
+	 @PutMapping("veicolo/{id}")
+	    public Veicolo updateV(@PathVariable int id, @RequestBody Veicolo updatedVeicolo) {
+	        // Verifica se il veicolo esiste
+	        Veicolo existingVeicolo = veicoloService.getById(id);
+
+	      
+
+	        // Aggiorna i campi del veicolo esistente con i dati forniti nel corpo della richiesta
+	        existingVeicolo.setDescrizione(updatedVeicolo.getDescrizione());
+//	        existingVeicolo.setUserid(updatedVeicolo.getUserid());
+	        existingVeicolo.setTipologia(updatedVeicolo.getTipologia());
+	        existingVeicolo.setAlimentazione(updatedVeicolo.getAlimentazione());
+	        existingVeicolo.setDisponibilita(updatedVeicolo.isDisponibilita());
+	        existingVeicolo.setImmagine(updatedVeicolo.getImmagine());
+	        existingVeicolo.setPosizione(updatedVeicolo.getPosizione());
+
+	        // Esegui l'aggiornamento nel servizio e restituisci il veicolo aggiornato
+	        return veicoloService.update(existingVeicolo);
+	    }
+	
 	
 	@DeleteMapping("veicolo/{id}") 
 	public void deleteVeicolo(@PathVariable int id) {
@@ -145,7 +166,7 @@ public class RestCtrl {
 	 
 
 	      
-	        Veicolo veicolo1 = new Veicolo(request.getTipologia(),request.getAlimentazione(), request.getDescrizione(),  request.getPosizione(),request.isDisponibilità(),request.getImmagine(),utente);
+	        Veicolo veicolo1 = new Veicolo(request.getTipologia(),request.getAlimentazione(), request.getDescrizione(),  request.getPosizione(),request.isDisponibilita(),request.getImmagine(),utente);
 
 	       
 	        return veicoloService.add(veicolo1);

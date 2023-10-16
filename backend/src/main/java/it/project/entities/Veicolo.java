@@ -25,7 +25,7 @@ public class Veicolo {
 	private String alimentazione;
 	private String descrizione;
 	private String posizione;
-	private boolean disponibilità;
+	private boolean disponibilita;
 	@CreationTimestamp	
 	private LocalDateTime data_prenotazione;
 	private String immagine;
@@ -39,14 +39,14 @@ public class Veicolo {
 
 	
 
-  public Veicolo(String tipologia, String alimentazione,String descrizione, String posizione, boolean disponibilità, String immagine,
+  public Veicolo(String tipologia, String alimentazione,String descrizione, String posizione, boolean disponibilita, String immagine,
 			Utente utente) {
 		
 		this.tipologia = tipologia;
 		this.alimentazione = alimentazione;
 		this.descrizione = descrizione;
 		this.posizione = posizione;
-		this.disponibilità = disponibilità;
+		this.disponibilita = disponibilita;
 		this.immagine = immagine;
 		this.utente = utente;
 	}
@@ -87,12 +87,12 @@ public class Veicolo {
 		this.posizione = posizione;
 	}
 
-	public boolean isDisponibilità() {
-		return disponibilità;
+	public boolean isDisponibilita() {
+		return disponibilita;
 	}
 
-	public void setDisponibilità(boolean disponibilità) {
-		this.disponibilità = disponibilità;
+	public void setDisponibilita(boolean disponibilita) {
+		this.disponibilita = disponibilita;
 	}
 
 	

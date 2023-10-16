@@ -113,7 +113,14 @@ autoV.addEventListener("click", function () {
                 lista.innerHTML = "";
                 response.forEach(element => {
                     let listItem = document.createElement("li");
-                    listItem.innerHTML = `<li class="list-group-item w-100">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${element.disponibilità} - ${element.data_prenotazione} - ${element.immagine} - ${element.utente.userid}</li>`;
+                    let disponibilita="";
+                    if(element.disponibilita==1){
+                        disponibilita=true;
+
+                    }else{
+                      disponibilita=false;
+                    }
+                    listItem.innerHTML = `<li class="list-group-item w-100">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${disponibilita} - ${element.data_prenotazione} - ${element.immagine} - ${element.utente.userid}</li>`;
                     
                     let deleteButton = document.createElement("button");
                 deleteButton.setAttribute("class", "btn btn-danger rounded-0");
@@ -182,7 +189,7 @@ autoV.addEventListener("click", function () {
                                 input1.value = response.descrizione;
                                 input2.value = response.posizione;
 
-                                input3.value = response.disponibilità;
+                                input3.value = response.disponibilità==1 ? true:false;
                                // input4.value = element.data_prenotazione;
                                 input5.value = response.immagine;
                                                      
