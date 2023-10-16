@@ -82,6 +82,11 @@ function auto() {
 let ul = document.querySelector("#navLinks");
 if(localStorage.getItem("user")){
   let user = JSON.parse(localStorage.getItem("user"));
+  if(user.tipo === "A") {
+    ul.innerHTML += `<li class="nav-item">
+    <a class="nav-link" href="amministratore.html">Pannello</a>
+  </li>`;
+  }
   ul.innerHTML += `<li class="nav-item">
   <div class="d-flex align-items-center gap-3">
     <i class="fa-solid fa-user" style="color: #4d87ea; font-size: 1.2rem;"></i>
