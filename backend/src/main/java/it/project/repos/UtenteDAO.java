@@ -1,9 +1,4 @@
 package it.project.repos;
-
-
-
-
-
 import java.util.Optional;
 
 
@@ -20,7 +15,5 @@ public interface UtenteDAO extends JpaRepository<Utente,String> {
 	Optional<Utente> findByUserid(String userid);
 
 
-	
-	
 
 }
