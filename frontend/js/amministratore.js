@@ -1,3 +1,21 @@
+let navLinks = document.querySelector("#navLinks");
+let user = JSON.parse(localStorage.getItem("user"));
+navLinks.innerHTML += `<li class="nav-item ms-5">
+<div class="d-flex align-items-center gap-3">
+  <i class="fa-solid fa-user" style="color: #4d87ea; font-size: 1.2rem;"></i>
+  <div class="d-flex flex-column">
+    <span class="fw-medium text-secondary" style="font-size: 0.7rem; margin-top: -0.5rem;">${user.titolo}</span>
+    <span style="margin-top: -0.3rem">${user.user}</span>
+  </div>
+</div>
+</li>
+<li class="nav-item ms-5">
+<a href="logout.html">
+  <button type="button" class="btn btn-danger px-3">Logout</button>
+</a>
+</li>`;
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
 function changeButtonName(option, buttonId) {
     document.getElementById(buttonId).textContent = option;
 }
@@ -95,7 +113,14 @@ autoV.addEventListener("click", function () {
                 lista.innerHTML = "";
                 response.forEach(element => {
                     let listItem = document.createElement("li");
-                    listItem.innerHTML = `<li class="list-group-item w-100">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${element.disponibilità} - ${element.data_prenotazione} - ${element.immagine} - ${element.utente.userid}</li>`;
+                    let disponibilita="";
+                    if(element.disponibilita==1){
+                        disponibilita=true;
+
+                    }else{
+                      disponibilita=false;
+                    }
+                    listItem.innerHTML = `<li class="list-group-item w-100">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${disponibilita} - ${element.data_prenotazione} - ${element.immagine} - ${element.utente.userid}</li>`;
                     
                     let deleteButton = document.createElement("button");
                 deleteButton.setAttribute("class", "btn btn-danger rounded-0");
@@ -164,7 +189,7 @@ autoV.addEventListener("click", function () {
                                 input1.value = response.descrizione;
                                 input2.value = response.posizione;
 
-                                input3.value = response.disponibilità;
+                                input3.value = response.disponibilità==1 ? true:false;
                                // input4.value = element.data_prenotazione;
                                 input5.value = response.immagine;
                                                      

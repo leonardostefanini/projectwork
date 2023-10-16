@@ -13,7 +13,17 @@
     <link rel="stylesheet" type="text/css" href="./css/amministratore.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
     
-
+    <script>
+      if(!localStorage.getItem("user")){
+          location.href = "login.html";
+      }
+      else {
+        let user = JSON.parse(localStorage.getItem("user"));
+        if(user.tipo != "A") {
+          location.href = "errore.html";
+        }
+      }
+    </script>
   
 </head>
 
@@ -25,7 +35,7 @@
       <div class="container">
   
        <!-- ----------------------------------------------- -->
-          <a class="navbar-brand" href="#"><img src="./img/PW_logo.png" alt="" style="height: 7rem;"></a>
+          <a class="navbar-brand" href="./"><img src="./img/PW_logo.png" alt="" style="height: 6rem;"></a>
           <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,7 +44,7 @@
 
           <!-- ------------------------------------------------------------------------ -->
         <div class="collapse navbar-collapse d-flex justify-content-end" id="collapsibleNavId">
-          <ul class="navbar-nav  ">
+          <ul id="navLinks" class="navbar-nav align-items-center">
             <li class="nav-item">
               <a class="nav-link active text-success" href="#" aria-current="page" id="VUtenti"><i class="ri-group-line" style="font-size: 3rem;"></i></a>
             </li>
