@@ -25,7 +25,7 @@ fetch(URLauto)
           <h5 class="card-title "><strong>Tipologia:</strong> ${data.descrizione}</h5>
           <p class="card-text mt-5"><strong>Alimentazione:</strong> ${data.alimentazione}</p>
           <p class="card-text"><strong>Descrizione:</strong> ${data.tipologia}</p>
-          <p class="card-text"><strong>Disponibilità:</strong> ${data.disponibilità}</p>
+          <p class="card-text"><strong>Disponibilità:</strong> ${data.disponibilita}</p>
           <p class="card-text"><strong>Prezzo noleggio:</strong> ${numeroConDueDecimali} euro</p>
 
 

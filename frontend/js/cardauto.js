@@ -8,7 +8,7 @@ fetch(URL)
     console.log(data);
     data.forEach(veicolo => {
 
-      const disponibilita = veicolo.disponibilità;
+      const disponibilita = veicolo.disponibilita;
       console.log("Disponibilità:", disponibilita);
 
       if (disponibilita === true) {
@@ -29,7 +29,7 @@ function creaCard(veicolo) {
       <div class="w-50 ms-4">
         <h5 class="card-title"><strong>Tipologia:</strong> ${veicolo.tipologia}</h5>
         <p class="card-text"><strong>Alimentazione:</strong> ${veicolo.alimentazione}</p>
-        <p class="card-text"><strong>Disponibilità:</strong> ${veicolo.disponibilità}</p>
+        <p class="card-text"><strong>Disponibilità:</strong> ${veicolo.disponibilita}</p>
         <button class="btn btn-primary" onclick="reindirizzo('${veicolo.id}')">Visualizza</button>
       </div>
     </div>
