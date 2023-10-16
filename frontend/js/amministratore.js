@@ -129,7 +129,7 @@ autoV.addEventListener("click", function () {
                 deleteButton.innerHTML = `<i class="ri-delete-bin-5-fill" id="del"></i>`;
     
                 
-                const vehicleId = element.id;
+                let vehicleId = element.id;
 
                 deleteButton.addEventListener("click", function () {
                   
@@ -206,6 +206,8 @@ let btnModifica=document.getElementById("btnModifica");
 
              btnModifica.addEventListener("click",function () {
                 const URLup = `http://localhost:9020/api/veicolo/${vehicleId}`;
+
+                console.log(vehicleId);
 
                 let triggerId = document.getElementById("triggerId").textContent;
                 let triggerId1 = document.getElementById("triggerId1").textContent;
