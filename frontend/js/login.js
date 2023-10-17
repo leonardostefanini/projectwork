@@ -51,7 +51,7 @@ document.querySelector("button").addEventListener("click", function() {
                         localStorage.setItem("user", JSON.stringify(userLoggato));
                         localStorage.setItem("user1", JSON.stringify(user));
                         utenteTrovato = true;
-                        location.href = "./";
+                        location.href = "index.html";
                     }
                 }
             });
