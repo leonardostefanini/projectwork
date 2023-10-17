@@ -4,11 +4,15 @@ let user = JSON.parse(localStorage.getItem(`user`));
 
 console.log('ID:', id);
 
+
+
 const URLauto = `http://localhost:9020/api/veicolo/${id}`;
 let demo = document.querySelector("#demo");
 const numeroCasuale = Math.random() * (150 - 40 + 1) + 40;
 
 const numeroConDueDecimali = numeroCasuale.toFixed(2);
+
+
 
 
 fetch(URLauto)
@@ -36,6 +40,39 @@ fetch(URLauto)
 
     });
 
+
+    let map = new L.Map('map');
+let url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+let attrib = 'Map data (c)OpenStreetMap contributors';
+let osm = new L.TileLayer(url, {minZoom: 8, maxZoom: 16, attribution: attrib});
+map.setView(new L.LatLng(41.88,12.47),16);
+map.addLayer(osm);
+// L.marker([41.88,12.47]).addTo(map).bindPopup("ritirami").openPopup();
+let marker; 
+
+function auto() {
+
+  let URLAuto=` http://localhost:9020/api/veicolo/${id}`  ;
+
+  
+  fetch(URLAuto)
+      .then(data => {
+          return data.json()
+      })
+      .then(response => {
+
+          response.forEach(item => {
+            console.log(item.posizione);
+              
+          
+         
+
+       
+
+      });
+      })
+  
+}
 
 let btn=document.querySelector("#invia");
 document.getElementById('moduloPreventivo').addEventListener('submit', function(event) {
