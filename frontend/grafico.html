@@ -1,62 +1,203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grafico</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Emissioni</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        #logo {
+    height: 3rem;
+    }
+    header nav a {
+    color: green!important;
+    
+    }
+    header nav a:hover {
+    color: rgb(53, 211, 53)!important;
+    }
+    header {
+    font-family: 'Montserrat', sans-serif;
+    }
+
+
+    header{
+        
+     
+       /* verde */
+    
+      padding: 40px 0;
+      text-align: center;
+    
+
+   
+
+      
+      
+    }
+    
+    
+      .footer {
+      background-color: #4a595b;
+      color: #fff;
+      position: fixed;
+      padding: 20px 0;
+      text-align: center;
+      width: 100%;
+      
+      bottom: 0;
+      
+     
+    }
+    body {
+        height: 100vh;
+    }
+
+    
+    </style>
+
 </head>
+
 <body>
-    <h1>Risparmi C02 per ogni tipologia di veicolo</h1>
-    <canvas id="grafico"></canvas>
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="./">
+            <img id="logo" src="img/PW_logo.png" alt="logo">
+        </a>
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul id="navLinks" class="navbar-nav justify-content-end flex-grow-1 pe-3 fw-semibold gap-4 align-items-center">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#veicoli">Veicoli</a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="Chisiamo.html">Chi siamo</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </nav>
+  
+        
+    <!-- place navbar here -->
+  </header>
+  <main>
+   
+    <h1 style="margin-bottom:3rem; text-align: center;color: green;">Risparmi C02 per ogni tipologia di veicolo</h1>
 
-    <script>
-        const grafico = document.getElementById("grafico");
-        const URLgraf = "http://localhost:9020/api/veicolo";
+   <div class="container">
+       <div class="row">
 
-        let autoBenzina = 0;
-        let biciElettriche = 0;
-        let autoElettriche=0;
+                <div class="col-lg-6">
+                    <canvas id="grafico" class="w-75 h-100"></canvas>
 
-        fetch(URLgraf)
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(veicolo => {
-                    if (veicolo.tipologia === 'Auto' && veicolo.alimentazione === 'Benzina') {
-                        autoBenzina++;
-                    } else if (veicolo.tipologia === 'Bicicletta' && veicolo.alimentazione === 'Elettrica') {
-                        biciElettriche++;
+                </div>
+
+                <div class="col-lg-6 d-flex align-items-center ">
+                    <p class="d-flex justify-content-start" style="font-family:  'Montserrat', sans-serif;">
                         
-                    }
-                    else if (veicolo.tipologia === 'Auto' && veicolo.alimentazione === 'Elettrica') {
-                        autoElettriche++;
-                    }
-                });
-                autoBenzina=autoBenzina*0;
-                biciElettriche=biciElettriche*1;
-                autoElettriche=autoElettriche*0.6;
-                console.log(autoBenzina+" "+biciElettriche);
+                        Il grafico a sinistra rappresenta l'emissione di CO2 generata dai veicoli a benzina,
+                        biciclette elettriche e auto elettriche nel contesto del nostro servizio di vehicle sharing ecologico. La particolare enfasi è sull'aspetto ecologico e sostenibile delle scelte di mobilità <br>
 
-                const config = {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Auto a benzina', 'Biciclette elettriche','Auto Elettrica'],
-                        datasets: [{
-                            data: [autoBenzina, biciElettriche, autoElettriche],
-                            backgroundColor: [
-                                'rgb(255, 99, 132)',
-                                'rgb(54, 162, 235)',
-                                'rgb(53, 211, 53)'
-                            ]
-                        }]
-                    },
-                    options: {
-                        responsive: true
-                    }
-                };
+                        Nel grafico, notiamo che l'emissione di CO2 derivante dalle auto a benzina è rappresentata come zero. Questo non significa che le auto a benzina non emettano CO2, ma è un'espressione simbolica che evidenzia come, dal punto di vista ambientale, l'utilizzo di auto a benzina non sia una scelta conveniente. <br>
 
-                new Chart(grafico, config);
-            })
-    </script>
+                        L'idea di fondo è che, a parità di tragitto o di utilizzo, le auto a benzina emettono una quantità significativamente maggiore di CO2 rispetto alle biciclette elettriche e alle auto elettriche. Di conseguenza, promuoviamo l'adozione di mezzi di trasporto elettrici e biciclette, poiché contribuiscono a una minore emissione di CO2 e all'abbassamento dell'impatto ambientale, favorendo così uno stile di vita più sostenibile e rispettoso dell'ambiente.
+                    </p>
+                </div> <!--chiusra col testo-->
+            </div>
+    </div>
+
+   
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+         
+
+        &copy; 2015 Azienda Frozen
+      
+      </div>
+    
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script>
+    const grafico = document.getElementById("grafico");
+    const URLgraf = "http://localhost:9020/api/veicolo";
+   
+
+    let autoBenzina = 0;
+    let biciElettriche = 0;
+    let autoElettriche=0;
+
+    fetch(URLgraf)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(veicolo => {
+                if (veicolo.tipologia === 'Auto' && veicolo.alimentazione === 'Benzina') {
+                    autoBenzina++;
+                } else if (veicolo.tipologia === 'Bicicletta' && veicolo.alimentazione === 'Elettrica') {
+                    biciElettriche++;
+                    
+                }
+                else if (veicolo.tipologia === 'Auto' && veicolo.alimentazione === 'Elettrica') {
+                    autoElettriche++;
+                }
+            });
+            autoBenzina=autoBenzina*0;
+            biciElettriche=biciElettriche*1;
+            autoElettriche=autoElettriche*0.6;
+            console.log(autoBenzina+" "+biciElettriche);
+
+            const config = {
+                type: 'doughnut',
+                data: {
+                    labels: ['Auto a benzina', 'Biciclette elettriche','Auto Elettrica'],
+                    datasets: [{
+                        data: [autoBenzina, biciElettriche, autoElettriche],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(53, 211, 53)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    
+                    
+                }
+            };
+
+            new Chart(grafico, config);
+        })
+</script>
 </body>
+
 </html>
