@@ -38,6 +38,8 @@ CREATE TABLE archivioutenti (
 );
 ALTER TABLE archivioutenti
 MODIFY COLUMN dataiscrizione TIMESTAMP DEFAULT CURRENT_TIMESTAMP();
+ALTER TABLE archivioutenti
+MODIFY COLUMN  ultimamodifica TIMESTAMP DEFAULT CURRENT_TIMESTAMP();
 
 INSERT INTO archivioutenti (ultimamodifica,userid, password, firma, tipo, nome, cognome, nascita, email, dataiscrizione)  
 VALUES ('2023-10-11','Amministratore', 'Amministratore', 'Amministratore dei servizi', 'A',  

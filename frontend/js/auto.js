@@ -47,12 +47,26 @@ let user = JSON.parse(localStorage.getItem(`user1`));
 console.log('ID:', id);
 
 
+let map = new L.Map('map');
+let url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+var attrib = 'Map data (c)OpenStreetMap contributors';
+let osm = new L.TileLayer(url, {minZoom: 8, maxZoom: 16, attribution: attrib});
+map.setView(new L.LatLng(41.88,12.47),16);
+map.addLayer(osm);
+
+
+
+
+
+
 
 const URLauto = `http://localhost:9020/api/veicolo/${id}`;
 let demo = document.querySelector("#demo");
 const numeroCasuale = Math.random() * (150 - 40 + 1) + 40;
 
 const numeroConDueDecimali = numeroCasuale.toFixed(2);
+
+
 
 
 
@@ -73,6 +87,7 @@ fetch(URLauto)
           <p class="card-text mt-5"><strong>Alimentazione:</strong> ${data.alimentazione}</p>
           <p class="card-text"><strong>Descrizione:</strong> ${data.tipologia}</p>
           <p class="card-text"><strong>Disponibilità:</strong> ${data.disponibilita}</p>
+          <p class="card-text"><strong>Prezzo noleggio:</strong> ${numeroConDueDecimali} euro</p>
           <p class="card-text"><strong>Localizzazione:</strong> ${posizione}</p>
 
           <p class="card-text"><strong>Prezzo noleggio:</strong> ${numeroConDueDecimali} euro</p>
@@ -94,8 +109,8 @@ fetch(URLauto)
           map.setView([lat, lon], 16);
           //L.marker([lat, lon]).addTo(map).bindPopup("Il veicolo è qui").openPopup();
           var customIcon = L.icon({
-            iconUrl: './img/auto.png', // Inserisci il percorso dell'icona personalizzata
-            iconSize: [60, 45],
+            iconUrl: './img/car.png', // Inserisci il percorso dell'icona personalizzata
+            iconSize: [65, 65],
             iconAnchor: [20, 40],
         });
 
@@ -108,42 +123,7 @@ fetch(URLauto)
   });
 
 
-    let map = new L.Map('map');
-let url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-let attrib = 'Map data (c)OpenStreetMap contributors';
-let osm = new L.TileLayer(url, {minZoom: 8, maxZoom: 16, attribution: attrib});
-map.setView(new L.LatLng(41.88,12.47),16);
-map.addLayer(osm);
-// L.marker([41.88,12.47]).addTo(map).bindPopup("ritirami").openPopup();
-let marker; 
-
-function auto() {
-
-  let URLAuto=` http://localhost:9020/api/veicolo/${id}`  ;
-
-  
-  fetch(URLAuto)
-      .then(data => {
-          return data.json()
-      })
-      .then(response => {
-
-          response.forEach(item => {
-            console.log(item.posizione);
-              
-          
-         
-
-       
-
-      });
-      })
-  
-}
-
-let btn=document.querySelector("#invia");
-document.getElementById('moduloPreventivo').addEventListener('submit', function(event) {
-  event.preventDefault(); 
+    
 
     
 
