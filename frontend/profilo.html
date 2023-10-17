@@ -12,7 +12,7 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/profilo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+   
 
 
 </head>
@@ -38,8 +38,8 @@
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="home"><i
-                                    class="ri-home-8-line" style="font-size: 3rem;"></i></span></a>
+                            <a class="nav-link active ms-5 text-success" href="index.html" aria-current="page"
+                                id="home"><i class="ri-home-8-line" style="font-size: 3rem;"></i></span></a>
                         </li>
                         <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle ms-5 text-success" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Auto</a>
@@ -65,111 +65,150 @@
                         <div class="card">
                             <img src="./img/SL.webp" class="card-img-top" alt="Immagine del profilo">
                             <div class="card-body">
-                                <h5 class="card-title">Nome Utente</h5>
-                                <p class="card-text">Descrizione del profilo.</p>
-                                <a href="#" class="btn btn-primary">Modifica Profilo</a>
+                                <h5 class="card-title" id="N1">Utente1</h5>
+                                <p class="card-text" id="descrizione">🚗 Amante dei Viaggi Sostenibili 🌍<br>
+
+                                    Ciao! Sono un appassionato sostenitore della mobilità sostenibile e utilizzo il car sharing come parte del mio stile di vita. Sono sempre in movimento e credo che condividere le auto sia un modo intelligente per ridurre l'impatto ambientale e risparmiare denaro.</p>
+                                    <a href="#" class="btn btn-primary" id="btnMpro">Modifica Profilo</a>
+                                    
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7" id="container">
-                    <h1 class="text-center text-light mb-5">Storico Prenotazioni</h1>
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper " id="swiper">
-                            <div class="swiper-slide">
-                                <div class="card h-100 d-flex" id="bgAuto">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <img class="card-img-top" style="width: 20rem; height: 12rem;"
-                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBR8IxwAYHRZTXRa13BmD7lLQRL1BhUkrjLQ&usqp=CAU"
-                                                    alt="Title">
 
-                                            </div>
-                                            <div class="col-lg-5 ">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Audi A7</h4>
-                                                    <p class="card-text">Noleggio: 10/10/2022&nbsp;-&nbsp;14/10/2022
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="modal" id="editProfileModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modifica Profilo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="name">Nome:</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
-                                </div>
-                            </div><!-- chiusura prima card-->
-                            <div class="swiper-slide">
-                                <div class="card h-100 d-flex" id="bgAuto">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <img class="card-img-top" style="width: 20rem; height: 12rem;"
-                                                    src="https://images.businessonline.it/news/384/tesla-lancia-silenziosamente-le-versioni-economiche-di-model-s-e-model-x-prezzi-e-autonomia-a-confronto-4929672.png"
-                                                    alt="Title">
-
-                                            </div>
-                                            <div class="col-lg-5">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Tesla Model S</h4>
-                                                    <p class="card-text">Noleggio: 02/03/2023&nbsp;-&nbsp;05/03/2023
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="password">Password:</label>
+                                        <input type="password" class="form-control" id="password" name="password" required>
                                     </div>
-                                </div>
-                            </div><!-- chiusura prima card-->
-                            <div class="swiper-slide">
-                                <div class="card h-100 " id="bgAuto">
-                                    <div class="container">
-                                        <div class="row ">
-                                            <div class="col-lg-6">
-                                                <img class="card-img-top" style="width: 20rem; height: 12rem;"
-                                                    src="https://www.bmw.com.ec/content/dam/bmw/common/all-models/x-series/series-overview/bmw-x-series-overview-page-model-carousel-14.jpg"
-                                                    alt="Title">
-
-                                            </div>
-                                            <div class="col-lg-5 ">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">BMW X</h4>
-                                                    <p class="card-text">Noleggio: 17/06/2023&nbsp;-&nbsp;22/06/2023
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="description">Descrizione:</label>
+                                        <textarea class="form-control" id="description" name="description"></textarea>
                                     </div>
-                                </div>
-                            </div><!-- chiusura prima card-->
-                            
-
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                <button type="button" class="btn btn-primary" id="saveChanges">Salva Modifiche</button>
+                            </div>
                         </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-lg-7" id="container">
+                    <div class="container">
+                        <h1 class="text-center text-light mb-5">Storico Prenotazioni</h1>
+                        <!-- <div class="swiper mySwiper">
+                        <div class="swiper-wrapper " id="swiper">
+                            <div class="swiper-slide"> -->
+                        <div class="card h-100 d-flex" id="bgAuto">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 d-flex justify-content-end">
+                                        <img class="card-img-top" style="width: 10rem; height: 6rem;"
+                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBR8IxwAYHRZTXRa13BmD7lLQRL1BhUkrjLQ&usqp=CAU"
+                                            alt="Title">
+
+                                    </div>
+                                    <div class="col-lg-5 ">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Audi A7</h4>
+                                            <p class="card-text">Noleggio: 10/10/2022&nbsp;-&nbsp;14/10/2022
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div>
+                            <div class="swiper-slide"> -->
+                        <div class="card h-100 d-flex" id="bgAuto">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 d-flex justify-content-end">
+                                        <img class="card-img-top" style="width: 10rem; height: 6rem;"
+                                            src="https://images.businessonline.it/news/384/tesla-lancia-silenziosamente-le-versioni-economiche-di-model-s-e-model-x-prezzi-e-autonomia-a-confronto-4929672.png"
+                                            alt="Title">
+
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Tesla Model S</h4>
+                                            <p class="card-text">Noleggio:  02/03/2023&nbsp;-&nbsp;05/03/2023
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div>
+                            <div class="swiper-slide"> -->
+                        <div class="card h-100 " id="bgAuto">
+                            <div class="container">
+                                <div class="row ">
+                                    <div class="col-lg-6 d-flex justify-content-end">
+                                        <img class="card-img-top" style="width: 10rem; height: 6rem;"
+                                            src="https://www.bmw.com.ec/content/dam/bmw/common/all-models/x-series/series-overview/bmw-x-series-overview-page-model-carousel-14.jpg"
+                                            alt="Title">
+
+                                    </div>
+                                    <div class="col-lg-5 ">
+                                        <div class="card-body">
+                                            <h4 class="card-title">BMW X</h4>
+                                            <p class="card-text">Noleggio: 17/06/2023&nbsp;-&nbsp;22/06/2023
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+
+
+                        <!-- </div>
 
 
 
                         <div class="swiper-pagination"></div>
+                    </div> -->
+
                     </div>
-
                 </div>
-                <div class="col-lg-2 me-5" id="container">
-                    <h3 class="text-light mb-5">In Corso:</h3>
+                <div class="col-lg-2 me-5" id="container" >
+                    <h3 class="text-light mb-5 ms-3">In Corso:</h3>
 
-                    <div class="card" id="bgAuto">
+                    <div id="spa">
+                        <div class="card d-block" id="bgAuto">
+                            <img class="card-img-top ms-3" style="width: 12rem; height: 10rem;"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHLVVXGNTUbsn5aRC5DfygldfVhuCl813pRw&usqp=CAU"
+                                alt="Title">
+                            <div class="card-body">
+                                <h4 class="card-title">Mercedes</h4>
+                                <p class="card-text h-100">
+                                    <p class="">Noleggio: <br> 18/10/2023&nbsp;-&nbsp;24/10/2023</p>
+                                </p>
+                            </div>
                         
-                                
-                                    <img class="card-img-top" style="width: 20rem; height: 15rem;"
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHLVVXGNTUbsn5aRC5DfygldfVhuCl813pRw&usqp=CAU"
-                                        alt="Title">
-
-                             
-                              
-                                    <div class="card-body">
-                                        <h4 class="card-title">Mercedes</h4>
-                                        <p class="card-text h-100">
-                                            <p class="ms-3">Noleggio:</p> 
-                                            <p>18/10/2023&nbsp;-&nbsp;24/10/2023</p>
-                                        </p>
-                                    </div>
-                               
-                            
+                            <button type="button" class="btn btn-danger" id="btnAlert">Elimina prenotazione</button>
+                        
+                        </div>
                     </div>
                 </div>
             </div>
@@ -186,8 +225,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
     <script src="./js/profilo.js"></script>
+
+    
 
 </body>
 
