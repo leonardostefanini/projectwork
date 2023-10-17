@@ -120,7 +120,7 @@ autoV.addEventListener("click", function () {
                     }else{
                       disponibilita=false;
                     }
-                    listItem.innerHTML = `<li class="list-group-item w-100">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${disponibilita} - ${element.data_prenotazione} - ${element.immagine} - ${element.utente.userid}</li>`;
+                    listItem.innerHTML = `<li class="list-group-item w-100">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${disponibilita} - ${element.data_prenotazione}  - ${element.utente.userid}</li>`;
                     let vehicleId = element.id;
                     del(vehicleId,listItem)
                     mod1(vehicleId, listItem, form, btnModifica)
