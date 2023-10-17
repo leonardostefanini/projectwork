@@ -85,15 +85,22 @@ CREATE TABLE veicolo (
   FOREIGN KEY (user_id) REFERENCES archivioutenti(userid)
 );
 
-insert into veicolo(tipologia,alimentazione,descrizione,posizione,disponibilita,data_prenotazione,immagine,user_id)
-values();
 INSERT INTO veicolo (tipologia, alimentazione, descrizione, posizione, disponibilita,immagine, user_id)
-VALUES ('BMW', 'Benzina', 'BMW x1, blu, 2000cc ', 'Roma', true, 'image.jpg', 'utente1');
+VALUES ('Auto', 'Benzina', 'BMW x1, 200cc ', 'Roma', true, 'https://web.imgstore.it/86f8f5fbe76b42739d2166c2e7be8c98_orig.jpg', 'utente1');
+ INSERT INTO veicolo (tipologia, alimentazione, descrizione, posizione, disponibilita,immagine, user_id)
+VALUES ('Auto', 'Elettrica', 'Tesla model 3, 283cc ', 'Roma', true, 'https://static-assets.tesla.com/configurator/compositor?&bkba_opt=1&view=FRONT34&size=1400&model=ms&options=$MDLS,$MTS14,$PPSW,$WS10,$APBS,$SC04,$CPF0,$TW01,$IWC00,$ST0Y&crop=1400,850,300,130&', 'utente1');
 INSERT INTO veicolo (tipologia, alimentazione, descrizione, posizione, disponibilita,immagine, user_id)
-VALUES ('BMW', 'Benzina', 'BMW x2, giallo, 2000cc ', 'Roma', true, 'image.jpg', 'utente2');
+VALUES ('Auto', 'Elettrica', 'Ford Mustang Mach-E, 487cc ', 'Roma', true, 'https://www.ford.it/content/dam/guxeu/rhd/central/cars/2019-cx727/pre-launch/gt-white.png.renditions.original.png', 'utente1');
+ INSERT INTO veicolo (tipologia, alimentazione, descrizione, posizione, disponibilita,immagine, user_id)
+VALUES ('Auto', 'Elettrica', 'Polestar 3, 517cc ', 'Roma', true, 'https://cdn.drivek.com/configurator-icon/cars/it/$original$/POLESTAR/3/41390_SUV-5-DOORS/polestar-3-side-view.png', 'utente1');
 INSERT INTO veicolo (tipologia, alimentazione, descrizione, posizione, disponibilita,immagine, user_id)
-VALUES ('BMW', 'Benzina', 'BMW x3, verde, 2000cc ', 'Roma', true, 'image.jpg', 'Amministratore');
-
+VALUES ('Auto', 'Elettrica', 'Hyundai Ioniq 6, 325cc ', 'Roma', true, 'https://www.sunmotor.com/wp-content/uploads/2020/03/Nocturne-Gray-Matte-310x190.png', 'utente1');
+INSERT INTO veicolo (tipologia, alimentazione, descrizione, posizione, disponibilita,immagine, user_id)
+VALUES ('Auto', 'Elettrica', 'BMW i7, 455cc ', 'Roma', true, 'https://images.dealer.com/ddc/vehicles/2024/BMW/i7/Sedan/trim_M70_a4ebb0/color/Oxide%20Gray%20Metallic-C4A-45%2C46%2C50-640-en_US.jpg', 'utente1');
+INSERT INTO veicolo (tipologia, alimentazione, descrizione, posizione, disponibilita,immagine, user_id)
+VALUES ('Auto', 'Elettrica', 'Tesla Model S, 670cc ', 'Roma', true, 'https://static-assets.tesla.com/configurator/compositor?&bkba_opt=1&view=FRONT34&size=1400&model=ms&options=$MDLS,$MTS14,$PPSW,$WS10,$APBS,$SC04,$CPF0,$TW01,$IWC00,$ST0Y&crop=1400,850,300,130&', 'utente1');
+INSERT INTO veicolo (tipologia, alimentazione, descrizione, posizione, disponibilita,immagine, user_id)
+VALUES ('Bicicletta', 'Elettrica', 'XIAOMI MI Electric Scooter', 'Roma', true, 'https://images.eprice.it/nobrand/0/lightbox/654/303255654/39761789_1709950131.jpg','utente1');
 
 
 drop table ordini;
@@ -108,7 +115,7 @@ FOREIGN KEY (veicolo_id) REFERENCES veicolo(id)
 ); 
 
 INSERT INTO ordini (descrizione, veicolo_id, user_id)
-VALUES ('utente1 ha prenotato un auto', 1, 'utente2');
+VALUES ('utente2 ha prenotato', 1, 'utente2');
 
 /*alter table ordini 
 add constraint fk_idAuto 

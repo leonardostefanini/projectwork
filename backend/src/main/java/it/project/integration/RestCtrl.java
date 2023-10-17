@@ -59,7 +59,7 @@ public class RestCtrl {
 //	}
 	
 	 @PutMapping("veicolo/{id}")
-	    public Veicolo updateV(@PathVariable int id, @RequestBody Veicolo updatedVeicolo) {
+	    public Veicolo updateV(@PathVariable int id, @RequestBody VeicoloDto updatedVeicolo) {
 	        // Verifica se il veicolo esiste
 	        Veicolo existingVeicolo = veicoloService.getById(id);
 
@@ -78,6 +78,23 @@ public class RestCtrl {
 	        return veicoloService.update(existingVeicolo);
 	    }
 	
+	 @PutMapping("veicolo")
+	    public Veicolo updateV( @RequestBody VeicoloDto updatedVeicolo) {
+	        // Verifica se il veicolo esiste
+	        Veicolo existingVeicolo = veicoloService.getById(updatedVeicolo.getVeicoloId());	      
+
+	        // Aggiorna i campi del veicolo esistente con i dati forniti nel corpo della richiesta
+	        existingVeicolo.setDescrizione(updatedVeicolo.getDescrizione());
+//	        existingVeicolo.setUserid(updatedVeicolo.getUserid());
+	        existingVeicolo.setTipologia(updatedVeicolo.getTipologia());
+	        existingVeicolo.setAlimentazione(updatedVeicolo.getAlimentazione());
+	        existingVeicolo.setDisponibilita(updatedVeicolo.isDisponibilita());
+	        existingVeicolo.setImmagine(updatedVeicolo.getImmagine());
+	        existingVeicolo.setPosizione(updatedVeicolo.getPosizione());
+
+	        // Esegui l'aggiornamento nel servizio e restituisci il veicolo aggiornato
+	        return veicoloService.update(existingVeicolo);
+	    }
 	
 	@DeleteMapping("veicolo/{id}") 
 	public void deleteVeicolo(@PathVariable int id) {
@@ -185,21 +202,3 @@ public class RestCtrl {
 	
 	
 } // classe
-			
-		 
-		
-		
-		
-	
-	
-
-
-
-
-	
-
-	
-	
-	
-
-   

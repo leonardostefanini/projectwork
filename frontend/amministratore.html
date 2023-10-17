@@ -31,34 +31,30 @@
 
 <body>
   <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light  static-top position-fixed fixed-top">
       <div class="container">
-  
-       <!-- ----------------------------------------------- -->
-          <a class="navbar-brand" href="./"><img src="./img/PW_logo.png" alt="" style="height: 6rem;"></a>
-          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-
-          <!-- ------------------------------------------------------------------------ -->
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="collapsibleNavId">
-          <ul id="navLinks" class="navbar-nav align-items-center">
+        <div class="navbar-brand" href="#">
+          <a class="navbar-brand" href="./"><img src="./img/PW_logo.png" alt="" style="height: 3rem;"></a>
+        </div>
+        <button class="navbar-toggler" id="bt3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul id="navLinks" class="navbar-nav align-items-center ms-auto">
             <li class="nav-item">
-              <a class="nav-link active text-success" href="#" aria-current="page" id="VUtenti"><i class="ri-group-line" style="font-size: 3rem;"></i></a>
+              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="VUtenti"><i class="ri-group-line" style="font-size: 1.5rem;"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="VOrdini"><i class="ri-shopping-cart-line" style="font-size: 3rem;"></i></span></a>
+              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="VOrdini"><i class="ri-shopping-cart-line" style="font-size: 1.5rem;"></i></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="autoV"><i class="ri-car-line"  style="font-size: 3rem;"></i></span></a>
+              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="autoV"><i class="ri-car-line"  style="font-size: 1.5rem;"></i></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="autoA"><i class="ri-add-line" style="font-size: 3rem;"></i></span></a>
+              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="autoA"><i class="ri-add-line" style="font-size: 1.5rem;"></i></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="home"><i class="ri-home-8-line" style="font-size: 3rem;"></i></span></a>
+              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="home"><i class="ri-home-8-line" style="font-size: 1.5rem;"></i></span></a>
             </li>
             <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle ms-5 text-success" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Auto</a>
@@ -71,11 +67,9 @@
             </li> -->
           </ul>
         </div>
-
-        <!-- ------------------------------------------------------------------- SINISTRA -------------------------------------------------------------------------------------------->
+      </div>
      
-    </div>
-  </nav>
+    </nav>
   
   </header>
   <main>
@@ -84,7 +78,7 @@
 
     <div class="container" id="tutto">
       <div class="row">
-        <div class="col-lg-9"  id="container">
+        <div class="col-6 col-lg-9"  id="container">
 
 
 <ul class="list-group list-group mt-2" id="lista">
@@ -95,7 +89,7 @@
 
         </div>
         <!-- ----------------------------------------------------------------------- DESTRA------------------------------------------------------------------------------------- -->
-        <div class="col-lg-3 d-none " id="form">
+        <div class=" col-6 col-lg-3 d-none " id="form">
 
           <div class="container mt-2 ms-0">
             <div class="dropdown" >
@@ -142,19 +136,22 @@
               
               
           </div> -->
-
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="disponibileTrue" name="disponibilita" value="true">
-            <label class="form-check-label" for="disponibileTrue">
-              True
-            </label>
+          <label for="" class="form-label mt-2">Disponibilità</label>
+          <div class="d-flex align-items-center">
+            <div class="form-check me-3">
+              <input class="form-check-input" type="radio" id="disponibileTrue" name="disponibilita" value="true">
+              <label class="form-check-label" for="disponibileTrue">
+                True
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="disponibileFalse" name="disponibilita" value="false">
+              <label class="form-check-label" for="disponibileFalse">
+                False
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="disponibileFalse" name="disponibilita" value="false">
-            <label class="form-check-label" for="disponibileFalse">
-              False
-            </label>
-          </div>
+          
           
           
         
@@ -165,7 +162,8 @@
             <label for="" class="form-label mt-2">Immagine</label>
             <input type="text" name="" id="input5" class="form-control mb-2" placeholder="Inserisci Link" aria-describedby="helpId">
 
-            <button type="button" class="btn btn-primary" id="btnInvia">Invia Dati</button>
+            <button type="button" class="btn btn-primary d-none mt-3" id="btnInvia">Invia Dati</button>
+            <button type="button" class="btn btn-info d-none mt-3" id="btnModifica">Modifica Dati</button>
       
           </div>
           
