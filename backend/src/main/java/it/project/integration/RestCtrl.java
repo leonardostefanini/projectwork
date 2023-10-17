@@ -59,7 +59,7 @@ public class RestCtrl {
 //	}
 	
 	 @PutMapping("veicolo/{id}")
-	    public Veicolo updateV(@PathVariable int id, @RequestBody Veicolo updatedVeicolo) {
+	    public Veicolo updateV(@PathVariable int id, @RequestBody VeicoloDto updatedVeicolo) {
 	        // Verifica se il veicolo esiste
 	        Veicolo existingVeicolo = veicoloService.getById(id);
 

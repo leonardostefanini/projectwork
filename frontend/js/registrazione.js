@@ -1,15 +1,30 @@
-btnregistrami.addEventListener("click", function(){
-    const URL1 = "http://localhost:9020/api/utente";
+let occhio = document.querySelector("#occhio");
+let password = document.querySelector("#password");
 
+occhio.addEventListener("click", function() {
+    if(occhio.classList.contains("fa-eye-slash")){
+        occhio.classList.remove("fa-eye-slash");
+        occhio.classList.add("fa-eye");
+        password.setAttribute("type", "text");
+    }
+    else {
+        occhio.classList.remove("fa-eye");
+        occhio.classList.add("fa-eye-slash");
+        password.setAttribute("type", "password");
+    }
+});
 
-    let inputUser = document.querySelector("#user").value;
-    let inputPassword = document.querySelector("#password").value;
-    let inputFirma = document.querySelector("#firma").value;
+document.querySelector("button").addEventListener("click", function() {
+    
+    const URL = "http://localhost:9020/api/utente";
 
-    let inputNome = document.querySelector("#nome").value;
-    let inputCognome = document.querySelector("#cognome").value;
-    let inputNascita = document.querySelector("#nascita").value;
-    let inputEmail = document.querySelector("#email").value;
+    let inputUser = document.querySelector("#user").value.trim();
+    let inputPassword = document.querySelector("#password").value.trim();
+    let inputFirma = document.querySelector("#firma").value.trim();
+    let inputNome = document.querySelector("#nome").value.trim();
+    let inputCognome = document.querySelector("#cognome").value.trim();
+    let inputNascita = document.querySelector("#nascita").value.trim();
+    let inputEmail = document.querySelector("#email").value.trim();
    
 
     let nuovoUser = {
@@ -21,10 +36,9 @@ btnregistrami.addEventListener("click", function(){
         cognome: inputCognome,
         nascita: inputNascita,
         email: inputEmail,
-       
     }
 
-    fetch(URL1, {
+    fetch(URL, {
         method: "POST",
         headers: {
             'Content-type': 'application/json'
@@ -36,21 +50,5 @@ btnregistrami.addEventListener("click", function(){
     )
     .then(response=>{
         location.href="index.html";
-        
-                        
-                    })
-})
-let registrami = document.querySelector("#registrami");
-
-registrami.addEventListener("click",function(){
-
-    let sfondo = document.querySelector("#sfondo");
-
-    if(sfondo.classList.contains("d-none")){
-
-        sfondo.classList.remove("d-none")
-    }else{
-        sfondo.classList.add("d-none")
-    }
-
+    })
 })

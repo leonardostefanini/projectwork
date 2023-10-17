@@ -129,7 +129,7 @@ autoV.addEventListener("click", function () {
                 deleteButton.innerHTML = `<i class="ri-delete-bin-5-fill" id="del"></i>`;
     
                 
-                const vehicleId = element.id;
+                let vehicleId = element.id;
 
                 deleteButton.addEventListener("click", function () {
                   
@@ -155,7 +155,7 @@ autoV.addEventListener("click", function () {
                btnM.setAttribute("type", "button");
                 btnM.setAttribute("id", "btndelete");
                 btnM.innerHTML = `<i class="ri-edit-2-fill" id="cha"></i>`;          
-
+let btnModifica=document.getElementById("btnModifica");
 
                 btnM.addEventListener("click", function () {                   
                     
@@ -164,6 +164,12 @@ autoV.addEventListener("click", function () {
                         form.classList.remove("d-none")
                     } else {
                         form.classList.add("d-none")
+                    }
+
+                    if (btnModifica.classList.contains("d-none")) {
+                        btnModifica.classList.remove("d-none")
+                    } else {
+                        btnModifica.classList.add("d-none")
                     }
                     const URL2 = `http://localhost:9020/api/veicolo/${vehicleId}`;
                 
@@ -197,6 +203,54 @@ autoV.addEventListener("click", function () {
                         })
                     
                 });
+
+             btnModifica.addEventListener("click",function () {
+                const URLup = `http://localhost:9020/api/veicolo/${vehicleId}`;
+
+                console.log(vehicleId);
+
+                let triggerId = document.getElementById("triggerId").textContent;
+                let triggerId1 = document.getElementById("triggerId1").textContent;
+                let input1 = document.querySelector("#input1").value;
+                let input2 = document.querySelector("#input2").value;
+            
+                let input3True = document.querySelector("#disponibileTrue");
+            let input3False = document.querySelector("#disponibileFalse");
+            let input3 = input3True.checked ? input3True.value : input3False.value;
+            
+            
+                let input4 = document.querySelector("#input4").value;
+                let input5 = document.querySelector("#input5").value;
+            
+                let nuovoVeicoloM = {
+                    tipologia: triggerId,
+                    alimentazione: triggerId1,
+                    descrizione: input1,
+                    posizione: input2,
+                    disponibilita: input3,
+                    data_prenotazione: input4,
+                    immagine: input5,
+                    userid: "Amministratore"
+                }
+            
+                
+            
+                fetch(URLup, {
+                    method: "PUT",
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify(nuovoVeicoloM)
+                })
+                .then(data => {
+                    return data.json()
+                })
+                .then(response => {
+                    location.href = "amministratore.html";
+                });
+            });
+                
+            
     
                
                      listItem.appendChild(deleteButton);
@@ -221,6 +275,15 @@ autoA.addEventListener("click", function () {
     } else {
         form.classList.add("d-none")
     }
+
+    let btnInvia = document.getElementById("btnInvia");
+    if (btnInvia.classList.contains("d-none")) {
+        btnInvia.classList.remove("d-none")
+    } else {
+        btnInvia.classList.add("d-none")
+    }
+
+ 
 })
 
 
@@ -251,7 +314,7 @@ let input3 = input3True.checked ? input3True.value : input3False.value;
         disponibilita: input3,
         data_prenotazione: input4,
         immagine: input5,
-        userid: "utente2"
+        userid: "Amministratore"
     }
 
     

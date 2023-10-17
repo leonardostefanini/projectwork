@@ -70,5 +70,8 @@ document.getElementById('moduloPreventivo').addEventListener('submit', function(
     document.getElementById('email').value = '';
     document.getElementById('indirizzo').value = '';
     document.getElementById('telefono').value = '';
+    
+   
+    
   });
-});
+  });
