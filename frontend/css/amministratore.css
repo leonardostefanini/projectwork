@@ -1,6 +1,6 @@
 main {
     position: relative;
-    height: 100vh;
+    height: 90.3vh;
     
 }
 
@@ -28,6 +28,11 @@ main::before {
     margin-bottom: 1rem;   
     
 }
+
+/* #nav{
+    display: flex;
+    justify-content: end;
+} */
 
 #lista{
     /* background-color: rgba(215, 215, 215, 0.3); */
@@ -57,4 +62,5 @@ main::before {
 #tutto{
     background-color: rgba(215, 215, 215, 0.3);
     height: 40rem;
+    margin-top: 5rem;
 }
