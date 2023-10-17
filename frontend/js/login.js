@@ -37,6 +37,8 @@ document.querySelector("button").addEventListener("click", function() {
                             titolo: "Amministratore"
                         };
                         localStorage.setItem("user", JSON.stringify(userLoggato));
+                        localStorage.setItem("user1", JSON.stringify(user));
+
                         utenteTrovato = true;
                         location.href = "amministratore.html";
                     }
@@ -47,6 +49,7 @@ document.querySelector("button").addEventListener("click", function() {
                             titolo: "Utente"
                         };
                         localStorage.setItem("user", JSON.stringify(userLoggato));
+                        localStorage.setItem("user1", JSON.stringify(user));
                         utenteTrovato = true;
                         location.href = "./";
                     }

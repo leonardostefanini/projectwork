@@ -57,3 +57,16 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+.map-wrap
+{
+    width: 1255px;
+    height: 400px;
+
+}
+
+#map
+{
+    width: 1255px;
+    height: 400px;
+}
