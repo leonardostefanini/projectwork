@@ -180,4 +180,3 @@ document.getElementById('moduloPreventivo').addEventListener('submit', function(
       document.getElementById('endDate').value = '';
     });
   });
-  
