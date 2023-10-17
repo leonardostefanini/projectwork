@@ -47,12 +47,12 @@ function auto() {
           
           </div>`);
 
-          console.log(td.tipologia);
+          
       });
       })
   
 }
-
+auto(); 
 
   //  function slide(immagine,tipologia,descrizione) {
 
@@ -109,5 +109,19 @@ else {
   </a>
 </li>`
 }
-auto(); 
+
+
+function tornaAllInizio() {
+  document.body.scrollTop = 0; // Per Safari
+  document.documentElement.scrollTop = 0; // Per altri browser
+}
+
+// Mostra/nascondi il pulsante in base alla posizione dello schermo
+window.onscroll = function() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("torna-all-inizio").style.display = "block";
+  } else {
+      document.getElementById("torna-all-inizio").style.display = "none";
+  }
+};
 
