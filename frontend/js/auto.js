@@ -178,5 +178,5 @@ document.getElementById('moduloPreventivo').addEventListener('submit', function(
       document.getElementById('startDate').value = '';
       document.getElementById('endDate').value = '';
     });
-  });
-  
+  }
+
