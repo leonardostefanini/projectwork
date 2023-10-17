@@ -87,6 +87,7 @@ fetch(URLauto)
           <p class="card-text mt-5"><strong>Alimentazione:</strong> ${data.alimentazione}</p>
           <p class="card-text"><strong>Descrizione:</strong> ${data.tipologia}</p>
           <p class="card-text"><strong>Disponibilità:</strong> ${data.disponibilita}</p>
+          <p class="card-text"><strong>Prezzo noleggio:</strong> ${numeroConDueDecimali} euro</p>
           <p class="card-text"><strong>Localizzazione:</strong> ${posizione}</p>
 
           <p class="card-text"><strong>Prezzo noleggio:</strong> ${numeroConDueDecimali} euro</p>
