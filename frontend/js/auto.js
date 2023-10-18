@@ -1,36 +1,27 @@
 let ul = document.querySelector("#navLinks");
+let form = document.querySelector("#bookingForm");
 if(localStorage.getItem("user")){
   let user = JSON.parse(localStorage.getItem("user"));
   if(user.tipo === "A") {
     ul.innerHTML += `<li class="nav-item">
     <a class="nav-link" href="amministratore.html">Pannello</a>
-    </li>`;
-    ul.innerHTML += `<li class="nav-item">
-    <div class="d-flex align-items-center gap-3">
-      <i class="fa-solid fa-circle-user" style="color: #4d87ea; font-size: 1.5rem;"></i>
-      <div class="d-flex flex-column">
-        <span class="fw-medium text-secondary" style="font-size: 0.7rem; margin-top: -0.5rem;">${user.titolo}</span>
-        <span style="margin-top: -0.3rem">${user.user}</span>
-      </div>
-    </div>
-    </li>`;
-  }
-  else if(user.tipo === "U") {
-    ul.innerHTML += `<li class="nav-item">
-    <div class="d-flex align-items-center gap-3">
-      <a href="profilo.html" style="margin-bottom: -0.1rem;"><i class="fa-solid fa-circle-user" style="color: #4d87ea; font-size: 1.8rem;"></i></a>
-      <div class="d-flex flex-column">
-        <span class="fw-medium text-secondary" style="font-size: 0.7rem;">${user.titolo}</span>
-        <a href="profilo.html" style="text-decoration: none; margin: 0; padding: 0; margin-top: -0.3rem; color: black!important;"><span>${user.user}</span></a>
-      </div>
-    </div>
-    </li>`;
+  </li>`;
   }
   ul.innerHTML += `<li class="nav-item">
+  <div class="d-flex align-items-center gap-3">
+    <i class="fa-solid fa-user" style="color: #4d87ea; font-size: 1.2rem;"></i>
+    <div class="d-flex flex-column">
+      <span class="fw-medium text-secondary" style="font-size: 0.7rem; margin-top: -0.5rem;">${user.titolo}</span>
+      <span style="margin-top: -0.3rem">${user.user}</span>
+    </div>
+  </div>
+</li>
+<li class="nav-item">
   <a href="logout.html">
     <button type="button" class="btn btn-danger px-3">Logout</button>
   </a>
 </li>`;
+form.innerHTML += `<button type="submit" class="btn btn-success" id="invia">Invia richiesta</button>`;
 }
 else {
   ul.innerHTML += `<li class="nav-item">
@@ -43,7 +34,11 @@ else {
     <button type="button" class="btn btn-success px-3">Login</button>
   </a>
 </li>`
+form.innerHTML += `<div class="bg-warning d-inline-flex p-2 rounded-2">
+<a href="login.html" style="text-decoration: none; color: black;">Fai il login per prenotare</a>
+</div>`;
 }
+
 
 
 const id = localStorage.getItem('autoId');

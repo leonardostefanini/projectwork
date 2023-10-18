@@ -58,7 +58,7 @@ body {
   margin-right: auto;
 }
 
-.map-wrap
+/* .map-wrap
 {
     width: 1255px;
     height: 400px;
@@ -69,4 +69,17 @@ body {
 {
     width: 1255px;
     height: 400px;
+} */
+
+.map-wrap
+{
+    width: 500px;
+    height: 500px;
+
+}
+
+#map
+{
+    width: 500px;
+    height: 500px;
 }
