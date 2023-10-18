@@ -61,7 +61,13 @@
     body {
         height: 100vh;
     }
-
+    #movingIcon {
+            position: absolute;
+            top: 655px; /* Altezza iniziale */
+            left: 0; /* Posizione iniziale a sinistra */
+          
+            transition: left 8s;
+        }
     
     </style>
 
@@ -132,7 +138,10 @@
    
 
   </main>
-
+  <div class="">
+    <div class=""><img src="./img/A1.png" id="movingIcon" style="height: 10rem; width: auto;"></div>
+    <div class="d-flex justify-content-end"><img src="./img/C1.png"  style="margin-top:1.5rem;height: 10rem; width: auto;"></div>
+  </div>
   <footer class="footer">
     <div class="container">
          
@@ -152,6 +161,27 @@
   </script>
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    <script>
+   const movingIcon = document.getElementById("movingIcon");
+        const screenWidth = window.innerWidth; // Larghezza della finestra del browser
+        const iconWidth = 50; // Larghezza dell'icona in pixel
+
+        function moveIcon() {
+            movingIcon.style.left = (screenWidth - iconWidth -268) + "px"; // Sposta l'icona a destra
+
+            // Aspetta un po' e poi sposta l'icona a sinistra
+            setTimeout(function () {
+                movingIcon.style.left = "0"; // Sposta l'icona a sinistra
+            }, 8000); // Ritarda di 2 secondi
+        }
+
+        // Avvia l'animazione
+        moveIcon();
+
+        // Continua a ripetere l'animazione
+        setInterval(moveIcon, 16000); // Ripeti ogni 4 secondi
+
+        //---------------------------------------------------------------------------------------------------------
+
     let ul = document.querySelector("#navLinks");
     if(localStorage.getItem("user")){
       let user = JSON.parse(localStorage.getItem("user"));
