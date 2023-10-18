@@ -150,27 +150,40 @@
    
 
 
-    <div class="container">
+      <div class="container">
         <h2 class="mb-4 text-success">Modulo Prenotazione</h2>
-        <form  id="bookingForm">
-            <div class="form-group">
-                <label class="form-label" for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" required>
+        <form id="bookingForm">
+            <div class="row">
+                <!-- In alternativa, puoi utilizzare "col-md-6" per dividere in due colonne su dispositivi di dimensioni medie e superiori -->
+                <div class="col">
+                    <div class="form-group">
+                        <label class="form-label" for="startDate">Data Inizio:</label>
+                        <input type="date" class="form-control datepicker" id="startDate" placeholder="Seleziona la data di inizio prenotazione">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="form-label" for="endDate">Data Fine:</label>
+                        <input type="date" class="form-control datepicker" id="endDate" placeholder="Seleziona la data di fine prenotazione">
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label class="form-label" for="cognome">Cognome</label>
-                <input type="text" class="form-control" id="cognome" name="cognome" required>
+            <!--
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label class="form-label" for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label class="form-label" for="cognome">Cognome</label>
+                        <input type="text" class="form-control" id="cognome" name="cognome" required>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-              <label class="form-label" for="startDate">Data Inizio:</label>
-              <input type="date" class="form-control datepicker" id="startDate" placeholder="Seleziona la data di inizio prenotazione">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="endDate">Data Fine:</label>
-              <input type="date" class="form-control datepicker" id="endDate" placeholder="Seleziona la data di fine prenotazione">
-            </div>
+            -->
         </form>
     </div>
 </div>
