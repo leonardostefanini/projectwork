@@ -31,77 +31,24 @@ home.addEventListener("click",function () {
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
-const VUtenti = document.getElementById("VUtenti");
-const lista1 = document.getElementById("lista");
-let listaVisibile1 = false; 
-
-VUtenti.addEventListener("click", function () {
-    const URL = "http://localhost:9020/api/utente";
-    
-    if (listaVisibile1) {
-        
-        lista1.innerHTML = "";
-        listaVisibile1 = false;
-    } else {
-       
-        fetch(URL)
-            .then(data => {
-                return data.json();
-            })
-            .then(response => {
-                lista1.innerHTML = "";
-                response.forEach(element => {
-                    lista1.innerHTML += `<li class="list-group-item">${element.userid} - ${element.firma} - ${element.nome} - ${element.cognome} - ${element.nascita} - ${element.email}</li>`;
-                });
-                listaVisibile1 = true; 
-            });
-    }
-});
-
-//-------------------------------------------------------------------------------------------------------------------------------------
-
-
-const VOrdini = document.getElementById("VOrdini");
-const lista2 = document.getElementById("lista");
-let listaVisibile2 = false; 
-
-VOrdini.addEventListener("click", function () {
-    const URL = "http://localhost:9020/api/ordine";
-    
-    if (listaVisibile2) {
-       
-        lista2.innerHTML = "";
-        listaVisibile2 = false;
-    } else {
-        
-        fetch(URL)
-            .then(data => {
-                return data.json();
-            })
-            .then(response => {
-                lista2.innerHTML = "";
-                response.forEach(element => {
-                    lista2.innerHTML += `<li class="list-group-item w-50">${element.id} - ${element.utente.userid} - ${element.veicolo.id} - ${element.descrizione}</li>`;
-                });
-                listaVisibile2 = true; 
-            });
-    }
-});
 
 
 
 //------------------------------------------------------------------------------------------------------------------------------------
+function homePage() {
+    
 
 const autoV = document.getElementById("autoV");
 const lista = document.getElementById("lista");
 let listaVisibile = false;
 
-autoV.addEventListener("click", function () {
+// autoV.addEventListener("click", function () {
     const URL = "http://localhost:9020/api/veicolo";
     
     if (listaVisibile) {
        
         lista.innerHTML = "";
+        
         listaVisibile = false;
     } else {
         
@@ -120,10 +67,10 @@ autoV.addEventListener("click", function () {
                     }else{
                       disponibilita=false;
                     }
-                    listItem.innerHTML = `<li class="list-group-item w-100">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${disponibilita} - ${element.data_prenotazione}  - ${element.utente.userid}</li>`;
+                    listItem.innerHTML = `<li class="list-group-item w-100 border-light">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${disponibilita} - ${element.data_prenotazione}  - ${element.utente.userid}</li>`;
                     let vehicleId = element.id;
                     del(vehicleId,listItem)
-                    mod1(vehicleId, listItem, form, btnModifica)
+                    mod1(vehicleId, listItem, btnModifica)
             
                
                     //  listItem.appendChild(deleteButton);
@@ -134,7 +81,7 @@ autoV.addEventListener("click", function () {
                 listaVisibile = true; 
             });
     }
-});
+// });
 
 function modInv() {
     let btnModifica=document.getElementById("btnModifica")
@@ -190,10 +137,11 @@ modInv();
 
 function del(vehicleId,listItem) {
     let deleteButton = document.createElement("button");
-    deleteButton.setAttribute("class", "btn btn-danger rounded-0");
+    deleteButton.setAttribute("class", "btn btn-light rounded-0");
+    deleteButton.setAttribute("style", "border:none;");
     deleteButton.setAttribute("type", "button");
     deleteButton.setAttribute("id", "btndelete");
-    deleteButton.innerHTML = `<i class="ri-delete-bin-5-fill" id="del"></i>`;
+    deleteButton.innerHTML = `<i class="ri-delete-bin-5-fill" style="color:red;" id="del"></i>`;
 
     
 
@@ -218,27 +166,24 @@ function del(vehicleId,listItem) {
 
     listItem.appendChild(deleteButton);
 }
-function mod1(vehicleId, listItem, form, btnModifica) {
+function mod1(vehicleId, listItem,  btnModifica) {
     let btnM = document.createElement("button");
-    btnM.setAttribute("class", "btn btn-info rounded-0");
+    btnM.setAttribute("class", "btn btn-light  rounded-0");
     btnM.setAttribute("type", "button");
-    btnM.setAttribute("id", "btndelete");
-    btnM.innerHTML = `<i class="ri-edit-2-fill" id="cha"></i>`;
+    btnM.setAttribute("data-bs-toggle", "offcanvas");
+    btnM.setAttribute("data-bs-target", "#offcanvasRight");
+    btnM.setAttribute("aria-controls", "offcanvasRight");
+     btnM.setAttribute("id", "btndelete");
+    btnM.innerHTML = `<i class="ri-edit-2-fill" style="color:green;" id="cha"></i>`;
+
+   
 
     btnM.addEventListener("click", function () {
         let idAuto=vehicleId;
         localStorage.setItem("idAuto", JSON.stringify(idAuto));
-        if (form.classList.contains("d-none")) {
-            form.classList.remove("d-none");
-        } else {
-            form.classList.add("d-none");
-        }
-
-        if (btnModifica.classList.contains("d-none")) {
-            btnModifica.classList.remove("d-none");
-        } else {
-            btnModifica.classList.add("d-none");
-        }
+        let btnInvia = document.getElementById("btnInvia");
+        btnModifica.classList.remove("d-none");
+        btnInvia.classList.add("d-none");
 
         const URL2 = `http://localhost:9020/api/veicolo/${vehicleId}`;
 
@@ -271,25 +216,15 @@ function mod1(vehicleId, listItem, form, btnModifica) {
 
     listItem.appendChild(btnM);
 }
+};
 
 
 
 //---------------------------------------------------------------------------
 let autoA = document.getElementById("autoA");
 autoA.addEventListener("click", function () {
-    let form = document.getElementById("form");
-    if (form.classList.contains("d-none")) {
-        form.classList.remove("d-none")
-    } else {
-        form.classList.add("d-none")
-    }
-
-    let btnInvia = document.getElementById("btnInvia");
-    if (btnInvia.classList.contains("d-none")) {
-        btnInvia.classList.remove("d-none")
-    } else {
-        btnInvia.classList.add("d-none")
-    }
+    btnModifica.classList.add("d-none");
+    btnInvia.classList.remove("d-none");
 
  
 })
@@ -339,40 +274,42 @@ let input3 = input3True.checked ? input3True.value : input3False.value;
     })
     .then(response => {
         location.href = "amministratore.html";
+
+        document.getElementById('triggerId').value = '';
+        document.getElementById('triggerId1').value = '';
+        document.getElementById('input1').value = '';
+        document.getElementById('input2').value = '';
+        document.getElementById('input3').value = '';
+        document.getElementById('input4').value = '';
+        document.getElementById('input5').value = '';
     });
 });
 });
 
 //---------------------------------------------------------------------------------------------------------------------------
 
-let Vu = document.getElementById("Vu");
-let Vo = document.getElementById("Vo");
-let Va = document.getElementById("Va");
 
+let autoAVisible1 = true; // Variabile per tenere traccia dello stato di autoA
 
-Vu.addEventListener("click",function () {
-    
-
-    Vu.classList.remove("d-block")
-    Vu.classList.add("d-none")
-    Vo.classList.remove("d-block")
-    Vo.classList.add("d-none")
-    Va.classList.remove("d-block")
-    Va.classList.add("d-none")
-
-   // const VUtenti = document.getElementById("VUtenti");
+const VUtenti = document.getElementById("VUtenti");
 const lista1 = document.getElementById("lista");
 let listaVisibile1 = false; 
 
-// VUtenti.addEventListener("click", function () {
+VUtenti.addEventListener("click", function () {
     const URL = "http://localhost:9020/api/utente";
-    
+
+    if (autoAVisible1) {
+        autoA.classList.add("d-none");
+    } else {
+        autoA.classList.remove("d-none");
+    }
+    autoAVisible1 = !autoAVisible1; // Inverti lo stato
+
     if (listaVisibile1) {
-        
         lista1.innerHTML = "";
+        homePage();
         listaVisibile1 = false;
     } else {
-       
         fetch(URL)
             .then(data => {
                 return data.json();
@@ -385,15 +322,45 @@ let listaVisibile1 = false;
                 listaVisibile1 = true; 
             });
     }
-// });
-    
-})
+});
 
-Vo.addEventListener("click",function () {
-    
-})
 
-Va.addEventListener("click",function () {
-    
-})
+//-------------------------------------------------------------------------------------------------------------------------------------
 
+
+let autoAVisible = true; // Variabile per tenere traccia dello stato di autoA
+
+const VOrdini = document.getElementById("VOrdini");
+const lista2 = document.getElementById("lista");
+let listaVisibile2 = false; 
+
+VOrdini.addEventListener("click", function () {
+    const URL = "http://localhost:9020/api/ordine";
+
+    if (autoAVisible) {
+        autoA.classList.add("d-none");
+    } else {
+        autoA.classList.remove("d-none");
+    }
+    autoAVisible = !autoAVisible; // Inverti lo stato
+
+    if (listaVisibile2) {
+        lista2.innerHTML = "";
+        homePage();
+        listaVisibile2 = false;
+    } else {
+        fetch(URL)
+            .then(data => {
+                return data.json();
+            })
+            .then(response => {
+                lista2.innerHTML = "";
+                response.forEach(element => {
+                    lista2.innerHTML += `<li class="list-group-item w-50">${element.id} - ${element.utente.userid} - ${element.veicolo.id} - ${element.descrizione}</li>`;
+                });
+                listaVisibile2 = true; 
+            });
+    }
+});
+
+homePage();

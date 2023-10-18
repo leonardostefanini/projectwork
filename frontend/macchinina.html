@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #movingIcon {
+            position: absolute;
+            top: 100px; /* Altezza iniziale */
+            left: 0; /* Posizione iniziale a sinistra */
+          
+            transition: left 8s;
+        }
+    </style>
+</head>
+<body>
+    <img src="./img/auto.png" id="movingIcon">
+    <script>
+        const movingIcon = document.getElementById("movingIcon");
+        const screenWidth = window.innerWidth; // Larghezza della finestra del browser
+        const iconWidth = 50; // Larghezza dell'icona in pixel
+
+        function moveIcon() {
+            movingIcon.style.left = (screenWidth - iconWidth -210) + "px"; // Sposta l'icona a destra
+
+            // Aspetta un po' e poi sposta l'icona a sinistra
+            setTimeout(function () {
+                movingIcon.style.left = "0"; // Sposta l'icona a sinistra
+            }, 8000); // Ritarda di 2 secondi
+        }
+
+        // Avvia l'animazione
+        moveIcon();
+
+        // Continua a ripetere l'animazione
+        setInterval(moveIcon, 16000); // Ripeti ogni 4 secondi
+    </script>
+</body>
+</html>
