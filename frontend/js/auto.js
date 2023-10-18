@@ -52,6 +52,8 @@ let user = JSON.parse(localStorage.getItem(`user1`));
 console.log('ID:', id);
 
 
+
+
 let map = new L.Map('map');
 let url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 var attrib = 'Map data (c)OpenStreetMap contributors';
@@ -135,33 +137,42 @@ fetch(URLauto)
   document.getElementById('bookingForm').addEventListener('submit', function(event) {
     event.preventDefault(); 
   
-    let URL1 = `http://localhost:9020/api/ordine`;
-  
-    let nuovoOrdine = {
-      userid: user,
-      veicoloId: id,   
-      descrizione: `L'${user} ha scelto l'auto con ID: ${id}` 
-    }
-  
-    fetch(URL1, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(nuovoOrdine)
-    })
-    .then(data => {
-      return data.json();
-    })
-    .then(data => {
-      alert('Form inviato');
-      
-      document.getElementById('nome').value = '';
-      document.getElementById('cognome').value = '';
-      document.getElementById('startDate').value = '';
-      document.getElementById('endDate').value = '';
-    });
-
+    fetch(URLauto)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+     
+        if (data.disponibilita == true) {
+          let URL1 = `http://localhost:9020/api/ordine`;
+    
+          let nuovoOrdine = {
+            userid: user,
+            veicoloId: id,   
+            descrizione: `L'${user} ha scelto l'auto con ID: ${id}` 
+          }
+    
+          fetch(URL1, {
+            method: "POST",
+            headers: {
+              'Content-type': 'application/json'
+            },
+            body: JSON.stringify(nuovoOrdine)
+          })
+          .then(data => {
+            return data.json();
+          })
+          .then(data => {
+            alert('Form inviato');
+            
+            document.getElementById('nome').value = '';
+            document.getElementById('cognome').value = '';
+            document.getElementById('startDate').value = '';
+            document.getElementById('endDate').value = '';
+          });
+        }
+        else {
+          alert("Veicolo già occupato. Prenotazione non possibile.");
+        }
+      });
   });
   
-
