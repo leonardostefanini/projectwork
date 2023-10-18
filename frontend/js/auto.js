@@ -7,6 +7,11 @@ if(localStorage.getItem("user")){
     <a class="nav-link" href="amministratore.html">Pannello</a>
   </li>`;
   }
+  else if(user.tipo === "U"){
+    ul.innerHTML += `<li class="nav-item">
+    <a class="nav-link" href="profilo.html" id="profilo"><i class="bi bi-person-bounding-box" style="font-size: 1.5rem;"></i></a>
+  </li>`;
+  }
   ul.innerHTML += `<li class="nav-item">
   <div class="d-flex align-items-center gap-3">
     <i class="fa-solid fa-user" style="color: #4d87ea; font-size: 1.2rem;"></i>
