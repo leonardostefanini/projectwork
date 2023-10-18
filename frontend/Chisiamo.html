@@ -71,6 +71,13 @@
         header {
       font-family: 'Montserrat', sans-serif;
     }
+   
+#prova{
+    
+    width: 70rem;
+    height: 50rem;
+    border-radius: 34% 64% 77% 26% / 73% 54% 45% 19%;
+}
   </style>
 </head>
 
@@ -112,7 +119,7 @@
       <!-- Prima sezione: Immagine a sinistra e testo a destra -->
       <div class="row">
         <div class="col-md-6 ">
-          <img class="img-fluid" src="img/riunione-chisiamo.jpg" style="width: auto;height:20rem;">
+          <img class="img-fluid"id="prova" src="img/riunione-ufficio-chisiamo.jpg" style="width: auto;height:20rem;">
         </div>
         <div class="col-md-6 ">
           <h2 class="text-success mb-3">Chi Siamo</h2>
@@ -131,14 +138,14 @@
              e l'incoraggiamento di comportamenti responsabili. La sostenibilità è la chiave per garantire un futuro migliore per le generazioni a venire.</p>
         </div>
         <div class="col-md-6 mt-5 mb-5">
-          <img class="img-fluid" src="img/imgeco-chisiamo.jpg" style="width: auto;height:20rem;">
+          <img class="img-fluid"id="prova" src="img/macchina-elettrica-chisiamo.jpg" style="width: auto;height:20rem;">
         </div>
       </div> <!-- row secondo parag-->
 
 
       <div class="row">
         <div class="col-md-6 mt-5 mb-5">
-          <img class="img-fluid"  src="img/img2.chisiamo.jpg" style="height:20rem; width: auto;">
+          <img class="img-fluid" id="prova" src="img/monopattino-elettrico-chisiamo.jpg" style="height:20rem; width: auto;">
         </div>
         <div class="col-md-6 ">
           <h2 class="text-success mb-3">Un futuro migliore</h2>
@@ -201,23 +208,29 @@
       if(user.tipo === "A") {
         ul.innerHTML += `<li class="nav-item">
         <a class="nav-link" href="amministratore.html">Pannello</a>
-      </li>`;
-      }
-      else if(user.tipo === "U"){
+        </li>`;
         ul.innerHTML += `<li class="nav-item">
-        <a class="nav-link" href="profilo.html" id="profilo"><i class="bi bi-person-bounding-box" style="font-size: 1.5rem;"></i></a>
+        <div class="d-flex align-items-center gap-3">
+          <i class="fa-solid fa-circle-user" style="color: #4d87ea; font-size: 1.5rem;"></i>
+          <div class="d-flex flex-column">
+            <span class="fw-medium text-secondary" style="font-size: 0.7rem; margin-top: -0.5rem;">${user.titolo}</span>
+            <span style="margin-top: -0.3rem">${user.user}</span>
+          </div>
+        </div>
+        </li>`;
+      }
+      else if(user.tipo === "U") {
+        ul.innerHTML += `<li class="nav-item">
+        <div class="d-flex align-items-center gap-3">
+          <a href="profilo.html" style="margin-bottom: -0.1rem;"><i class="fa-solid fa-circle-user" style="color: #4d87ea; font-size: 1.8rem;"></i></a>
+          <div class="d-flex flex-column">
+            <span class="fw-medium text-secondary" style="font-size: 0.7rem;">${user.titolo}</span>
+            <a href="profilo.html" style="text-decoration: none; margin: 0; padding: 0; margin-top: -0.3rem; color: black!important;"><span>${user.user}</span></a>
+          </div>
+        </div>
         </li>`;
       }
       ul.innerHTML += `<li class="nav-item">
-      <div class="d-flex align-items-center gap-3">
-        <i class="fa-solid fa-user" style="color: #4d87ea; font-size: 1.2rem;"></i>
-        <div class="d-flex flex-column">
-          <span class="fw-medium text-secondary" style="font-size: 0.7rem; margin-top: -0.5rem;">${user.titolo}</span>
-          <span style="margin-top: -0.3rem">${user.user}</span>
-        </div>
-      </div>
-    </li>
-    <li class="nav-item">
       <a href="logout.html">
         <button type="button" class="btn btn-danger px-3">Logout</button>
       </a>
