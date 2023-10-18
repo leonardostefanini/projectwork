@@ -95,8 +95,6 @@ fetch(URLauto)
           <p class="card-text"><strong>Prezzo noleggio:</strong> ${numeroConDueDecimali} euro</p>
           <p class="card-text"><strong>Localizzazione:</strong> ${posizione}</p>
 
-          <p class="card-text"><strong>Prezzo noleggio:</strong> ${numeroConDueDecimali} euro</p>
-
         </div>
       </div>
     </div>`;
