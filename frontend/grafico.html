@@ -50,7 +50,7 @@
       background-color: #4a595b;
       color: #fff;
       position: fixed;
-      padding: 20px 0;
+      padding: 10px 0;
       text-align: center;
       width: 100%;
       
@@ -206,6 +206,10 @@
     let autoBenzina = 0;
     let biciElettriche = 0;
     let autoElettriche=0;
+    let autoIbrida=0;
+    let autoDiesel=0;
+    let monopattino=0;
+
 
     fetch(URLgraf)
         .then(response => response.json())
@@ -215,27 +219,42 @@
                     autoBenzina++;
                 } else if (veicolo.tipologia === 'Bicicletta' && veicolo.alimentazione === 'Elettrica') {
                     biciElettriche++;
-                    
                 }
                 else if (veicolo.tipologia === 'Auto' && veicolo.alimentazione === 'Elettrica') {
                     autoElettriche++;
+                  }
+                else if (veicolo.tipologia === 'Auto' && veicolo.alimentazione === 'Ibrida') {
+                    autoIbrida++;
                 }
+                else if (veicolo.tipologia === 'Auto' && veicolo.alimentazione === 'Diesel') {
+                    autoDiesel++;
+                }
+                else if (veicolo.tipologia === 'Monopattino' && veicolo.alimentazione === 'Elettrico') {
+                    monopattino++;
+                }
+                
             });
             autoBenzina=autoBenzina*0;
             biciElettriche=biciElettriche*1;
             autoElettriche=autoElettriche*0.6;
+            autoIbrida=autoIbrida*0.4;
+            autoDiesel=autoDiesel*0;
+            monopattino=monopattino*0.95;
             console.log(autoBenzina+" "+biciElettriche);
 
             const config = {
                 type: 'doughnut',
                 data: {
-                    labels: ['Auto a benzina', 'Biciclette elettriche','Auto Elettrica'],
+                    labels: ['Auto a benzina', 'Biciclette elettriche','Auto Elettrica', "Auto Ibrida", "Auto Diesel", "Monopattino Elettrico"],
                     datasets: [{
-                        data: [autoBenzina, biciElettriche, autoElettriche],
+                        data: [autoBenzina, biciElettriche, autoElettriche,autoIbrida,autoDiesel,monopattino],
                         backgroundColor: [
                             'rgb(255, 99, 132)',
                             'rgb(54, 162, 235)',
-                            'rgb(53, 211, 53)'
+                            'rgb(53, 211, 53)',
+                            'rgb(255, 255, 0)',
+                            'rgb(148, 0, 211)',
+                            'rgb(139, 69, 19)'
                         ]
                     }]
                 },
