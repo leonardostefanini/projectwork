@@ -158,5 +158,7 @@ fetch(URLauto)
       document.getElementById('startDate').value = '';
       document.getElementById('endDate').value = '';
     });
+
   });
+  
 
