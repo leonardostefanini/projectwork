@@ -12,16 +12,16 @@ fetch(URL)
       console.log("Disponibilità:", disponibilita);
 
       if (disponibilita === true) {
-        disp.innerHTML += creaCard(veicolo);
+        disp.innerHTML += creaCardDisp(veicolo);
       } else {
-        indisp.innerHTML += creaCard(veicolo);
+        indisp.innerHTML += creaCardIndisp(veicolo);
       }
     });
   })
   .catch(error => console.error("Errore durante la richiesta:", error));
 
-function creaCard(veicolo) {
-    return `<div class="card border-success mt-3">
+function creaCardDisp(veicolo) {
+    return `<div class="card border-success border-3 mt-3">
     <div class="card-body d-flex align-items-center">
       <div class="w-50">
         <img src="${veicolo.immagine}" class="img-fluid w-75 h-75">
@@ -34,6 +34,22 @@ function creaCard(veicolo) {
       </div>
     </div>
   </div>`;
+}
+
+function creaCardIndisp(veicolo) {
+  return `<div class="card border-danger border-3 mt-3">
+  <div class="card-body d-flex align-items-center">
+    <div class="w-50">
+      <img src="${veicolo.immagine}" class="img-fluid w-75 h-75">
+    </div>
+    <div class="w-50 ms-4">
+      <h5 class="card-title"><strong>Tipologia:</strong> ${veicolo.tipologia}</h5>
+      <p class="card-text"><strong>Alimentazione:</strong> ${veicolo.alimentazione}</p>
+      <p class="card-text">${veicolo.descrizione}</p>
+      <button class="btn btn-primary" onclick="reindirizzo('${veicolo.id}')">Visualizza</button>
+    </div>
+  </div>
+</div>`;
 }
 
 function reindirizzo(id) 
