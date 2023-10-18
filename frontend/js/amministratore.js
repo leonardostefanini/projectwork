@@ -343,3 +343,57 @@ let input3 = input3True.checked ? input3True.value : input3False.value;
 });
 });
 
+//---------------------------------------------------------------------------------------------------------------------------
+
+let Vu = document.getElementById("Vu");
+let Vo = document.getElementById("Vo");
+let Va = document.getElementById("Va");
+
+
+Vu.addEventListener("click",function () {
+    
+
+    Vu.classList.remove("d-block")
+    Vu.classList.add("d-none")
+    Vo.classList.remove("d-block")
+    Vo.classList.add("d-none")
+    Va.classList.remove("d-block")
+    Va.classList.add("d-none")
+
+   // const VUtenti = document.getElementById("VUtenti");
+const lista1 = document.getElementById("lista");
+let listaVisibile1 = false; 
+
+// VUtenti.addEventListener("click", function () {
+    const URL = "http://localhost:9020/api/utente";
+    
+    if (listaVisibile1) {
+        
+        lista1.innerHTML = "";
+        listaVisibile1 = false;
+    } else {
+       
+        fetch(URL)
+            .then(data => {
+                return data.json();
+            })
+            .then(response => {
+                lista1.innerHTML = "";
+                response.forEach(element => {
+                    lista1.innerHTML += `<li class="list-group-item">${element.userid} - ${element.firma} - ${element.nome} - ${element.cognome} - ${element.nascita} - ${element.email}</li>`;
+                });
+                listaVisibile1 = true; 
+            });
+    }
+// });
+    
+})
+
+Vo.addEventListener("click",function () {
+    
+})
+
+Va.addEventListener("click",function () {
+    
+})
+
