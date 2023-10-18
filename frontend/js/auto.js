@@ -1,32 +1,36 @@
 let ul = document.querySelector("#navLinks");
-let form = document.querySelector("#bookingForm");
 if(localStorage.getItem("user")){
   let user = JSON.parse(localStorage.getItem("user"));
   if(user.tipo === "A") {
     ul.innerHTML += `<li class="nav-item">
     <a class="nav-link" href="amministratore.html">Pannello</a>
-  </li>`;
-  }
-  else if(user.tipo === "U"){
+    </li>`;
     ul.innerHTML += `<li class="nav-item">
-    <a class="nav-link" href="profilo.html" id="profilo"><i class="bi bi-person-bounding-box" style="font-size: 1.5rem;"></i></a>
-  </li>`;
+    <div class="d-flex align-items-center gap-3">
+      <i class="fa-solid fa-circle-user" style="color: #4d87ea; font-size: 1.5rem;"></i>
+      <div class="d-flex flex-column">
+        <span class="fw-medium text-secondary" style="font-size: 0.7rem; margin-top: -0.5rem;">${user.titolo}</span>
+        <span style="margin-top: -0.3rem">${user.user}</span>
+      </div>
+    </div>
+    </li>`;
+  }
+  else if(user.tipo === "U") {
+    ul.innerHTML += `<li class="nav-item">
+    <div class="d-flex align-items-center gap-3">
+      <a href="profilo.html" style="margin-bottom: -0.1rem;"><i class="fa-solid fa-circle-user" style="color: #4d87ea; font-size: 1.8rem;"></i></a>
+      <div class="d-flex flex-column">
+        <span class="fw-medium text-secondary" style="font-size: 0.7rem;">${user.titolo}</span>
+        <a href="profilo.html" style="text-decoration: none; margin: 0; padding: 0; margin-top: -0.3rem; color: black!important;"><span>${user.user}</span></a>
+      </div>
+    </div>
+    </li>`;
   }
   ul.innerHTML += `<li class="nav-item">
-  <div class="d-flex align-items-center gap-3">
-    <i class="fa-solid fa-user" style="color: #4d87ea; font-size: 1.2rem;"></i>
-    <div class="d-flex flex-column">
-      <span class="fw-medium text-secondary" style="font-size: 0.7rem; margin-top: -0.5rem;">${user.titolo}</span>
-      <span style="margin-top: -0.3rem">${user.user}</span>
-    </div>
-  </div>
-</li>
-<li class="nav-item">
   <a href="logout.html">
     <button type="button" class="btn btn-danger px-3">Logout</button>
   </a>
 </li>`;
-form.innerHTML += `<button type="submit" class="btn btn-success" id="invia">Invia richiesta</button>`;
 }
 else {
   ul.innerHTML += `<li class="nav-item">
@@ -39,9 +43,6 @@ else {
     <button type="button" class="btn btn-success px-3">Login</button>
   </a>
 </li>`
-form.innerHTML += `<div class="bg-warning d-inline-flex p-2 rounded-2">
-<a href="login.html" style="text-decoration: none; color: black;">Fai il login per prenotare</a>
-</div>`;
 }
 
 
@@ -128,11 +129,7 @@ fetch(URLauto)
   });
 
 
-    
-
-    
-
-
+  
   let btn = document.querySelector("#invia");
   document.getElementById('bookingForm').addEventListener('submit', function(event) {
     event.preventDefault(); 
@@ -142,7 +139,8 @@ fetch(URLauto)
       .then(data => {
         console.log(data);
      
-        if (data.disponibilita == true) {
+        if (data.disponibilita == true) 
+        {
           let URL1 = `http://localhost:9020/api/ordine`;
     
           let nuovoOrdine = {
@@ -163,16 +161,113 @@ fetch(URLauto)
           })
           .then(data => {
             alert('Form inviato');
-            
+
+          });
+          let nuovoVeicoloM = 
+          {
+            veicoloId : data.id,
+            tipologia: data.tipologia ,
+            alimentazione: data.alimentazione ,
+            descrizione: data.descrizione ,
+            posizione: data.posizione,
+            disponibilita: false,
+            data_prenotazione: data.data_prenotazione,
+            immagine: data.immagine,
+            userid: "Amministratore"
+            }
+    
+        
+    
+        fetch(URLauto, {
+            method: "PUT",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(nuovoVeicoloM)
+        })
+        .then(data => {
+            return data.json()
+        })
+        .then(response => {
             document.getElementById('nome').value = '';
             document.getElementById('cognome').value = '';
             document.getElementById('startDate').value = '';
             document.getElementById('endDate').value = '';
           });
+
+          
         }
         else {
           alert("Veicolo già occupato. Prenotazione non possibile.");
         }
       });
   });
+
+    
+
+    
+  // let btn = document.querySelector("#invia");
+  // document.getElementById('bookingForm').addEventListener('submit', function(event)
+  //  {
+  //   event.preventDefault();
+  
+  //   fetch(URLauto)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       console.log(data);
+  
+  //       if (data.disponibilita === true) 
+  //       {
+  //         let URL1 = `http://localhost:9020/api/ordine`;
+  
+  //         let nuovoOrdine = {
+  //           userid: user,
+  //           veicoloId: id,
+  //           descrizione: `L'${user} ha scelto l'auto con ID: ${id}`
+  //         }
+  
+  //         fetch(URL1, {
+  //           method: "POST",
+  //           headers: {
+  //             'Content-type': 'application/json'
+  //           },
+  //           body: JSON.stringify(nuovoOrdine)
+  //         })
+  //         .then(data => data.json())
+  //         .then(data => {
+  //           let modificaDisponibilita = {
+  //             id:data.id,
+  //             tipologia:data.tipologia,
+  //             alimentazione:data.alimentazione,
+  //             descrizione:data.descrizione,
+  //             posizione:data.posizione,
+  //             disponibilita: false,
+  //             data:data.data_prenotazione,
+  //             immagine:data.immagine,
+  //             userID:data.user_id
+  //           };
+  
+  //           fetch(URLauto, {
+  //             method: "PUT",
+  //             headers: {
+  //               'Content-type': 'application/json'
+  //             },
+  //             body: JSON.stringify(modificaDisponibilita)
+  //           })
+  //           .then(response => response.json())
+  //           .then(data => {
+  //             alert('Form inviato');
+  
+  //             document.getElementById('nome').value = '';
+  //             document.getElementById('cognome').value = '';
+  //             document.getElementById('startDate').value = '';
+  //             document.getElementById('endDate').value = '';
+  //           })
+  //         });
+  //       } else {
+  //         alert("Veicolo già occupato. Prenotazione non possibile.");
+  //       }
+  //     });
+  // });
+  
   

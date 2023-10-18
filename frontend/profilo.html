@@ -21,10 +21,10 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-light navbar-light  static-top position-fixed fixed-top">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light position-fixed fixed-top">
             <div class="container">
                 <div class="navbar-brand" href="#">
-                    <a class="navbar-brand" href="./"><img src="./img/PW_logo.png" alt="" style="height: 4rem;"></a>
+                    <a class="navbar-brand" href="./"><img src="./img/PW_logo.png" alt="" style="height: 3rem;"></a>
                 </div>
                 <button class="navbar-toggler" id="bt3" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -62,14 +62,14 @@
             <div class="row">
                 <div class="col-lg-2 d-flex ms-auto" id="container">
                     <div class="container">
-                        <div class="card">
+                        <div class="card mt-4">
                             <img src="./img/SL.webp" class="card-img-top" alt="Immagine del profilo">
                             <div class="card-body">
                                 <h5 class="card-title" id="N1">Utente1</h5>
-                                <p class="card-text" id="descrizione">🚗 Amante dei Viaggi Sostenibili 🌍<br>
+                                <p class="card-text overflow-scroll" id="descrizione" style="height: 15rem;">🚗 Amante dei Viaggi Sostenibili 🌍<br>
 
                                     Ciao! Sono un appassionato sostenitore della mobilità sostenibile e utilizzo il car sharing come parte del mio stile di vita. Sono sempre in movimento e credo che condividere le auto sia un modo intelligente per ridurre l'impatto ambientale e risparmiare denaro.</p>
-                                    <a href="#" class="btn btn-primary" id="btnMpro">Modifica Profilo</a>
+                                    <a href="#" class="btn btn-success" id="btnMpro">Modifica Profilo</a>
                                     
                             </div>
                         </div>
@@ -114,7 +114,7 @@
 
                 <div class="col-lg-7" id="container">
                     <div class="container">
-                        <h1 class="text-center text-light mb-5">Storico Prenotazioni</h1>
+                        <h1 class="text-center text-light mb-3">Storico Prenotazioni</h1>
                         <!-- <div class="swiper mySwiper">
                         <div class="swiper-wrapper " id="swiper">
                             <div class="swiper-slide"> -->
@@ -132,6 +132,7 @@
                                             <h4 class="card-title">Audi A7</h4>
                                             <p class="card-text">Noleggio: 10/10/2022&nbsp;-&nbsp;14/10/2022
                                             </p>
+                                            <p>Totale: 180,55€</p>
                                         </div>
                                     </div>
                                 </div>
@@ -150,6 +151,7 @@
                                             <h4 class="card-title">Alfa Romeo Tonale</h4>
                                             <p class="card-text">Noleggio: 29/10/2022&nbsp;-&nbsp;02/11/2022
                                             </p>
+                                            <p><p>Totale: 140,80€</p></p>
                                         </div>
                                     </div>
                                 </div>
@@ -171,6 +173,7 @@
                                             <h4 class="card-title">Tesla Model S</h4>
                                             <p class="card-text">Noleggio:  02/03/2023&nbsp;-&nbsp;05/03/2023
                                             </p>
+                                            <p><p>Totale: 210,00€</p></p>
                                         </div>
                                     </div>
                                 </div>
@@ -192,6 +195,7 @@
                                             <h4 class="card-title">BMW X</h4>
                                             <p class="card-text">Noleggio: 17/06/2023&nbsp;-&nbsp;22/06/2023
                                             </p>
+                                            <p><p>Totale: 280,60€</p></p>
                                         </div>
                                     </div>
                                 </div>
@@ -210,7 +214,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 me-5" id="container" >
-                    <h3 class="text-light mb-5 ms-3">In Corso:</h3>
+                    <h3 class="text-light mb-4 ms-3">In Corso:</h3>
 
                     <div id="spa">
                         <div class="card d-block" id="bgAuto">
@@ -222,9 +226,10 @@
                                 <p class="card-text h-100">
                                     <p class="">Noleggio: <br> 18/10/2023&nbsp;-&nbsp;24/10/2023</p>
                                 </p>
+                                <p>Totale: 300,00€</p>
                             </div>
                         
-                            <button type="button" class="btn btn-danger" id="btnAlert">Elimina prenotazione</button>
+                            <button type="button" class="btn btn-danger ms-3" id="btnAlert">Elimina prenotazione</button>
                         
                         </div>
                     </div>

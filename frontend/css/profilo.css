@@ -1,15 +1,14 @@
 main {
     position: relative;
-    height: 100vh;
+  
     
 }
 
 main::before {
     content: "";
-    background-image: url("../img/profilo.jpg");
+    background-image: url("../img/imgautomare.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
     position: absolute;
     top: 0;
     left: 0;
@@ -17,11 +16,13 @@ main::before {
     bottom: 0;
     /* opacity: 0.5; Opacità dell'immagine di sfondo */
     z-index: -1; /* Posiziona l'immagine di sfondo dietro il contenuto */
-    filter: brightness(0.2);
+    filter: brightness(0.3);
 }
 
 #container{
     margin-top: 10rem;
+    
+    
 }
 
 .swiper {
@@ -31,7 +32,7 @@ main::before {
   
   .swiper-slide {
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     /* background-color: rgba(255, 255, 255, 0.7); */
     /* background: red; */
     display: flex;
@@ -41,8 +42,8 @@ main::before {
   
   .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
     object-fit: cover;
   }
   
