@@ -10,6 +10,10 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- font awesome + remixicon + bootstrap icon -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         #logo {
     height: 3rem;
@@ -148,6 +152,46 @@
   </script>
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    <script>
+    let ul = document.querySelector("#navLinks");
+    if(localStorage.getItem("user")){
+      let user = JSON.parse(localStorage.getItem("user"));
+      if(user.tipo === "A") {
+        ul.innerHTML += `<li class="nav-item">
+        <a class="nav-link" href="amministratore.html">Pannello</a>
+      </li>`;
+      }else if(user.tipo === "U"){
+        ul.innerHTML += `<li class="nav-item">
+        <a class="nav-link" href="profilo.html" id="profilo"><i class="bi bi-person-bounding-box" style="font-size: 1.5rem;"></i></a>
+      </li>`;
+      }
+      ul.innerHTML += `<li class="nav-item">
+      <div class="d-flex align-items-center gap-3">
+        <i class="fa-solid fa-user" style="color: #4d87ea; font-size: 1.2rem;"></i>
+        <div class="d-flex flex-column">
+          <span class="fw-medium text-secondary" style="font-size: 0.7rem; margin-top: -0.5rem;">${user.titolo}</span>
+          <span style="margin-top: -0.3rem">${user.user}</span>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a href="logout.html">
+        <button type="button" class="btn btn-danger px-3">Logout</button>
+      </a>
+    </li>`;
+    }
+    else {
+      ul.innerHTML += `<li class="nav-item">
+      <a href="registrazione.html">
+        <button type="button" class="btn btn-primary px-3">Registrati</button>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="login.html">
+        <button type="button" class="btn btn-success px-3">Login</button>
+      </a>
+    </li>`
+    }
+
     const grafico = document.getElementById("grafico");
     const URLgraf = "http://localhost:9020/api/veicolo";
    

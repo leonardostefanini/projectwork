@@ -1,5 +1,5 @@
 main {
-    position: relative;
+    /* position: relative; */
     height: 90.3vh;
     
 }
@@ -60,7 +60,27 @@ main::before {
      /* border-bottom: 5px solid rgb(255, 255, 255); */
 }
 #tutto{
-    background-color: rgba(215, 215, 215, 0.3);
+    /* background-color: rgba(215, 215, 215, 0.3); */
     height: 40rem;
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
+    
 }
+
+/* #Vu,#Vo,#Va{
+    height: 5rem;
+    width: 10rem;
+   
+    padding: 5rem;
+  
+} */
+.full-height-row {
+    min-height: 80vh; /* Imposta l'altezza minima a 80% della viewport height */ 
+    
+}
+
+.square-button {
+    /* margin-top: 30%; */
+    width:10rem; 
+    height:10rem;
+}
+

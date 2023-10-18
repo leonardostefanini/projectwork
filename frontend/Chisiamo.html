@@ -10,70 +10,68 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <!-- font awesome -->
+    <!-- font awesome + bootstrap icons-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-    <style>
-        #logo {
-  height: 3rem;
-}
-header nav a {
-  color: green!important;
-}
-header nav a:hover {
-  color: rgb(53, 211, 53)!important;
-}
-body {
-      background-color: #f9f9f9;
-      color: #333;
-      padding-top: 70px;
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    #logo {
+     height: 3rem;
     }
-
-    .header {
-      background-color: #28a745; /* verde */
-      color: #fff;
-      padding: 40px 0;
-      text-align: center;
-     
+    header nav a {
+      color: green!important;
     }
-
-    .footer {
-      background-color: #4a595b; /* azzurro */
-      color: #fff;
-      position:static;
-      padding: 20px 0;
-      text-align: center;
-      width: 100%;
-      bottom: 0;
-     
+    header nav a:hover {
+      color: rgb(53, 211, 53)!important;
     }
+    body {
+          background-color: #f9f9f9;
+          color: #333;
+          padding-top: 70px;
+        }
 
-    .about-us-section {
-      padding: 50px 0;
-    }
+        .header {
+          background-color: #28a745; /* verde */
+          color: #fff;
+          padding: 40px 0;
+          text-align: center;
+        
+        }
 
-    p{
-        font-family:'Montserrat', sans-serif;
-    }
-    .alternating-section {
-      padding: 30px 0;
-    }
+        .footer {
+          background-color: #4a595b; /* azzurro */
+          color: #fff;
+          position:static;
+          padding: 20px 0;
+          text-align: center;
+          width: 100%;
+          bottom: 0;
+        
+        }
 
-    .alternating-section .row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .about-us-section {
+          padding: 50px 0;
+        }
 
-    .alternating-section .row .col-md-6 {
-      padding: 10px;
-    }
-    header {
-  font-family: 'Montserrat', sans-serif;
-}
-    </style>
+        p{
+            font-family:'Montserrat', sans-serif;
+        }
+        .alternating-section {
+          padding: 30px 0;
+        }
 
+        .alternating-section .row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .alternating-section .row .col-md-6 {
+          padding: 10px;
+        }
+        header {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
 </head>
 
 <body>
@@ -204,6 +202,11 @@ body {
         ul.innerHTML += `<li class="nav-item">
         <a class="nav-link" href="amministratore.html">Pannello</a>
       </li>`;
+      }
+      else if(user.tipo === "U"){
+        ul.innerHTML += `<li class="nav-item">
+        <a class="nav-link" href="profilo.html" id="profilo"><i class="bi bi-person-bounding-box" style="font-size: 1.5rem;"></i></a>
+        </li>`;
       }
       ul.innerHTML += `<li class="nav-item">
       <div class="d-flex align-items-center gap-3">

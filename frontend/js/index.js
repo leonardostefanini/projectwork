@@ -87,12 +87,9 @@ if(localStorage.getItem("user")){
     <a class="nav-link" href="amministratore.html">Pannello</a>
   </li>`;
   }else if(user.tipo === "U"){
-    let profilo =document.getElementById("profilo")
-    if (profilo.classList.contains("d-none")) {
-      profilo.classList.remove("d-none");
-  } else {
-      profilo.classList.add("d-none");
-  }
+   ul.innerHTML += `<li class="nav-item">
+   <a class="nav-link" href="profilo.html" id="profilo"><i class="bi bi-person-bounding-box" style="font-size: 1.5rem;"></i></a>
+ </li>`;
   }
   ul.innerHTML += `<li class="nav-item">
   <div class="d-flex align-items-center gap-3">
