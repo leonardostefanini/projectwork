@@ -1,6 +1,6 @@
 main {
     position: relative;
-    height: 100vh;
+  
     
 }
 
@@ -20,7 +20,8 @@ main::before {
 }
 
 #container{
-    margin-top: 8rem;
+    margin-top: 10rem;
+    
     
 }
 
