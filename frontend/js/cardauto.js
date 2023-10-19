@@ -26,7 +26,7 @@ fetch(URL)
         <div class="w-50">
           <img src="${veicolo.immagine}" class="img-fluid">
         </div>
-        <div class=" ms-4">
+        <div class=" ms-lg-4">
           <h5 class="card-title"><strong>Tipologia:</strong> ${veicolo.tipologia}</h5>
           <p class="card-text"><strong>Alimentazione:</strong> ${veicolo.alimentazione}</p>
           <p class="card-text">${veicolo.descrizione}</p>
