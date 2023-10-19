@@ -20,14 +20,10 @@
 
   
     <style>
-        body {
-            background-color: #f7f7f7;
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
+        
 
         .container {
-            background-color: #fff;
+            background-color: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -53,13 +49,15 @@
             margin-bottom: 5px;
         }
 
+        
+
     </style>
 
 </head>
 
 <body>
   <header>
-    <header>
+    
         <nav class="navbar navbar-expand-lg fixed-top bg-light">
           <div class="container">
             <a class="navbar-brand" href="./">
@@ -94,6 +92,7 @@
         </nav>
 
   </header>
+
   <main>
 
     <div class="container">
@@ -143,31 +142,41 @@
         </form>
     </div> -->
 
-      <div class="map-wrap mt-3">
-        <div id="map"></div>
+  
+ 
+
+
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="map-wrap mt-3">
+                  <div id="map"></div>
+              </div>
+          </div>
+  
+          <div class="col-lg-6" style="margin-top: 10rem;">
+              <h2 class="mb-4 text-success">Modulo Prenotazione</h2>
+              <form id="bookingForm">
+                  <div class="row">
+                      <div class="col">
+                          <div class="form-group">
+                              <label class="form-label" for="startDate">Data Inizio:</label>
+                              <input type="date" class="form-control datepicker" id="startDate" placeholder="Seleziona la data di inizio prenotazione">
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="form-group">
+                              <label class="form-label" for="endDate">Data Fine:</label>
+                              <input type="date" class="form-control datepicker" id="endDate" placeholder="Seleziona la data di fine prenotazione">
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </div>
       </div>
-
-   
-
-
-      <div class="container">
-        <h2 class="mb-4 text-success">Modulo Prenotazione</h2>
-        <form id="bookingForm">
-            <div class="row">
-                <!-- In alternativa, puoi utilizzare "col-md-6" per dividere in due colonne su dispositivi di dimensioni medie e superiori -->
-                <div class="col">
-                    <div class="form-group">
-                        <label class="form-label" for="startDate">Data Inizio:</label>
-                        <input type="date" class="form-control datepicker" id="startDate" placeholder="Seleziona la data di inizio prenotazione">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label class="form-label" for="endDate">Data Fine:</label>
-                        <input type="date" class="form-control datepicker" id="endDate" placeholder="Seleziona la data di fine prenotazione">
-                    </div>
-                </div>
-            </div>
+  </div>
+  
+  
             <!--
             <div class="row">
                 <div class="col">
@@ -184,9 +193,9 @@
                 </div>
             </div>
             -->
-        </form>
+        <!-- </form>
     </div>
-</div>
+</div> -->
 
 
 

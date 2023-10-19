@@ -30,7 +30,7 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-light navbar-light  static-top position-fixed fixed-top">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light">
       <div class="container">
         <div class="navbar-brand" href="#">
           <a class="navbar-brand" href="./"><img src="./img/PW_logo.png" alt="" style="height: 3rem;"></a>
@@ -50,14 +50,14 @@
               <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="VOrdini"><i
                   class="ri-shopping-cart-line" style="font-size: 1.5rem;"></i></span></a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="autoV"><i
                   class="ri-car-line" style="font-size: 1.5rem;"></i></span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="autoA"><i
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link active ms-5 text-success" href="#" aria-current="page"><i
                   class="ri-add-line" style="font-size: 1.5rem;"></i></span></a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link active ms-5 text-success" href="#" aria-current="page" id="home"><i
                   class="ri-home-8-line" style="font-size: 1.5rem;"></i></span></a>
@@ -84,115 +84,116 @@
 
     <div class="container-fluid" id="tutto">
       <div class="row">
-        <div class="col-6 col-lg-8" id="container">
+        <div class="col-lg-12" id="container">
 
+          <h1 class="text-center" id="titolo"></h1>
 
-          <div class="col" style="margin-right: 13rem;">
+       
 
-            <div class="col d-flex justify-content-end ">
-              <button class="btn btn-primary square-button mb-5 d-block" id="Vu" style="margin-top: 10rem;">Visualizza utenti</button>
+          <!-- ----------------------------------------------------------------------- DESTRA------------------------------------------------------------------------------------- -->
+          <div class=" col-lg-12 d-flex justify-content-center mt-5">
+            <button class="btn text-light" id="autoA" type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Aggiungi Veicolo</button>
+          </div>
+
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasRightLabel"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="col d-flex justify-content-end ">
-              <button class="btn btn-success square-button d-block mb-5" id="Vo">Visualizza ordini</button>
+            <div class="offcanvas-body" id="form">
+
+              <!-- ------------------------------------------------------------------------------ -->
+              <!-- <div class="container mt-2 ms-0"> -->
+                <div class="dropdown">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Tipologia
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="triggerId">
+                    <a class="dropdown-item" href="#" onclick="changeButtonName('Auto', 'triggerId')">Auto</a>
+                    <a class="dropdown-item" href="#"
+                      onclick="changeButtonName('Bicicletta', 'triggerId')">Bicicletta</a>
+                    <a class="dropdown-item" href="#"
+                      onclick="changeButtonName('Monopattino', 'triggerId')">Monopattino</a>
+                  </div>
+                </div>
+              <!-- </div> -->
+
+              <!-- <div class="container mt-4 ms-0"> -->
+                <div class="dropdown mt-3">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="triggerId1" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Alimentazione
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="triggerId1">
+                    <a class="dropdown-item" href="#"
+                      onclick="changeButtonName('Elettrico', 'triggerId1')">Elettrico</a>
+                    <a class="dropdown-item" href="#" onclick="changeButtonName('Ibrido', 'triggerId1')">Ibrido</a>
+                    <a class="dropdown-item" href="#" onclick="changeButtonName('Diesel', 'triggerId1')">Diesel</a>
+                    <a class="dropdown-item" href="#" onclick="changeButtonName('Benzina', 'triggerId1')">Benzina</a>
+                    <a class="dropdown-item" href="#" onclick="changeButtonName('N/D', 'triggerId1')">N/D</a>
+                  </div>
+                </div>
+              <!-- </div> -->
+
+              <label for="" class="form-label mt-2">Descrizione</label>
+              <input type="text" name="" id="input1" class="form-control" placeholder="" aria-describedby="helpId">
+
+              <label for="" class="form-label mt-2">Posizione Attuale</label>
+              <input type="text" name="" id="input2" class="form-control" placeholder="" aria-describedby="helpId">
+
+           
+              <label for="" class="form-label mt-2">Disponibilità</label>
+              <div class="d-flex align-items-center">
+                <div class="form-check me-3">
+                  <input class="form-check-input" type="radio" id="disponibileTrue" name="disponibilita" value="true">
+                  <label class="form-check-label" for="disponibileTrue">
+                    True
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="disponibileFalse" name="disponibilita" value="false">
+                  <label class="form-check-label" for="disponibileFalse">
+                    False
+                  </label>
+                </div>
+              </div>
+
+
+
+
+
+              <label for="" class="form-label mt-2">Data prenotazione</label>
+              <input type="datetime-local" name="" id="input4" class="form-control" placeholder=""
+                aria-describedby="helpId">
+
+              <label for="" class="form-label mt-2">Immagine</label>
+              <input type="text" name="" id="input5" class="form-control mb-2" placeholder="Inserisci Link"
+                aria-describedby="helpId">
+
+              <button type="button" class="btn btn-primary mt-3" id="btnInvia">Invia Dati</button>
+              <button type="button" class="btn btn-info d-none mt-3" id="btnModifica">Modifica Dati</button>
+
             </div>
-            <div class="col d-flex justify-content-end ">
-              <button class="btn btn-danger square-button d-block mb-5" id="Va">Visualizza auto</button>
-            </div>
+          </div>
 
-          </div><!-- div n 1 -->
-          <ul class="list-group list-group w-75" id="lista" style="margin-top: 6rem; margin-left: 3rem;">
-          </ul>
+          
 
-          <!-- <div class="col-12" id="home">
-                  <button type="button" class="btn btn-primary d-block" id="Vu">Utenti</button>
-                <button type="button" class="btn btn-primary d-block" id="Vo">Ordini</button>
-                <button type="button" class="btn btn-primary d-block" id="Va">Auto</button>
-              </div> -->
+<!-- ---------------------------------------------------------------------------------------- -->
+         
 
 
-        </div><!--chiusura col 6 container-->
+          <div class=" d-flex justify-content-center ">
+            <ul class="list-group list-group mt-5" id="lista" style=" margin-left: 3rem;">
+            </ul>
+          </div>
+
+
         
-      <!-- ----------------------------------------------------------------------- DESTRA------------------------------------------------------------------------------------- -->
-      <div class=" col-6 col-lg-4 d-none " id="form" style="margin-top: 3rem;">
-
-        <div class="container mt-2 ms-0">
-          <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Tipologia
-            </button>
-            <div class="dropdown-menu" aria-labelledby="triggerId">
-              <a class="dropdown-item" href="#" onclick="changeButtonName('Auto', 'triggerId')">Auto</a>
-              <a class="dropdown-item" href="#" onclick="changeButtonName('Bicicletta', 'triggerId')">Bicicletta</a>
-              <a class="dropdown-item" href="#" onclick="changeButtonName('Monopattino', 'triggerId')">Monopattino</a>
-            </div>
-          </div>
         </div>
-
-        <div class="container mt-4 ms-0">
-          <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" id="triggerId1" data-bs-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Alimentazione
-            </button>
-            <div class="dropdown-menu" aria-labelledby="triggerId1">
-              <a class="dropdown-item" href="#" onclick="changeButtonName('Elettrico', 'triggerId1')">Elettrico</a>
-              <a class="dropdown-item" href="#" onclick="changeButtonName('Ibrido', 'triggerId1')">Ibrido</a>
-              <a class="dropdown-item" href="#" onclick="changeButtonName('Diesel', 'triggerId1')">Diesel</a>
-              <a class="dropdown-item" href="#" onclick="changeButtonName('Benzina', 'triggerId1')">Benzina</a>
-              <a class="dropdown-item" href="#" onclick="changeButtonName('N/D', 'triggerId1')">N/D</a>
-            </div>
-          </div>
-        </div>
-
-        <label for="" class="form-label mt-2">Descrizione</label>
-        <input type="text" name="" id="input1" class="form-control" placeholder="" aria-describedby="helpId">
-
-        <label for="" class="form-label mt-2">Posizione Attuale</label>
-        <input type="text" name="" id="input2" class="form-control" placeholder="" aria-describedby="helpId">
-
-        <!-- <label for="" class="form-label mt-4">Disponibilità Noleggio</label>
-            <input type="text" name="" id="input3" class="form-control" placeholder="" aria-describedby="helpId"> -->
-        <!-- <div class="form-group">
-              <label for="disponibile">Disponibile:</label>
-              <input type="radio" id="disponibileTrue" name="disponibilita" value="true">
-              <input type="radio" id="disponibileFalse" name="disponibilita" value="false">
-              
-              
-          </div> -->
-        <label for="" class="form-label mt-2">Disponibilità</label>
-        <div class="d-flex align-items-center">
-          <div class="form-check me-3">
-            <input class="form-check-input" type="radio" id="disponibileTrue" name="disponibilita" value="true">
-            <label class="form-check-label" for="disponibileTrue">
-              True
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="disponibileFalse" name="disponibilita" value="false">
-            <label class="form-check-label" for="disponibileFalse">
-              False
-            </label>
-          </div>
-        </div>
-
-
-
-
-
-        <label for="" class="form-label mt-2">Data prenotazione</label>
-        <input type="datetime-local" name="" id="input4" class="form-control" placeholder="" aria-describedby="helpId">
-
-        <label for="" class="form-label mt-2">Immagine</label>
-        <input type="text" name="" id="input5" class="form-control mb-2" placeholder="Inserisci Link"
-          aria-describedby="helpId">
-
-        <button type="button" class="btn btn-primary d-none mt-3" id="btnInvia">Invia Dati</button>
-        <button type="button" class="btn btn-info d-none mt-3" id="btnModifica">Modifica Dati</button>
-
+        <!-- tutto -->
       </div>
-
-    </div>
     </div>
     </div>
 

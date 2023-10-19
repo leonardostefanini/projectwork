@@ -61,6 +61,13 @@
     body {
         height: 100vh;
     }
+    #movingIcon {
+            position: absolute;
+            top: 655px; /* Altezza iniziale */
+            left: 0; /* Posizione iniziale a sinistra */
+          
+            transition: left 8s;
+        }
 
     #prova{
     
@@ -111,7 +118,7 @@
   <main>
     
    
-    <h1 style="margin-bottom:3rem; text-align: center;color: green;">Risparmi Co<sup>2</sup> per ogni tipologia di veicolo</h1>
+    <h1 style="margin-bottom:3rem; text-align: center;color: green;">Risparmi CO<sup>2</sup> per ogni tipologia di veicolo</h1>
 
    <div class="container">
        <div class="row">
@@ -122,12 +129,12 @@
                 </div>
 
                 <div class="col-lg-6 d-flex align-items-center ">
-                    <p class="d-flex justify-content-start" style="font-family:  'Montserrat', sans-serif;">
+                    <p class="d-flex justify-content-start" style="font-family:'Montserrat', sans-serif;background-color: rgba(215, 215, 215, 0.4);">
                         
                         Il grafico a sinistra rappresenta l'emissione di CO2 generata dai veicoli a benzina,
-                        biciclette elettriche e auto elettriche nel contesto del nostro servizio di vehicle sharing ecologico. La particolare enfasi è sull'aspetto ecologico e sostenibile delle scelte di mobilità <br>
+                        biciclette elettriche e auto elettriche nel contesto del nostro servizio di vehicle sharing ecologico. La particolare enfasi è sull'aspetto ecologico e sostenibile delle scelte di mobilità <br> <br>
 
-                        Nel grafico, notiamo che l'emissione di CO2 derivante dalle auto a benzina è rappresentata come zero. Questo non significa che le auto a benzina non emettano CO2, ma è un'espressione simbolica che evidenzia come, dal punto di vista ambientale, l'utilizzo di auto a benzina non sia una scelta conveniente. <br>
+                        Nel grafico, notiamo che l'emissione di CO2 derivante dalle auto a benzina è rappresentata come zero. Questo non significa che le auto a benzina non emettano CO2, ma è un'espressione simbolica che evidenzia come, dal punto di vista ambientale, l'utilizzo di auto a benzina non sia una scelta conveniente. <br> <br>
 
                         L'idea di fondo è che, a parità di tragitto o di utilizzo, le auto a benzina emettono una quantità significativamente maggiore di CO2 rispetto alle biciclette elettriche e alle auto elettriche. Di conseguenza, promuoviamo l'adozione di mezzi di trasporto elettrici e biciclette, poiché contribuiscono a una minore emissione di CO2 e all'abbassamento dell'impatto ambientale, favorendo così uno stile di vita più sostenibile e rispettoso dell'ambiente.
                     </p>
@@ -138,7 +145,10 @@
    
 
   </main>
-
+  <div class="">
+    <div class=""><img src="./img/A1.png" id="movingIcon" style="height: 10rem; width: auto;"></div>
+    <div class="d-flex justify-content-end"><img src="./img/C1.png"  style="margin-top:1.5rem;height: 10rem; width: auto;"></div>
+  </div>
   <footer class="footer">
     <div class="container">
          
@@ -158,6 +168,27 @@
   </script>
    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    <script>
+   const movingIcon = document.getElementById("movingIcon");
+        const screenWidth = window.innerWidth; // Larghezza della finestra del browser
+        const iconWidth = 50; // Larghezza dell'icona in pixel
+
+        function moveIcon() {
+            movingIcon.style.left = (screenWidth - iconWidth -268) + "px"; // Sposta l'icona a destra
+
+            // Aspetta un po' e poi sposta l'icona a sinistra
+            setTimeout(function () {
+                movingIcon.style.left = "0"; // Sposta l'icona a sinistra
+            }, 8000); // Ritarda di 2 secondi
+        }
+
+        // Avvia l'animazione
+        moveIcon();
+
+        // Continua a ripetere l'animazione
+        setInterval(moveIcon, 16000); // Ripeti ogni 4 secondi
+
+        //---------------------------------------------------------------------------------------------------------
+
     let ul = document.querySelector("#navLinks");
     if(localStorage.getItem("user")){
       let user = JSON.parse(localStorage.getItem("user"));
