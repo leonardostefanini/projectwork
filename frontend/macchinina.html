@@ -1,37 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <style>
-        #movingIcon {
-            position: absolute;
-            top: 100px; /* Altezza iniziale */
-            left: 0; /* Posizione iniziale a sinistra */
-          
-            transition: left 8s;
-        }
-    </style>
+  <title>Auto sulla strada</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <img src="./img/auto.png" id="movingIcon">
-    <script>
-        const movingIcon = document.getElementById("movingIcon");
-        const screenWidth = window.innerWidth; // Larghezza della finestra del browser
-        const iconWidth = 50; // Larghezza dell'icona in pixel
+    <style>
+        body {
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
 
-        function moveIcon() {
-            movingIcon.style.left = (screenWidth - iconWidth -210) + "px"; // Sposta l'icona a destra
+#road {
+  font-size: 48px;
+  color: gray;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+ font-size:20rem;
+  text-align: center;
+}
 
-            // Aspetta un po' e poi sposta l'icona a sinistra
-            setTimeout(function () {
-                movingIcon.style.left = "0"; // Sposta l'icona a sinistra
-            }, 8000); // Ritarda di 2 secondi
-        }
+#car {
+  font-size: 48px;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  color: green;
+  transition: left 0.5s;
+}
 
-        // Avvia l'animazione
-        moveIcon();
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+}
 
-        // Continua a ripetere l'animazione
-        setInterval(moveIcon, 16000); // Ripeti ogni 4 secondi
-    </script>
+button:hover {
+  color: yellow;
+}
+
+    </style>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+      <i class="fas fa-car" id="car"></i>
+      <i class="fas fa-road" id="road"></i><br>
+      <button onclick="moveCarLeft()"><i class="fas fa-arrow-alt-circle-left" style="font-size: 3rem;"></i></button>
+      <button onclick="moveCarRight()"><i class="fas fa-arrow-alt-circle-right" style="font-size: 3rem;"></i></button>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <script>
+    const car = document.getElementById('car');
+
+    function moveCarLeft() {
+      const currentPosition = parseInt(getComputedStyle(car).left, 10);
+      const newPosition = currentPosition - 20;
+      car.style.left = newPosition - 200 + 'px';
+    }
+
+    function moveCarRight() {
+      const currentPosition = parseInt(getComputedStyle(car).left, 10);
+      const newPosition = currentPosition + 20;
+      car.style.left = newPosition + 200 + 'px';
+    }
+  </script>
 </body>
 </html>
