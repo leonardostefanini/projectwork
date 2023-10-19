@@ -270,6 +270,16 @@ let autoA = document.getElementById("autoA");
 autoA.addEventListener("click", function () {
     btnModifica.classList.add("d-none");
     btnInvia.classList.remove("d-none");
+    document.getElementById('triggerId').value = '';
+    document.getElementById('triggerId1').value = '';
+    document.getElementById('input1').value = '';
+    document.getElementById('input2').value = '';
+    document.getElementById('input3').value = '';
+    document.getElementById('input4').value = '';
+    document.getElementById('input5').value = '';
+    let titleFM=document.getElementById("offcanvasRightLabel")
+    titleFM.innerHTML="";
+    titleFM.innerHTML+="Aggiungi Veicolo";
 
  
 })
