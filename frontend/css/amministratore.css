@@ -1,3 +1,52 @@
+@media screen and (max-width:991px) {
+
+#autoA{
+    background-color: rgb(21, 124, 7);
+    border: none;
+    /* margin-left: 20rem;
+    margin-top: 1rem; */
+}
+
+h1{
+    color:  rgb(21, 124, 7);
+}
+
+body {
+    background-image: url("../img/sfondoconlogo.png"); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+      
+  }
+
+#lista li{
+    display: flex;
+    width: 80%;
+     margin-top: 1rem;;
+}
+
+#btndelete{
+    width: 3rem;
+    height: 4.2rem;
+     margin-top: 1rem; 
+
+}
+
+main::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: -1; 
+  }
+
+}
+
+
+@media screen and (min-width:992px) {
 main {
     /* position: relative; */
     height: 90.3vh;
@@ -18,7 +67,7 @@ main::before {
     bottom: 0;
     /* opacity: 0.5; Opacità dell'immagine di sfondo */
     z-index: -1; /* Posiziona l'immagine di sfondo dietro il contenuto */
-    filter: brightness(0.3);
+    filter: brightness(0.2);
 }
 
 #lista li {
@@ -26,7 +75,8 @@ main::before {
     align-items: center;
     /* justify-content: space-between; */
     flex-wrap: nowrap;
-    margin-bottom: 1rem;   
+    margin-bottom: 0.5rem;  
+    width: 100vh; 
     
 }
 
@@ -41,7 +91,7 @@ main::before {
 #btndelete{
     width: 4rem;
     height: 2.67rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 
 }
 #del, #cha{
@@ -54,7 +104,7 @@ main::before {
 #form{
     /* background-color: rgba(215, 215, 215, 0.3); */
  
-     color: white;
+     color:black;
      border-left: 5px solid rgb(255, 255, 255);
      padding: 2%;
      height: auto;
@@ -67,13 +117,9 @@ main::before {
     
 }
 
-/* #Vu,#Vo,#Va{
-    height: 5rem;
-    width: 10rem;
-   
-    padding: 5rem;
-  
-} */
+h1{
+    color:  rgb(21, 124, 7);;
+}
 .full-height-row {
     min-height: 80vh; /* Imposta l'altezza minima a 80% della viewport height */ 
     
@@ -88,7 +134,10 @@ main::before {
 #autoA{
     background-color: rgb(21, 124, 7);
     border: none;
-    margin-left: 3rem;
-    margin-top: 1rem;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+} 
 
+}

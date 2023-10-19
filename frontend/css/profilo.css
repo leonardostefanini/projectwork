@@ -60,3 +60,7 @@ main::before {
     filter: brightness(0.8);
     margin-left: -0.8rem;
   }
+
+  .card{
+    border:none;
+  }

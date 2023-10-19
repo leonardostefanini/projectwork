@@ -42,8 +42,14 @@ const autoV = document.getElementById("autoV");
 const lista = document.getElementById("lista");
 let listaVisibile = false;
 
+let titolo=document.getElementById("titolo");
+titolo.innerHTML="";
+titolo.innerHTML+="Gestione Veicoli"
+
+
 // autoV.addEventListener("click", function () {
     const URL = "http://localhost:9020/api/veicolo";
+
     
     if (listaVisibile) {
        
@@ -67,7 +73,8 @@ let listaVisibile = false;
                     }else{
                       disponibilita=false;
                     }
-                    listItem.innerHTML = `<li class="list-group-item w-100 border-light">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${disponibilita} - ${element.data_prenotazione}  - ${element.utente.userid}</li>`;
+                    // listItem.innerHTML = `<li class="list-group-item w-100 border-light">${element.id} - ${element.tipologia} - ${element.alimentazione} - ${element.descrizione} - ${element.posizione} - ${disponibilita} - ${element.data_prenotazione}  - ${element.utente.userid}</li>`;
+                     listItem.innerHTML = `<li class="list-group-item border-light">${element.descrizione} - ${element.tipologia} - ${element.alimentazione} - ${element.posizione} - ${disponibilita}</li>`;
                     let vehicleId = element.id;
                     del(vehicleId,listItem)
                     mod1(vehicleId, listItem, btnModifica)
@@ -135,7 +142,39 @@ function modInv() {
 }
 modInv();
 
-function del(vehicleId,listItem) {
+// function del(vehicleId,listItem) {
+//     let deleteButton = document.createElement("button");
+//     deleteButton.setAttribute("class", "btn btn-light rounded-0");
+//     deleteButton.setAttribute("style", "border:none;");
+//     deleteButton.setAttribute("type", "button");
+//     deleteButton.setAttribute("id", "btndelete");
+//     deleteButton.innerHTML = `<i class="ri-delete-bin-5-fill" style="color:red;" id="del"></i>`;
+
+    
+
+//     deleteButton.addEventListener("click", function () {
+      
+
+//         console.log(`Delete vehicle with ID: ${vehicleId}`);
+//         const deleteURL = `http://localhost:9020/api/veicolo/${vehicleId}`;
+        
+//         fetch(deleteURL,{
+//             method: "DELETE",
+//         headers: {
+//             "Content-Tipe":"application/json" 
+//         }
+//     })
+//         .then(response => {
+//          location.href="amministratore.html"
+           
+//         })
+    
+//     });
+
+//     listItem.appendChild(deleteButton);
+// }
+
+function del(vehicleId, listItem) {
     let deleteButton = document.createElement("button");
     deleteButton.setAttribute("class", "btn btn-light rounded-0");
     deleteButton.setAttribute("style", "border:none;");
@@ -143,29 +182,31 @@ function del(vehicleId,listItem) {
     deleteButton.setAttribute("id", "btndelete");
     deleteButton.innerHTML = `<i class="ri-delete-bin-5-fill" style="color:red;" id="del"></i>`;
 
-    
-
     deleteButton.addEventListener("click", function () {
-      
+        const confirmation = window.confirm("Sei sicuro di voler eliminare questo veicolo?");
+        if (confirmation) {
+            const deleteURL = `http://localhost:9020/api/veicolo/${vehicleId}`;
 
-        console.log(`Delete vehicle with ID: ${vehicleId}`);
-        const deleteURL = `http://localhost:9020/api/veicolo/${vehicleId}`;
-        
-        fetch(deleteURL,{
-            method: "DELETE",
-        headers: {
-            "Content-Tipe":"application/json" 
+            fetch(deleteURL, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                location.href = "amministratore.html";
+            });
         }
-    })
-        .then(response => {
-         location.href="amministratore.html"
-           
-        })
-    
     });
 
     listItem.appendChild(deleteButton);
 }
+
+
+
+
+
+
 function mod1(vehicleId, listItem,  btnModifica) {
     let btnM = document.createElement("button");
     btnM.setAttribute("class", "btn btn-light  rounded-0");
@@ -186,6 +227,10 @@ function mod1(vehicleId, listItem,  btnModifica) {
         btnInvia.classList.add("d-none");
 
         const URL2 = `http://localhost:9020/api/veicolo/${vehicleId}`;
+       
+        let titleFM=document.getElementById("offcanvasRightLabel")
+        titleFM.innerHTML="";
+        titleFM.innerHTML+="Modifica Veicolo";
 
         fetch(URL2)
             .then(data => {
@@ -297,6 +342,9 @@ let listaVisibile1 = false;
 
 VUtenti.addEventListener("click", function () {
     const URL = "http://localhost:9020/api/utente";
+    let titolo=document.getElementById("titolo");
+titolo.innerHTML="";
+titolo.innerHTML+="Gestione Utenti"
 
     if (autoAVisible1) {
         autoA.classList.add("d-none");
@@ -317,7 +365,8 @@ VUtenti.addEventListener("click", function () {
             .then(response => {
                 lista1.innerHTML = "";
                 response.forEach(element => {
-                    lista1.innerHTML += `<li class="list-group-item">${element.userid} - ${element.firma} - ${element.nome} - ${element.cognome} - ${element.nascita} - ${element.email}</li>`;
+                  //  lista1.innerHTML += `<li class="list-group-item">${element.userid} - ${element.firma} - ${element.nome} - ${element.cognome} - ${element.nascita} - ${element.email}</li>`;
+                    lista1.innerHTML += `<li class="list-group-item">${element.userid} - ${element.nome} - ${element.cognome} - ${element.nascita} </li>`;
                 });
                 listaVisibile1 = true; 
             });
@@ -336,6 +385,9 @@ let listaVisibile2 = false;
 
 VOrdini.addEventListener("click", function () {
     const URL = "http://localhost:9020/api/ordine";
+    let titolo=document.getElementById("titolo");
+titolo.innerHTML="";
+titolo.innerHTML+="Gestione Ordini"
 
     if (autoAVisible) {
         autoA.classList.add("d-none");
@@ -356,7 +408,7 @@ VOrdini.addEventListener("click", function () {
             .then(response => {
                 lista2.innerHTML = "";
                 response.forEach(element => {
-                    lista2.innerHTML += `<li class="list-group-item w-50">${element.id} - ${element.utente.userid} - ${element.veicolo.id} - ${element.descrizione}</li>`;
+                    lista2.innerHTML += `<li class="list-group-item">${element.id} - ${element.utente.userid} - ${element.veicolo.id} - ${element.descrizione}</li>`;
                 });
                 listaVisibile2 = true; 
             });
