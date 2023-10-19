@@ -155,7 +155,7 @@ fetch(URLauto)
             return data.json();
           })
           .then(data => {
-            alert('Form inviato');
+            alert('Prenotazione effettuata');
 
           });
           let nuovoVeicoloM = 
