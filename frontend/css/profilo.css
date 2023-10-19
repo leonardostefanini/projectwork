@@ -20,37 +20,11 @@ main::before {
 }
 
 #container{
-    margin-top: 10rem;
+    margin-top: 6.7rem;
     
     
 }
 
-.swiper {
-    width: 50rem;
-    height: 20rem;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 15px;
-    /* background-color: rgba(255, 255, 255, 0.7); */
-    /* background: red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 70%;
-    height: 70%;
-    object-fit: cover;
-  }
-  
-  .swiper {
-    margin-left: auto;
-    margin-right: auto;
-  }
   #bgAuto{
     /* background-color: rgba(186, 183, 183, 0.7); */
     background-color:transparent;
