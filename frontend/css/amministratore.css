@@ -96,6 +96,10 @@ main::before {
     flex-wrap: nowrap;
     margin-bottom: 0.5rem;  
     width: 100vh; 
+    border-top-left-radius: 10px;
+    /* border-top-right-radius: 10px; */
+    border-bottom-left-radius: 10px;
+    /* border-bottom-right-radius: 10px; */
     
 }
 
@@ -112,6 +116,19 @@ main::before {
     height: 2.67rem;
     margin-bottom: 0.5rem;
 
+}
+
+.rounded-start-0 {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+#btnModF{
+    width: 4rem;
+    height: 2.67rem;
+    margin-bottom: 0.5rem;
+    
+    
 }
 #del, #cha{
    font-size:  1.5rem;
