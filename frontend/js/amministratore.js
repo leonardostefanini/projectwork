@@ -268,6 +268,11 @@ function mod1(vehicleId, listItem,  btnModifica) {
 //---------------------------------------------------------------------------
 let autoA = document.getElementById("autoA");
 autoA.addEventListener("click", function () {
+
+    let titleFM=document.getElementById("offcanvasRightLabel")
+    titleFM.innerHTML="";
+    titleFM.innerHTML+="Aggiungi Veicolo";
+
     btnModifica.classList.add("d-none");
     btnInvia.classList.remove("d-none");
     document.getElementById('triggerId').value = '';
@@ -277,9 +282,7 @@ autoA.addEventListener("click", function () {
     document.getElementById('input3').value = '';
     document.getElementById('input4').value = '';
     document.getElementById('input5').value = '';
-    let titleFM=document.getElementById("offcanvasRightLabel")
-    titleFM.innerHTML="";
-    titleFM.innerHTML+="Aggiungi Veicolo";
+  
 
  
 })
