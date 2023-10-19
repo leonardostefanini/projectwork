@@ -59,6 +59,7 @@ main::before {
     background-image: url("../img/sfondoconlogo.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-position: center center;
     position: absolute;
     top: 0;
