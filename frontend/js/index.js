@@ -36,18 +36,20 @@ function auto() {
           let tipologia=td.tipologia;
           let descrizione=td.descrizione;
           let alimentazione=td.alimentazione;
-
-          swiper.appendSlide(`<div class="swiper-slide ">
-          <img class="card-img-top" src="${immagine}" alt="Title">
-          <div class="card-body">
-              <h3 class="card-title"><strong>Tipologia:</strong> ${tipologia}</h3>
-              <p class="card-text"><strong>Alimentazione:</strong> ${alimentazione}</p>
-              <p class="card-text"><strong>Caratteristiche:</strong> ${descrizione}</p>
+          
+          if(td.id != 5 && td.id != 12){
+            swiper.appendSlide(`<div class="swiper-slide">
+          <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-4">
+            <div class="d-lg-flex justify-content-center" style="width: 30rem"><img src="${immagine}" alt="Title" class="img-fluid"></div>
+            <div class="card-body">
+                <h3 class="card-title"><strong>Tipologia:</strong> ${tipologia}</h3>
+                <p class="card-text my-2"><strong>Alimentazione:</strong> ${alimentazione}</p>
+                <p class="card-text"><strong>Caratteristiche:</strong> ${descrizione}</p>
+            </div>
           </div>
-          
           </div>`);
-
-          
+          } 
+    
       });
       })
   

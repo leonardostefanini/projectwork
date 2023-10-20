@@ -60,10 +60,10 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-2 d-flex ms-auto" id="container">
+                <div class="col-lg-2 d-flex justify-content-start mb-5" id="container">
                     <div class="container">
                         <div class="card mt-4">
-                            <img src="./img/SL.webp" class="card-img-top" alt="Immagine del profilo">
+                            <img src="./img/PRJ.jpg" class="card-img-top" alt="Immagine del profilo">
                             <div class="card-body">
                                 <h5 class="card-title" id="N1">Utente1</h5>
                                 <p class="card-text overflow-scroll" id="descrizione" style="height: 15rem;">🚗 Amante dei Viaggi Sostenibili 🌍<br>
@@ -87,10 +87,7 @@
                             </div>
                             <div class="modal-body">
                                 <form>
-                                    <div class="form-group">
-                                        <label for="name">Nome:</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
-                                    </div>
+                                
                                     <div class="form-group">
                                         <label for="description">Descrizione:</label>
                                         <textarea class="form-control" id="description" name="description"></textarea>
@@ -114,16 +111,16 @@
                         <!-- <div class="swiper mySwiper">
                         <div class="swiper-wrapper " id="swiper">
                             <div class="swiper-slide"> -->
-                        <div class="card h-100 d-flex" id="bgAuto">
+                        <div class="card h-100 d-flex " id="bgAuto">
                             <div class="container">
                                 <div class="row">
                                     <div class=" col-6 col-lg-6 d-flex justify-content-end">
                                         <img class="card-img-top" style="width: 10rem; height: 6rem;"
-                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBR8IxwAYHRZTXRa13BmD7lLQRL1BhUkrjLQ&usqp=CAU"
+                                            src="./img/P1c.png"
                                             alt="Title">
 
                                     </div>
-                                    <div class=" col-6 col-lg-5 ">
+                                    <div class="col-6 col-lg-5 d-flex justify-content-start">
                                         <div class="card-body">
                                             <h4 class="card-title">Audi A7</h4>
                                             <p class="card-text">Noleggio: 10/10/2022&nbsp;-&nbsp;14/10/2022
@@ -139,7 +136,7 @@
                                 <div class="row">
                                     <div class="col-6 col-lg-6 d-flex justify-content-end">
                                         <img class="card-img-top" style="width: 10rem; height: 6rem;"
-                                            src="https://www.mgarent.com/wp/wp-content/uploads/2022/05/62864ab557266_copertina-w640.jpg" alt="Title">
+                                            src="./img/P2c.png" alt="Title">
 
                                     </div>
                                     <div class=" col-6 col-lg-5 ">
@@ -160,7 +157,7 @@
                                 <div class="row">
                                     <div class=" col-6 col-lg-6 d-flex justify-content-end">
                                         <img class="card-img-top" style="width: 10rem; height: 6rem;"
-                                            src="https://images.businessonline.it/news/384/tesla-lancia-silenziosamente-le-versioni-economiche-di-model-s-e-model-x-prezzi-e-autonomia-a-confronto-4929672.png"
+                                            src="./img/P3c.png"
                                             alt="Title">
 
                                     </div>
@@ -182,7 +179,7 @@
                                 <div class="row ">
                                     <div class=" col-6 col-lg-6 d-flex justify-content-end">
                                         <img class="card-img-top" style="width: 10rem; height: 6rem;"
-                                            src="https://www.bmw.com.ec/content/dam/bmw/common/all-models/x-series/series-overview/bmw-x-series-overview-page-model-carousel-14.jpg"
+                                            src="./img/P4c.png"
                                             alt="Title">
 
                                     </div>
@@ -207,29 +204,28 @@
                         <div class="swiper-pagination"></div>
                     </div> -->
 
-                    </div>
                 </div>
-                <div class="col-12 col-lg-2 d-sm-flex justify-content-sm-center me-5" id="container" >
-                    <h3 class="text-light mb-4 ms-3">In Corso:</h3><br>
-
-                    <div id="spa">
-                        <div class="card d-block" id="bgAuto">
-                            <img class="card-img-top ms-3" style="width: 12rem; height: 10rem;"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHLVVXGNTUbsn5aRC5DfygldfVhuCl813pRw&usqp=CAU"
-                                alt="Title">
-                            <div class="card-body">
-                                <h4 class="card-title">Mercedes</h4>
-                                <p class="card-text h-100">
-                                    <p class="">Noleggio: <br> 18/10/2023&nbsp;-&nbsp;24/10/2023</p>
-                                </p>
-                                <p>Totale: 300,00€</p>
-                            </div>
+            </div>
+            <div class="col-12 col-lg-3" id="container">
+                <h3 class="text-light mb-4 ms-3 text-center">In Corso:</h3>
+                <br>
+                <div id="spa" class="d-flex justify-content-end align-items-center">
+                    <!-- <div class="card d-block" id="bgAuto">
+                        <img class="card-img-top ms-3" style="width: 12rem; height: 10rem;"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHLVVXGNTUbsn5aRC5DfygldfVhuCl813pRw&usqp=CAU"
+                            alt="Title">
+                        <div class="card-body">
+                            <h4 class="card-title">Mercedes</h4>
+                            <p class="card-text h-100">
+                                <p class="">Noleggio: <br> 18/10/2023&nbsp;-&nbsp;24/10/2023</p>
+                            </p>
+                            <p>Totale: 300,00€</p>
+                        </div> -->
+            
                         
-                            <button type="button" class="btn btn-danger ms-3" id="btnAlert">Elimina prenotazione</button>
-                        
-                        </div>
+                        <!-- </div> -->
                     </div>
-                </div>
+                    <div class="d-flex justify-content-end"><button type="button" class="btn btn-danger " id="btnAlert">Elimina prenotazione</button></div>
             </div>
         </div>
     </main>

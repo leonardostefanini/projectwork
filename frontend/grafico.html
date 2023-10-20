@@ -75,6 +75,18 @@
     height: 40rem;
     border-radius: 34% 64% 77% 26% / 73% 54% 45% 19%;
 }
+
+@media screen and (max-width:991px) {
+  #movingIcon {
+            position: absolute;
+            top: 1125px; /* Altezza iniziale */
+            left: 0; /* Posizione iniziale a sinistra */
+          
+            transition: left 8s;
+        }
+
+       
+}
     </style>
 
 </head>
@@ -100,11 +112,18 @@
                   <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#veicoli">Veicoli</a>
+                  <a class="nav-link" href="index.html">Veicoli</a>
+
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#grafico">Emissioni</a>
                 </li>
                 
                 <li class="nav-item">
                   <a class="nav-link" href="Chisiamo.html">Chi siamo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Contattaci.html">Contattaci</a>
                 </li>
               </ul>
             </div>
@@ -124,12 +143,12 @@
        <div class="row">
 
                 <div class="col-lg-6">
-                    <canvas id="grafico" class="w-75 h-100"></canvas>
+                    <canvas id="grafico" class="w-75 h-100 ms-sm-5"></canvas>
 
                 </div>
 
-                <div class="col-lg-6 d-flex align-items-center ">
-                    <p class="d-flex justify-content-start" style="font-family:'Montserrat', sans-serif;background-color: rgba(215, 215, 215, 0.4);">
+                <div class="col-lg-6 d-flex align-items-center mt-sm-3 ">
+                    <p class="d-flex justify-content-start" style="font-family:'Montserrat', sans-serif;font-size: 17px;background-color: rgba(215, 215, 215, 0.4);border-radius: 2%; padding: 2%;">
                         
                         Il grafico a sinistra rappresenta l'emissione di CO2 generata dai veicoli a benzina,
                         biciclette elettriche e auto elettriche nel contesto del nostro servizio di vehicle sharing ecologico. La particolare enfasi è sull'aspetto ecologico e sostenibile delle scelte di mobilità <br> <br>
@@ -147,7 +166,7 @@
   </main>
   <div class="">
     <div class=""><img src="./img/A1.png" id="movingIcon" style="height: 10rem; width: auto;"></div>
-    <div class="d-flex justify-content-end"><img src="./img/C1.png"  style="margin-top:1.5rem;height: 10rem; width: auto;"></div>
+    <div class="d-flex justify-content-end"><img id="C1" src="./img/C1.png"  style="margin-top:1.5rem;height: 10rem; width: auto;"></div>
   </div>
   <footer class="footer">
     <div class="container">

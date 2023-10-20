@@ -209,12 +209,12 @@ function del(vehicleId, listItem) {
 
 function mod1(vehicleId, listItem,  btnModifica) {
     let btnM = document.createElement("button");
-    btnM.setAttribute("class", "btn btn-light  rounded-0");
+    btnM.setAttribute("class", "btn btn-light rounded-start-0");
     btnM.setAttribute("type", "button");
     btnM.setAttribute("data-bs-toggle", "offcanvas");
     btnM.setAttribute("data-bs-target", "#offcanvasRight");
     btnM.setAttribute("aria-controls", "offcanvasRight");
-     btnM.setAttribute("id", "btndelete");
+     btnM.setAttribute("id", "btnModF");
     btnM.innerHTML = `<i class="ri-edit-2-fill" style="color:green;" id="cha"></i>`;
 
    

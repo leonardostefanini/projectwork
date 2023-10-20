@@ -110,8 +110,8 @@ fetch(URLauto)
           map.setView([lat, lon], 16);
           //L.marker([lat, lon]).addTo(map).bindPopup("Il veicolo è qui").openPopup();
           var customIcon = L.icon({
-            iconUrl: './img/car.png', // Inserisci il percorso dell'icona personalizzata
-            iconSize: [65, 65],
+            iconUrl: './img/green.png', // Inserisci il percorso dell'icona personalizzata
+            iconSize: [40, 40],
             iconAnchor: [20, 40],
         });
 

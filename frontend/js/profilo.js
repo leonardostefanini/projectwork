@@ -1,40 +1,85 @@
+var btnAlert = document.getElementById("btnAlert");
 
 
-  var btnAlert = document.getElementById("btnAlert");
+// btnAlert.addEventListener("click", function () {
+  
+  const URL = "http://localhost:9020/api/veicolo/1";
+  fetch(URL)
+  .then(data => {
+    return data.json();
+  })
+  .then(response => {
+    let spa = document.getElementById("spa")
+    spa.innerHTML += `
 
-  // Aggiungi un gestore di eventi per il clic sul pulsante
+<div class="card d-block" id="bgAuto">
+                        <img class="card-img-top ms-3" style="width: 18rem; height: 10rem;"
+                            src="${response.immagine}""
+                            alt="Title">
+                        <div class="card-body">
+                            <h4 class="card-title">Mercedes</h4>
+                            <p class="card-text h-100">
+                                <p class="">Noleggio: <br> 18/10/2023&nbsp;-&nbsp;24/10/2023</p>
+                            </p>
+                            <p>Totale: 300,00€</p>
+                        </div>`
+
   btnAlert.addEventListener("click", function () {
-      // Mostra un messaggio di avviso
-      alert("L'ordine è stato rimosso.");
+                          
+      let nuovoVeicoloM = {
+        veicoloId : response.veicoloId,
+        tipologia: response.tipologia,
+        alimentazione: response.alimentazione,
+        descrizione: response.descrizione,
+        posizione: response.posizione,
+        disponibilita: true,
+        data_prenotazione: response.data_prenotazione,
+        immagine: response.immagine,
+        userid: "Amministratore"
+      }
 
-      let spa =document.getElementById("spa");
-      // if (spa.classList.contains("d-block")) {
-        spa.classList.add("d-none")
-    // } else {
-    //     spa.classList.remove("d-none")
-    // }
-
+      
+      const URLup = "http://localhost:9020/api/veicolo/1";
+      fetch(URLup, {
+        method: "PUT",
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(nuovoVeicoloM)
+      })
+      .then(data => {
+        return data.json()
+    })
+    .then(response => {
+      let spa = document.getElementById("spa")
+      spa.innerHTML="";
+     
+      
+    
+    });
   });
+  
+});
 
 
 
 
-  var btnMpro = document.getElementById("btnMpro");
-  var editProfileModal = document.getElementById("editProfileModal");
-  btnMpro.addEventListener("click", function () {
-      editProfileModal.style.display = "block";
-  });
-  var saveChangesButton = document.getElementById("saveChanges");
-  saveChangesButton.addEventListener("click", function () {
-      var name = document.getElementById("name").value;
-      var password = document.getElementById("password").value;
-      var description = document.getElementById("description").value;
 
-      let descrizione=document.getElementById("descrizione")
-      descrizione.innerHTML=description;
-      let N1=document.getElementById("N1")
-      N1.innerHTML=name;
-      editProfileModal.style.display = "none";
-  });
+var btnMpro = document.getElementById("btnMpro");
+var editProfileModal = document.getElementById("editProfileModal");
+btnMpro.addEventListener("click", function () {
+  editProfileModal.style.display = "block";
+});
+var saveChangesButton = document.getElementById("saveChanges");
+saveChangesButton.addEventListener("click", function () {
 
+  const confirmation = window.confirm("Sei sicuro di voler modificare la descrizione?");
+  if (confirmation) {
 
+  var description = document.getElementById("description").value;
+
+  let descrizione = document.getElementById("descrizione")
+  descrizione.innerHTML = description;
+  editProfileModal.style.display = "none";
+  }
+});

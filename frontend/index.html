@@ -27,7 +27,7 @@
   <header>
     <nav class="navbar navbar-expand-lg fixed-top bg-light">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="play/index.html">
           <img id="logo" src="img/PW_logo.png" alt="logo">
       </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -52,6 +52,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="Chisiamo.html">Chi siamo</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Contattaci.html">Contattaci</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -72,8 +75,8 @@
     </div>
   <!-- fine hero -->
   <main>
-    <div class="swiper mySwiper" > 
-         <div class="swiper-wrapper" id="swiper">
+    <div class="swiper mySwiper"> 
+         <div class="swiper-wrapper" id="swiper" style="height: 25rem;">
          <!-- <div class="swiper-slide">Slide 1</div>
           <div class="swiper-slide">Slide 2</div>
           <div class="swiper-slide">Slide 3</div>
@@ -178,13 +181,13 @@
   <div class="container" id="veicoli" style=" scroll-margin-top: 100px;" >
 
     <div class="row text-center">
-      <div class="column col-6">
+      <div class="column col-lg-6 col-12">
         <h2>Veicoli disponibili</h2>
         <div id="VeicDisp"> </div>
       </div>
 
 
-      <div class="column col-6">
+      <div class="column col-lg-6 col-12">
         <h2>Veicoli non disponibili</h2>
         <div id="VeicNonDisp"></div>
       </div>
@@ -193,26 +196,29 @@
 
 
   <div class="container">
-    <div class="immaginiClienti row my-5 bg-light align-items-center ">
-      <div class="col-6 col-lg-2 my-5  ">
-          <img class="img-fluid w-50" src="./img/client-1.png" alt="">
+    <div class="immaginiClienti row my-5 bg-light align-items-center">
+      <div class="col-6 col-lg-2 my-5 text-center">
+        <img class="img-fluid w-50" src="./img/client-1.png" alt="">
       </div>
-      <div class="col-6 col-lg-2 my-5">
-          <img class="img-fluid w-50" src="./img/client-2.png" alt="">
+      <div class="col-6 col-lg-2 my-5 text-center">
+        <img class="img-fluid w-50" src="./img/client-2.png" alt="">
       </div>
-      <div class="col-6 col-lg-2 my-5">
-          <img class="img-fluid w-50" src="./img/client-3.png" alt="">
+      <div class="col-6 col-lg-2 my-5 text-center">
+        <img class="img-fluid w-50" src="./img/client-3.png" alt="">
       </div>
-      <div class="col-6 col-lg-2 my-5 ">
-          <img class="img-fluid w-50" src="./img/client-4.png" alt="">
+      <div class="col-6 col-lg-2 my-5 text-center">
+        <img class="img-fluid w-50" src="./img/client-4.png" alt="">
       </div>
-      <div class="col-6 col-lg-2 my-5 ">
-          <img class="img-fluid w-50" src="./img/client-5.png" alt="">
+      <div class="col-6 col-lg-2 my-5 text-center">
+        <img class="img-fluid w-50" src="./img/client-5.png" alt="">
       </div>
-      <div class="col-6 col-lg-2 my-5">
-          <img class="img-fluid w-50" src="./img/client-6.png" alt="">
+      <div class="col-6 col-lg-2 my-5 text-center">
+        <img class="img-fluid w-50" src="./img/client-6.png" alt="">
       </div>
+    </div>
   </div>
+  
+  
     </main>
 
     <footer class="page-footer font-small indigo mt-5 text-white" style=" background-color: #505d6a;">
@@ -280,7 +286,7 @@
     
             <ul class="list-unstyled">
               <li class="my-2">
-                <p style="color: #fff;"><i class="ri-arrow-right-s-line"></i><a href="veicoli.html" style="color: inherit;">Veicoli</a></p>
+                <p style="color: #fff;"><i class="ri-arrow-right-s-line"></i><a href="#veicoli" style="color: inherit;">Veicoli</a></p>
               </li>
               <li class="my-2">
                 <p style="color: #fff;"><i class="ri-arrow-right-s-line"></i><a href="grafico.html" style="color: inherit;">Emissioni</a></p>
