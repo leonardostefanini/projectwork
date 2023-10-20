@@ -156,7 +156,7 @@ let desc = document.querySelectorAll("#desc");
 let footer = document.querySelector("footer");
 let profTitolo = document.querySelector("#profTitolo");
 let profNome = document.querySelector("#profNome");
-let swiper = document.querySelector(".swiper");
+
 
 checkbox.addEventListener("change", function() {
   if(!body.hasAttribute("data-bs-theme")) {
