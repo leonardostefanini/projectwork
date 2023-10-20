@@ -6,7 +6,7 @@ main {
 
 main::before {
     content: "";
-    background-image: url("../img/imgautomare.jpg");
+    background-image: url("../img/sfondoconlogo.png");
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
@@ -16,7 +16,7 @@ main::before {
     bottom: 0;
     /* opacity: 0.5; Opacità dell'immagine di sfondo */
     z-index: -1; /* Posiziona l'immagine di sfondo dietro il contenuto */
-    filter: brightness(0.3);
+    filter: brightness(0.2);
 }
 
 #container{
