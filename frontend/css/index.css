@@ -76,7 +76,7 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  /* background: #fff; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,6 +195,7 @@ header nav a:hover {
 #profNome.dark {
   color: white;
 }
+
 #desc.dark {
   color: black;
 }

@@ -156,6 +156,7 @@ let desc = document.querySelectorAll("#desc");
 let footer = document.querySelector("footer");
 let profTitolo = document.querySelector("#profTitolo");
 let profNome = document.querySelector("#profNome");
+let swiper1 = document.querySelector("#swiper1");
 
 
 checkbox.addEventListener("change", function() {
@@ -165,7 +166,8 @@ checkbox.addEventListener("change", function() {
     luna.classList.add("dark");
     sfondo.classList.add("dark");
     palla.classList.add("dark");
-    // swiper.classList.add("dark");
+   swiper1.classList.add("dark")
+
     linkNav.forEach(link => {
       link.classList.add("dark");
     })
@@ -182,6 +184,8 @@ checkbox.addEventListener("change", function() {
     luna.classList.remove("dark");
     sfondo.classList.remove("dark");
     palla.classList.remove("dark");
+    swiper1.classList.remove("dark")
+
     linkNav.forEach(link => {
       link.classList.remove("dark");
     })
