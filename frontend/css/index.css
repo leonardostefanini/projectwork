@@ -19,9 +19,21 @@
     height: 6rem ;
     width: auto;
   }
+ 
 }
 
 
+/* Stile per il tema chiaro (light mode) */
+.light-mode {
+  fill: black; /* Cambia il colore di riempimento in base al tuo design */
+  /* background-color: white; */
+}
+
+/* Stile per il tema scuro (dark mode) */
+.dark-mode {
+  fill: white; /* Cambia il colore di riempimento in base al tuo design */
+  /* background-color: black;  */
+}
 
 
 #logo {
