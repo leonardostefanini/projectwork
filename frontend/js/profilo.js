@@ -12,12 +12,12 @@ var btnAlert = document.getElementById("btnAlert");
     let spa = document.getElementById("spa")
     spa.innerHTML += `
 
-<div class="card d-block" id="bgAuto">
+<div class="card bg-light bg-opacity-50 d-block" id="bgAuto">
                         <img class="card-img-top ms-3" style="width: 18rem; height: 10rem;"
                             src="${response.immagine}""
                             alt="Title">
-                        <div class="card-body">
-                            <h4 class="card-title">Mercedes</h4>
+                        <div class="card-body text-center">
+                            <h4 class="card-title">${response.descrizione}</h4>
                             <p class="card-text h-100">
                                 <p class="">Noleggio: <br> 18/10/2023&nbsp;-&nbsp;24/10/2023</p>
                             </p>
