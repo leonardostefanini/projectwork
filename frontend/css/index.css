@@ -1,4 +1,29 @@
 /* navbar e hero */
+
+@media screen and (min-width:992px) {
+  #idA{
+    height: 17rem;
+  }
+
+  #idA #carC{
+    height: auto;
+    width: 17rem;
+  }
+}
+@media screen and (max-width:991px) {
+  #idA{
+    height: 17rem;
+  }
+
+  #idA #carC{
+    height: 6rem ;
+    width: auto;
+  }
+}
+
+
+
+
 #logo {
   height: 3rem;
 }
