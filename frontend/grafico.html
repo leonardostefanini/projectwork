@@ -85,8 +85,17 @@
             transition: left 8s;
         }
 
-       
+  @media screen and (max-width:991px) {
+    #grafico {
+    width: auto;
+    margin: auto; 
+  }
 }
+
+ 
+}
+
+       
     </style>
 
 </head>
@@ -139,35 +148,36 @@
    
     <h1 style="margin-bottom:3rem; text-align: center;color: green;">Risparmi CO<sup>2</sup> per ogni tipologia di veicolo</h1>
 
-   <div class="container">
-       <div class="row">
-
-                <div class="col-lg-6">
-                    <canvas id="grafico" class="w-75 h-100 ms-sm-5"></canvas>
-
-                </div>
-
-                <div class="col-lg-6 d-flex align-items-center mt-sm-3 ">
-                    <p class="d-flex justify-content-start" style="font-family:'Montserrat', sans-serif;font-size: 17px;background-color: rgba(215, 215, 215, 0.4);border-radius: 2%; padding: 2%;">
-                        
-                        Il grafico rappresenta l'emissione di CO2 generata dai veicoli a benzina,
-                        biciclette elettriche e auto elettriche nel contesto del nostro servizio di vehicle sharing ecologico. La particolare enfasi è sull'aspetto ecologico e sostenibile delle scelte di mobilità <br> <br>
-
-                        Nel grafico, notiamo che l'emissione di CO2 derivante dalle auto a benzina è rappresentata come zero. Questo non significa che le auto a benzina non emettano CO2, ma è un'espressione simbolica che evidenzia come, dal punto di vista ambientale, l'utilizzo di auto a benzina non sia una scelta conveniente. <br> <br>
-
-                        L'idea di fondo è che, a parità di tragitto o di utilizzo, le auto a benzina emettono una quantità significativamente maggiore di CO2 rispetto alle biciclette elettriche e alle auto elettriche. Di conseguenza, promuoviamo l'adozione di mezzi di trasporto elettrici e biciclette, poiché contribuiscono a una minore emissione di CO2 e all'abbassamento dell'impatto ambientale, favorendo così uno stile di vita più sostenibile e rispettoso dell'ambiente.
-                    </p>
-                </div> <!--chiusra col testo-->
-            </div>
-    </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+              <canvas id="grafico" class="w-75 h-100 ms-sm-5"></canvas>
+          </div>
+   
+          <div class="col-lg-6 d-flex align-items-center mt-sm-3 justify-content-center ">
+              <div class="paragrafo" style="margin: 20px; font-family: 'Montserrat', sans-serif; font-size: 17px;background-color: rgba(215, 215, 215, 0.4);border-radius: 2%; padding: 2%;">
+                  <p>Il grafico in questione rappresenta l'emissione di <b>CO2</b> generata dai veicoli a <b>benzina</b>, <b>biciclette elettriche</b> e <b>auto elettriche</b> in un contesto di servizio di vehicle sharing ecologico. Nel grafico, l'emissione di <b>CO2</b> proveniente dalle <b>auto a benzina</b> è rappresentata simbolicamente come zero, non per indicare che non emettano <b>CO2</b>, ma per sottolineare che dal punto di vista ambientale, l'uso di <b>auto a benzina</b> non è una scelta sostenibile.</p><br>
+   
+                  <p>L'idea fondamentale sottolinea che, a parità di percorso o utilizzo, le <b>auto a benzina</b> emettono significativamente più <b>CO2</b> rispetto alle <b>biciclette elettriche</b> e alle <b>auto elettriche</b>. Questo grafico promuove l'adozione di mezzi di trasporto <b>elettrici</b> e <b>biciclette</b>, in quanto contribuiscono a una notevole riduzione delle emissioni di <b>CO2</b> e dell'impatto ambientale, promuovendo uno stile di vita più <b>sostenibile</b> e rispettoso dell'<b>ambiente</b>.</p>
+              </div>
+          </div> <!-- Chiusura del div del testo -->
+      </div>
+   </div>
 
    
 
   </main>
-  <div class="">
+  <!-- <div class="">
     <div class=""><img src="./img/A1.png" id="movingIcon" style="height: 10rem; width: auto;"></div>
     <div class="d-flex justify-content-end"><img id="C1" src="./img/C1.png"  style="margin-top:1.5rem;height: 10rem; width: auto;"></div>
+  </div> -->
+  <!-- MACCHINA SPARISCE CON SCHERMI PICCOLI MA PENSO BISOGNA MODIFICARE I VALORI PER I PROPRI SCHERMI-->
+  <div class="">
+    <div class="d-none d-sm-block"><img src="./img/A1.png" id="movingIcon" style="height: 10rem; width: auto;"></div>
+    <div class="d-none d-sm-block position-absolute" style="bottom: 0; right: 0;">
+      <img id="C1" src="./img/C1.png" style="margin-top: 1rem; height: 10rem; width: auto;">
   </div>
+</div>
   <footer class="footer">
     <div class="container">
          

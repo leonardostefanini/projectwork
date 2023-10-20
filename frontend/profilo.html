@@ -21,54 +21,67 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-light navbar-light position-fixed fixed-top">
+        <nav class="navbar navbar-expand-lg fixed-top bg-light">
             <div class="container">
-                <div class="navbar-brand" href="#">
-                    <a class="navbar-brand" href="./"><img src="./img/PW_logo.png" alt="" style="height: 3rem;"></a>
+              <a class="navbar-brand" href="play/index.html">
+                <img id="logo" src="img/PW_logo.png" alt="logo">
+            </a>
+              <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <button class="navbar-toggler" id="bt3" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul id="navLinks" class="navbar-nav align-items-center ms-auto">
-
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active ms-5 text-success" href="index.html" aria-current="page"
-                                id="home"><i class="ri-home-8-line" style="font-size: 3rem;"></i></span></a>
-                        </li>
-                        <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle ms-5 text-success" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Auto</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownId">
-                <a class="dropdown-item" href="#" id="autoV">Visualizza</a>
-               
-                <a class="dropdown-item" href="#" id="autoA">Aggiungi</a>
-                <a class="dropdown-item" href="#" id="autoM">Modifica</a> 
+                <div class="offcanvas-body">
+                  <ul id="navLinks" class="navbar-nav justify-content-end flex-grow-1 pe-3 fw-semibold gap-4 align-items-center">
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#veicoli">Veicoli</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="grafico.html">Emissioni</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="Chisiamo.html">Chi siamo</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="Contattaci.html">Contattaci</a>
+                    </li>
+                    <li class="nav-item">
+                      <div>
+                        <!-- <input type="checkbox" class="checkbox" id="checkbox"> -->
+                        <!-- <label for="checkbox" class="checkbox-label">
+                          <i class="fas fa-moon"></i>
+                          <i class="fas fa-sun"></i>
+                          <span class="ball"></span>
+                        </label> -->
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </li> -->
-                    </ul>
-                </div>
             </div>
-
-        </nav>
+          </nav> <!-- place navbar here -->
 
     </header>
     <main>
-        <div class="container-fluid">
+        <div class="container">
+            
             <div class="row">
-                <div class="col-lg-2 d-flex justify-content-start mb-5" id="container">
+                <div class="col-lg-3 d-flex justify-content-start mb-5" id="container">
                     <div class="container">
-                        <div class="card mt-4">
-                            <img src="./img/PRJ.jpg" class="card-img-top" alt="Immagine del profilo">
+                        <h1 class="text-center  mt-3">Profilo</h1>
+                        <div class="card bg-light bg-opacity-50">
+                            <div class="d-flex justify-content-center"><img src="./img/PRJ.jpg" class="card-img-top w-50" alt="Immagine del profilo"></div>
                             <div class="card-body">
-                                <h5 class="card-title" id="N1">Utente1</h5>
-                                <p class="card-text overflow-scroll" id="descrizione" style="height: 15rem;">🚗 Amante dei Viaggi Sostenibili 🌍<br>
+                                <h5 class="card-title " id="N1">Utente1</h5>
+                                <p class="card-text" id="descrizione" style="height: 15rem;">🚗 Amante dei Viaggi Sostenibili 🌍<br>
 
-                                    Ciao! Sono un appassionato sostenitore della mobilità sostenibile e utilizzo il car sharing come parte del mio stile di vita. Sono sempre in movimento e credo che condividere le auto sia un modo intelligente per ridurre l'impatto ambientale e risparmiare denaro.</p>
+                                    Ciao! Sono un appassionato sostenitore della mobilità sostenibile e utilizzo il car sharing come parte del mio stile di vita.Credo che condividere le auto sia un modo intelligente per ridurre l'impatto ambientale e risparmiare denaro.</p>
                                     <a href="#" class="btn btn-success" id="btnMpro">Modifica Profilo</a>
                                     
                             </div>
@@ -105,46 +118,48 @@
 
 
 
-                <div class="col-lg-7" id="container">
+                <div class="col-lg-6" id="container">
                     <div class="container">
-                        <h1 class="text-center text-light mb-3">Storico Prenotazioni</h1>
+                        <h1 class="text-center mb-2 mt-3">Storico Prenotazioni</h1>
                         <!-- <div class="swiper mySwiper">
                         <div class="swiper-wrapper " id="swiper">
                             <div class="swiper-slide"> -->
-                        <div class="card h-100 d-flex " id="bgAuto">
-                            <div class="container">
-                                <div class="row">
-                                    <div class=" col-6 col-lg-6 d-flex justify-content-end">
-                                        <img class="card-img-top" style="width: 10rem; height: 6rem;"
-                                            src="./img/P1c.png"
-                                            alt="Title">
-
-                                    </div>
-                                    <div class="col-6 col-lg-5 d-flex justify-content-start">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Audi A7</h4>
-                                            <p class="card-text">Noleggio: 10/10/2022&nbsp;-&nbsp;14/10/2022
-                                            </p>
-                                            <p>Totale: 180,55€</p>
+                        <div class="d-flex justify-content-center">
+                            <div class="card w-75 bg-light bg-opacity-50 h-75 d-flex  " id="bgAuto">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class=" col-lg-6 d-flex justify-content-end align-items-center">
+                                            <img class="card-img-top" style="width: 10rem; height: 6rem;"
+                                                src="./img/P1c.png"
+                                                alt="Title">
+                                        </div>
+                                        <div class=" col-lg-5 d-flex justify-content-start">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Audi A7</h4>
+                                                <p class="card-text">Noleggio: 10/10/2022&nbsp;-&nbsp;14/10/2022
+                                                </p>
+                                                <p>Totale: 180,55€</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card h-100 d-flex" id="bgAuto">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-6 col-lg-6 d-flex justify-content-end">
-                                        <img class="card-img-top" style="width: 10rem; height: 6rem;"
-                                            src="./img/P2c.png" alt="Title">
-
-                                    </div>
-                                    <div class=" col-6 col-lg-5 ">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Alfa Romeo Tonale</h4>
-                                            <p class="card-text">Noleggio: 29/10/2022&nbsp;-&nbsp;02/11/2022
-                                            </p>
-                                            <p><p>Totale: 140,80€</p></p>
+                        <div class="d-flex justify-content-center">
+                            <div class="card h-75 w-75 bg-light bg-opacity-50 d-flex mt-2" id="bgAuto">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class=" col-lg-6 d-flex justify-content-end align-items-center">
+                                            <img class="card-img-top" style="width: 10rem; height: 8rem;"
+                                                src="./img/P2c.png" alt="Title">
+                                        </div>
+                                        <div class=" col-lg-5 ">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Alfa&nbsp;Romeo</h4>
+                                                <p class="card-text">Noleggio: 29/10/2022&nbsp;-&nbsp;02/11/2022
+                                                </p>
+                                                <p><p>Totale: 140,80€</p></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -152,16 +167,16 @@
                         </div>
                         <!-- </div>
                             <div class="swiper-slide"> -->
-                        <div class="card h-100 d-flex" id="bgAuto">
+                        <!-- <div class="card bg-light bg-opacity-50 h-100 d-flex" id="bgAuto">
                             <div class="container">
                                 <div class="row">
-                                    <div class=" col-6 col-lg-6 d-flex justify-content-end">
+                                    <div class=" col-lg-6 d-flex justify-content-end">
                                         <img class="card-img-top" style="width: 10rem; height: 6rem;"
                                             src="./img/P3c.png"
                                             alt="Title">
 
                                     </div>
-                                    <div class=" col-6 col-lg-5">
+                                    <div class="col-lg-5">
                                         <div class="card-body">
                                             <h4 class="card-title">Tesla Model S</h4>
                                             <p class="card-text">Noleggio:  02/03/2023&nbsp;-&nbsp;05/03/2023
@@ -171,24 +186,25 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- </div>
                             <div class="swiper-slide"> -->
-                        <div class="card h-100 " id="bgAuto">
-                            <div class="container">
-                                <div class="row ">
-                                    <div class=" col-6 col-lg-6 d-flex justify-content-end">
-                                        <img class="card-img-top" style="width: 10rem; height: 6rem;"
-                                            src="./img/P4c.png"
-                                            alt="Title">
-
-                                    </div>
-                                    <div class=" col-6 col-lg-5 ">
-                                        <div class="card-body">
-                                            <h4 class="card-title">BMW X</h4>
-                                            <p class="card-text">Noleggio: 17/06/2023&nbsp;-&nbsp;22/06/2023
-                                            </p>
-                                            <p><p>Totale: 280,60€</p></p>
+                        <div class="d-flex justify-content-center">
+                            <div class="card bg-light w-75 bg-opacity-50 h-75 mt-2 mb-5" id="bgAuto">
+                                <div class="container">
+                                    <div class="row ">
+                                        <div class=" col-lg-6 d-flex justify-content-end align-items-center">
+                                            <img class="card-img-top" style="width: 10rem; height: 6rem;"
+                                                src="./img/P4c.png"
+                                                alt="Title">
+                                        </div>
+                                        <div class=" col-lg-5 ">
+                                            <div class="card-body">
+                                                <h4 class="card-title">BMW X</h4>
+                                                <p class="card-text">Noleggio: 17/06/2023&nbsp;-&nbsp;22/06/2023
+                                                </p>
+                                                <p><p>Totale: 280,60€</p></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -206,10 +222,10 @@
 
                 </div>
             </div>
-            <div class="col-12 col-lg-3" id="container">
-                <h3 class="text-light mb-4 ms-3 text-center">In Corso:</h3>
-                <br>
-                <div id="spa" class="d-flex justify-content-end align-items-center">
+            <div class=" col-lg-3" id="cont">
+                <h1 class="text-center mb-2 mt-3">In corso:</h1>
+                
+                <div id="spa" class="d-flex align-items-center">
                     <!-- <div class="card d-block" id="bgAuto">
                         <img class="card-img-top ms-3" style="width: 12rem; height: 10rem;"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHLVVXGNTUbsn5aRC5DfygldfVhuCl813pRw&usqp=CAU"
@@ -225,7 +241,7 @@
                         
                         <!-- </div> -->
                     </div>
-                    <div class="d-flex justify-content-end"><button type="button" class="btn btn-danger " id="btnAlert">Elimina prenotazione</button></div>
+                    <div class="d-flex justify-content-center"><button type="button" class="btn btn-danger  mt-2 " id="btnAlert">Elimina prenotazione</button></div>
             </div>
         </div>
     </main>

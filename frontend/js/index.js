@@ -157,6 +157,7 @@ let footer = document.querySelector("footer");
 let profTitolo = document.querySelector("#profTitolo");
 let profNome = document.querySelector("#profNome");
 
+
 checkbox.addEventListener("change", function() {
   if(!body.hasAttribute("data-bs-theme")) {
     body.setAttribute("data-bs-theme", "dark");
@@ -164,6 +165,7 @@ checkbox.addEventListener("change", function() {
     luna.classList.add("dark");
     sfondo.classList.add("dark");
     palla.classList.add("dark");
+    // swiper.classList.add("dark");
     linkNav.forEach(link => {
       link.classList.add("dark");
     })
