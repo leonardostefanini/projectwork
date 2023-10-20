@@ -175,8 +175,10 @@ checkbox.addEventListener("change", function() {
       d.classList.add("dark");
     })
     footer.classList.add("dark");
-    profTitolo.classList.add("dark");
-    profNome.classList.add("dark");
+    if(localStorage.getItem("user")){
+      profTitolo.classList.add("dark");
+      profNome.classList.add("dark");
+    }
   }
   else {
     body.removeAttribute("data-bs-theme");
@@ -193,7 +195,42 @@ checkbox.addEventListener("change", function() {
       d.classList.remove("dark");
     })
     footer.classList.remove("dark");
-    profTitolo.classList.remove("dark");
-    profNome.classList.remove("dark");
+    if(localStorage.getItem("user")) {
+      profTitolo.classList.remove("dark");
+      profNome.classList.remove("dark");
+    }
   }
+})
+
+checkbox.addEventListener("change", function() {
+
+  if(!body.hasAttribute("data-bs-theme")) {
+    let svg = ["Tesla.svg", "Scott.svg", "BMW.svg", "audi.svg", "mercedes.svg", "Peugeot.svg"];
+    let imgSvg = document.querySelectorAll(".svgLogo");
+    let i = 0;
+    svg.forEach(s => {
+      fetch("img/"+s)
+      .then(response => response.text())
+      .then(data => {
+        data = data.replace('fill="#FFFFFF"', 'fill="#000000"');
+        imgSvg[i].setAttribute("src", `data:image/svg+xml,${encodeURIComponent(data)}`)
+        i++;
+      })
+    })
+  }
+  else {
+    let svg = ["Tesla.svg", "Scott.svg", "BMW.svg", "audi.svg", "mercedes.svg", "Peugeot.svg"];
+    let imgSvg = document.querySelectorAll(".svgLogo");
+    let i = 0;
+    svg.forEach(s => {
+      fetch("img/"+s)
+      .then(response => response.text())
+      .then(data => {
+        data = data.replace('fill="#000000"', 'fill="#FFFFFF"');
+        imgSvg[i].setAttribute("src", `data:image/svg+xml,${encodeURIComponent(data)}`)
+        i++;
+      })
+    })
+  }
+  
 })
