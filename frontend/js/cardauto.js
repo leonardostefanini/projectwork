@@ -26,7 +26,7 @@ fetch(URL)
         <div class="w-50">
           <img src="${veicolo.immagine}" class="img-fluid">
         </div>
-        <div class=" ms-lg-4">
+        <div class="ms-lg-4">
           <h5 class="card-title"><strong>Tipologia:</strong> ${veicolo.tipologia}</h5>
           <p class="card-text"><strong>Alimentazione:</strong> ${veicolo.alimentazione}</p>
           <p class="card-text">${veicolo.descrizione}</p>
@@ -38,11 +38,11 @@ fetch(URL)
   
   function creaCardIndisp(veicolo) {
     return `<div class="card border-danger border-3 mt-3">
-    <div class="card-body d-flex align-items-center">
+    <div class="card-body d-flex flex-column flex-lg-row align-items-center">
       <div class="w-50">
         <img src="${veicolo.immagine}" class="img-fluid immagine">
       </div>
-      <div class=" ms-4">
+      <div class="ms-lg-4">
         <h5 class="card-title"><strong>Tipologia:</strong> ${veicolo.tipologia}</h5>
         <p class="card-text"><strong>Alimentazione:</strong> ${veicolo.alimentazione}</p>
         <p class="card-text">${veicolo.descrizione}</p>
