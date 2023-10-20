@@ -21,12 +21,12 @@ fetch(URL)
   .catch(error => console.error("Errore durante la richiesta:", error));
 
   function creaCardDisp(veicolo) {
-    return `<div class="card border-success border-3 mt-3">
+    return `<div class="card border-success border-3 mt-3" id="idA">
       <div class="card-body d-flex flex-column flex-lg-row align-items-center">
         <div class="w-50">
-          <img src="${veicolo.immagine}" class="img-fluid immagine">
+          <img src="${veicolo.immagine}" class="img-fluid immagine " id="carC">
         </div>
-        <div class=" ms-lg-4">
+        <div class="ms-lg-4">
           <h5 class="card-title"><strong>Tipologia:</strong> ${veicolo.tipologia}</h5>
           <p class="card-text"><strong>Alimentazione:</strong> ${veicolo.alimentazione}</p>
           <p class="card-text">${veicolo.descrizione}</p>
@@ -37,10 +37,10 @@ fetch(URL)
   }
   
   function creaCardIndisp(veicolo) {
-    return `<div class="card border-danger border-3 mt-3">
+    return `<div class="card border-danger border-3 mt-3" id="idA">
       <div class="card-body d-flex flex-column flex-lg-row align-items-center">
         <div class="w-50">
-          <img src="${veicolo.immagine}" class="img-fluid immagine">
+          <img src="${veicolo.immagine}" class="img-fluid immagine" id="carC">
         </div>
         <div class=" ms-lg-4">
           <h5 class="card-title"><strong>Tipologia:</strong> ${veicolo.tipologia}</h5>
