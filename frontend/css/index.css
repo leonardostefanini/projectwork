@@ -19,7 +19,7 @@
     height: 6rem ;
     width: auto;
   }
-   
+
 }
 
 
@@ -173,6 +173,10 @@ nav.dark {
 .fa-moon.dark {
   color: black;
 }
+
+
+
+
 .checkbox-label.dark {
   background-color: white;
 }
