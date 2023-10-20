@@ -86,3 +86,12 @@ button{
 #logo {
     height: 3rem;
   }
+  header nav a {
+    color: green!important;
+  }
+  header nav a:hover {
+    color: rgb(53, 211, 53)!important;
+  }
+  header {
+    font-family: 'Montserrat', sans-serif;
+  }
