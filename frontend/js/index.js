@@ -40,7 +40,7 @@ function auto() {
             swiper.appendSlide(`<div class="swiper-slide">
           <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-4">
             <div class="d-lg-flex justify-content-center" style="width: 30rem"><img src="${immagine}" alt="Title" class="img-fluid h-auto w-75"></div>
-            <div class="card-body" style="color: black">
+            <div id="slideTxt" class="card-body" style="color: black">
             <h3 class="card-title"><strong>Tipologia:</strong> ${tipologia}</h3>
             <p class="card-text my-2"><strong>Alimentazione:</strong> ${alimentazione}</p>
             <p class="card-text"><strong>Caratteristiche:</strong> ${descrizione}</p>
@@ -155,6 +155,9 @@ let desc = document.querySelectorAll("#desc");
 let footer = document.querySelector("footer");
 let profTitolo = document.querySelector("#profTitolo");
 let profNome = document.querySelector("#profNome");
+let swiper1 = document.querySelector("#swiper1");
+let C6 = document.querySelector("#desc");
+
 
 
 checkbox.addEventListener("change", function() {
@@ -164,7 +167,9 @@ checkbox.addEventListener("change", function() {
     luna.classList.add("dark");
     sfondo.classList.add("dark");
     palla.classList.add("dark");
-    // swiper.classList.add("dark");
+   swiper1.classList.add("dark")
+   C6.classList.add("dark")
+
     linkNav.forEach(link => {
       link.classList.add("dark");
     })
@@ -183,6 +188,9 @@ checkbox.addEventListener("change", function() {
     luna.classList.remove("dark");
     sfondo.classList.remove("dark");
     palla.classList.remove("dark");
+    swiper1.classList.remove("dark")
+    C6.classList.remove("dark")
+
     linkNav.forEach(link => {
       link.classList.remove("dark");
     })
@@ -228,4 +236,19 @@ checkbox.addEventListener("change", function() {
     })
   }
   
+})
+
+checkbox.addEventListener("change", function() {
+  if(!body.hasAttribute("data-bs-theme")) {
+    let slideTxt = document.querySelectorAll("#slideTxt");
+    slideTxt.forEach(s => {
+      s.setAttribute("style", "color: black!important;");
+    })
+  }
+  else {
+    let slideTxt = document.querySelectorAll("#slideTxt");
+    slideTxt.forEach(s => {
+      s.setAttribute("style", "color: white!important;");
+    })
+  }
 })
