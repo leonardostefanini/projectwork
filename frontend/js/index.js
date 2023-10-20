@@ -40,7 +40,7 @@ function auto() {
           if(td.id != 5 && td.id != 12){
             swiper.appendSlide(`<div class="swiper-slide">
           <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-4">
-            <div class="d-lg-flex justify-content-center" style="width: 30rem"><img src="${immagine}" alt="Title" class="img-fluid"></div>
+            <div class="d-lg-flex justify-content-center" style="width: 30rem"><img src="${immagine}" alt="Title" class="img-fluid h-auto w-75"></div>
             <div class="card-body">
                 <h3 class="card-title"><strong>Tipologia:</strong> ${tipologia}</h3>
                 <p class="card-text my-2"><strong>Alimentazione:</strong> ${alimentazione}</p>
