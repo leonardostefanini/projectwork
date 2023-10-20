@@ -152,10 +152,10 @@ let luna = document.querySelector(".fa-moon");
 let sfondo = document.querySelector(".checkbox-label");
 let palla = document.querySelector(".checkbox-label .ball");
 let linkNav = document.querySelectorAll(".nav-link");
-let profTitolo = document.querySelector("#profTitolo");
-let profNome = document.querySelector("#profNome");
 let desc = document.querySelectorAll("#desc");
 let footer = document.querySelector("footer");
+let profTitolo = document.querySelector("#profTitolo");
+let profNome = document.querySelector("#profNome");
 
 checkbox.addEventListener("change", function() {
   if(!body.hasAttribute("data-bs-theme")) {
@@ -167,12 +167,12 @@ checkbox.addEventListener("change", function() {
     linkNav.forEach(link => {
       link.classList.add("dark");
     })
-    profTitolo.classList.add("dark");
-    profNome.classList.add("dark");
     desc.forEach(d => {
       d.classList.add("dark");
     })
     footer.classList.add("dark");
+    profTitolo.classList.add("dark");
+    profNome.classList.add("dark");
   }
   else {
     body.removeAttribute("data-bs-theme");
@@ -183,11 +183,11 @@ checkbox.addEventListener("change", function() {
     linkNav.forEach(link => {
       link.classList.remove("dark");
     })
-    profTitolo.classList.remove("dark");
-    profNome.classList.remove("dark");
     desc.forEach(d => {
       d.classList.remove("dark");
     })
     footer.classList.remove("dark");
+    profTitolo.classList.remove("dark");
+    profNome.classList.remove("dark");
   }
 })
