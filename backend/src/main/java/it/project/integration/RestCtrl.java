@@ -37,7 +37,7 @@ public class RestCtrl {
 	@Autowired
 	OrdineService ordineService;
 	
-	@GetMapping("utente")
+	@GetMapping("/utente")
 	List<Utente> getUtente() {
 		return utenteService.getAll();
 	}
